@@ -1,0 +1,1012 @@
+.farmer-login-page {
+  --bg: #f8fcf9;
+  --card: rgba(255, 255, 255, 0.95);
+  --text: #173b29;
+  --muted: #718077;
+  --border: #dce7de;
+  --green: #138344;
+  --green-light: #eaf7ec;
+  --green-soft: #43b957;
+  --danger: #e54848;
+
+  min-height: 100vh;
+  width: 100%;
+
+  position: relative;
+  overflow: hidden;
+
+  background: var(--bg);
+  color: var(--text);
+
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* BACKGROUND */
+
+.login-glow {
+  position: absolute;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  filter: blur(2px);
+}
+
+.login-glow-one {
+  width: 310px;
+  height: 310px;
+
+  top: -170px;
+  left: -150px;
+
+  background:
+    rgba(76, 185, 93, 0.13);
+}
+
+.login-glow-two {
+  width: 300px;
+  height: 300px;
+
+  right: -160px;
+  bottom: -150px;
+
+  background:
+    rgba(76, 185, 93, 0.09);
+}
+
+
+/* DECORATIVE LEAVES */
+
+.login-leaf {
+  position: absolute;
+
+  color: #75bd78;
+
+  opacity: 0.12;
+
+  pointer-events: none;
+}
+
+.login-leaf-one {
+  width: 90px;
+  height: 90px;
+
+  left: -30px;
+  top: 34%;
+
+  transform: rotate(-35deg);
+}
+
+.login-leaf-two {
+  width: 80px;
+  height: 80px;
+
+  right: -25px;
+  bottom: 25%;
+
+  transform: rotate(35deg);
+}
+
+
+/* HEADER */
+
+.login-header {
+  width: 100%;
+
+  padding:
+    19px
+    clamp(18px, 5vw, 55px);
+
+  position: relative;
+  z-index: 5;
+}
+
+.login-brand {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+.login-brand-icon {
+  width: 43px;
+  height: 43px;
+
+  border-radius: 14px;
+
+  background: var(--green-light);
+  color: var(--green);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-brand h1 {
+  font-size: 19px;
+
+  font-weight: 900;
+
+  letter-spacing: -0.8px;
+}
+
+.login-brand h1 span {
+  color: var(--green-soft);
+}
+
+.login-brand p {
+  margin-top: 1px;
+
+  color: var(--muted);
+
+  font-size: 9px;
+
+  font-weight: 650;
+}
+
+
+/* CONTENT */
+
+.farmer-login-content {
+  width: min(100% - 32px, 480px);
+
+  margin: 12px auto 35px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  text-align: center;
+
+  position: relative;
+  z-index: 2;
+}
+
+
+/* LOGO */
+
+.login-logo-wrapper {
+  margin-bottom: 15px;
+}
+
+.login-logo-ring {
+  width: 95px;
+  height: 95px;
+
+  border:
+    1px solid
+    rgba(55, 174, 81, 0.32);
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+}
+
+.login-logo-ring::before {
+  content: "";
+
+  position: absolute;
+
+  width: 112px;
+  height: 112px;
+
+  border:
+    1px solid
+    rgba(55, 174, 81, 0.13);
+
+  border-radius: 50%;
+
+  animation:
+    loginRing 3s
+    ease-in-out
+    infinite;
+}
+
+.login-logo {
+  width: 64px;
+  height: 64px;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #08753b,
+      #36a957
+    );
+
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+
+  box-shadow:
+    0 14px 30px
+    rgba(14, 118, 56, 0.2);
+}
+
+.login-logo > span {
+  font-size: 48px;
+
+  font-weight: 900;
+
+  line-height: 1;
+}
+
+.login-logo-leaf {
+  position: absolute;
+
+  right: 5px;
+  bottom: 8px;
+
+  color: #a2df6d;
+}
+
+
+/* HEADING */
+
+.login-heading {
+  animation:
+    loginAppear 0.45s ease;
+}
+
+.login-title-row {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  color: var(--green);
+}
+
+.login-title-row h2 {
+  color: var(--text);
+
+  font-size:
+    clamp(23px, 5vw, 30px);
+
+  font-weight: 850;
+
+  letter-spacing: -1px;
+}
+
+.login-title-leaf-right {
+  transform: scaleX(-1);
+}
+
+.login-heading > p {
+  margin-top: 8px;
+
+  color: var(--muted);
+
+  font-size: 12px;
+}
+
+
+/* CARD */
+
+.login-card {
+  width: 100%;
+
+  margin-top: 25px;
+
+  padding: 19px;
+
+  border:
+    1px solid
+    var(--border);
+
+  border-radius: 25px;
+
+  background: var(--card);
+
+  box-shadow:
+    0 20px 55px
+    rgba(20, 100, 45, 0.09);
+
+  backdrop-filter: blur(12px);
+
+  text-align: left;
+
+  animation:
+    loginCardAppear
+    0.5s ease;
+}
+
+
+/* FORM */
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+
+  gap: 17px;
+}
+
+.login-field {
+  display: flex;
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+.login-field label {
+  color: var(--text);
+
+  font-size: 12px;
+
+  font-weight: 750;
+}
+
+.login-field label span {
+  color: var(--danger);
+
+  margin-left: 2px;
+}
+
+
+/* INPUT */
+
+.login-input {
+  min-height: 53px;
+
+  border:
+    1px solid
+    var(--border);
+
+  border-radius: 14px;
+
+  background: white;
+
+  color: #789084;
+
+  padding:
+    0 14px;
+
+  display: flex;
+  align-items: center;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.login-input:focus-within {
+  border-color: var(--green);
+
+  box-shadow:
+    0 0 0 3px
+    rgba(67, 185, 87, 0.1);
+}
+
+.login-input input {
+  width: 100%;
+
+  margin-left: 9px;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  color: var(--text);
+
+  font-size: 13px;
+}
+
+.login-input input::placeholder {
+  color: #a2aaa5;
+}
+
+.login-country-code {
+  padding-right: 10px;
+
+  margin-right: 9px;
+
+  border-right:
+    1px solid
+    var(--border);
+
+  color: var(--text);
+
+  font-size: 12px;
+
+  font-weight: 750;
+}
+
+
+/* FORGOT ID */
+
+.forgot-farmer-id {
+  align-self: flex-end;
+
+  margin-top: -7px;
+
+  border: none;
+
+  background: transparent;
+
+  color: var(--green);
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+}
+
+.forgot-farmer-id:hover {
+  text-decoration: underline;
+}
+
+
+/* OTP INFO */
+
+.otp-info {
+  padding: 11px 12px;
+
+  border-radius: 12px;
+
+  background:
+    rgba(67, 185, 87, 0.07);
+
+  color: var(--muted);
+
+  display: flex;
+  align-items: flex-start;
+
+  gap: 8px;
+
+  font-size: 10px;
+
+  line-height: 1.45;
+}
+
+.otp-info svg {
+  flex-shrink: 0;
+
+  color: var(--green);
+}
+
+
+/* LOGIN BUTTON */
+
+.farmer-login-button {
+  width: 100%;
+
+  min-height: 54px;
+
+  border: none;
+
+  border-radius: 15px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #08753b,
+      #29a650
+    );
+
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  font-size: 14px;
+
+  font-weight: 800;
+
+  box-shadow:
+    0 12px 27px
+    rgba(20, 126, 59, 0.2);
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.farmer-login-button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 17px 33px
+    rgba(20, 126, 59, 0.27);
+}
+
+.farmer-login-button:active {
+  transform: scale(0.98);
+}
+
+
+/* REGISTER */
+
+.register-line {
+  margin-top: 19px;
+
+  padding-top: 18px;
+
+  border-top:
+    1px solid
+    var(--border);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 5px;
+
+  font-size: 11px;
+}
+
+.register-line span {
+  color: var(--muted);
+}
+
+.register-line button {
+  border: none;
+
+  background: transparent;
+
+  color: var(--green);
+
+  font-weight: 800;
+
+  cursor: pointer;
+}
+
+
+/* SECURITY */
+
+.login-security {
+  margin-top: 18px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 6px;
+
+  color: var(--muted);
+
+  font-size: 10px;
+}
+
+.login-security svg {
+  color: var(--green);
+}
+
+
+/* TAGLINE */
+
+.login-tagline {
+  margin-top: 20px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 6px;
+
+  color: #91a099;
+
+  font-size: 10px;
+}
+
+.login-tagline svg {
+  color: var(--green);
+}
+
+
+/* ANIMATIONS */
+
+@keyframes loginAppear {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes loginCardAppear {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes loginRing {
+  0%,
+  100% {
+    transform: scale(0.96);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: scale(1.06);
+    opacity: 1;
+  }
+}
+
+
+/* LAPTOP */
+
+@media (min-width: 700px) {
+  .farmer-login-content {
+    margin-top: 25px;
+  }
+
+  .login-card {
+    padding: 23px;
+  }
+}
+
+
+/* MOBILE */
+
+@media (max-width: 480px) {
+
+  .farmer-login-page {
+    padding-bottom: 25px;
+  }
+
+  .login-header {
+    padding:
+      16px
+      17px;
+  }
+
+  .farmer-login-content {
+    width:
+      calc(100% - 28px);
+
+    margin-top: 8px;
+  }
+
+  .login-logo-ring {
+    width: 85px;
+    height: 85px;
+  }
+
+  .login-logo-ring::before {
+    width: 100px;
+    height: 100px;
+  }
+
+  .login-logo {
+    width: 58px;
+    height: 58px;
+
+    border-radius: 18px;
+  }
+
+  .login-logo > span {
+    font-size: 43px;
+  }
+
+  .login-card {
+    margin-top: 21px;
+
+    padding: 14px;
+
+    border-radius: 21px;
+  }
+
+  .login-title-row h2 {
+    font-size: 21px;
+  }
+
+  .login-heading > p {
+    font-size: 11px;
+  }
+}
+
+
+/* SMALL PHONE */
+
+@media (max-width: 360px) {
+
+  .login-brand p {
+    display: none;
+  }
+
+  .login-card {
+    padding: 12px;
+  }
+
+  .register-line {
+    font-size: 10px;
+  }
+}
+/* =========================================
+   BOOKAGRI - BRIGHT PREMIUM DARK MODE
+========================================= */
+
+.farmer-login-page.dark-mode {
+  --bg: #020b07;
+  --card: #07150e;
+  --text: #f5fff8;
+  --muted: #b7cfc0;
+  --border: #24563a;
+  --green: #35e878;
+  --green-light: #082d1a;
+  --green-soft: #6df58d;
+
+  background:
+    radial-gradient(
+      circle at 15% 10%,
+      rgba(20, 180, 80, 0.14),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 85% 85%,
+      rgba(20, 180, 80, 0.08),
+      transparent 30%
+    ),
+    #020b07;
+
+  color: #f5fff8;
+}
+
+
+/* Header */
+
+.farmer-login-page.dark-mode .login-brand {
+  color: #f5fff8;
+}
+
+.farmer-login-page.dark-mode .login-brand-icon {
+  background: #082d1a;
+  color: #35e878;
+
+  border: 1px solid #168c4d;
+
+  box-shadow:
+    0 0 18px rgba(53, 232, 120, 0.10);
+}
+
+.farmer-login-page.dark-mode .login-brand h1 {
+  color: #f5fff8;
+}
+
+.farmer-login-page.dark-mode .login-brand h1 span {
+  color: #35e878;
+}
+
+.farmer-login-page.dark-mode .login-brand p {
+  color: #9fbaaa;
+}
+
+
+/* Background glow */
+
+.farmer-login-page.dark-mode .login-glow-one {
+  background: rgba(53, 232, 120, 0.16);
+}
+
+.farmer-login-page.dark-mode .login-glow-two {
+  background: rgba(53, 232, 120, 0.10);
+}
+
+.farmer-login-page.dark-mode .login-leaf {
+  color: #35e878;
+  opacity: 0.20;
+}
+
+
+/* Logo */
+
+.farmer-login-page.dark-mode .login-logo-ring {
+  border-color: rgba(53, 232, 120, 0.42);
+
+  box-shadow:
+    0 0 25px rgba(53, 232, 120, 0.08);
+}
+
+.farmer-login-page.dark-mode .login-logo-ring::before {
+  border-color: rgba(53, 232, 120, 0.20);
+}
+
+.farmer-login-page.dark-mode .login-logo {
+  background:
+    linear-gradient(
+      145deg,
+      #087b3e,
+      #35c85d
+    );
+
+  box-shadow:
+    0 0 30px rgba(53, 232, 120, 0.18),
+    0 14px 30px rgba(0, 0, 0, 0.45);
+}
+
+.farmer-login-page.dark-mode .login-logo-leaf {
+  color: #9affaa;
+}
+
+
+/* Heading */
+
+.farmer-login-page.dark-mode .login-title-row {
+  color: #35e878;
+}
+
+.farmer-login-page.dark-mode .login-title-row h2 {
+  color: #f5fff8;
+}
+
+.farmer-login-page.dark-mode .login-heading > p {
+  color: #b7cfc0;
+}
+
+
+/* Login Card */
+
+.farmer-login-page.dark-mode .login-card {
+  background:
+    linear-gradient(
+      145deg,
+      #091b11,
+      #06130c
+    );
+
+  border-color: #24563a;
+
+  box-shadow:
+    0 20px 55px rgba(0, 0, 0, 0.45),
+    inset 0 0 30px rgba(53, 232, 120, 0.025);
+}
+
+
+/* Labels */
+
+.farmer-login-page.dark-mode .login-field label {
+  color: #f0fff5;
+}
+
+
+/* Input */
+
+.farmer-login-page.dark-mode .login-input {
+  background: #07150e;
+
+  border-color: #28553b;
+
+  color: #b7cfc0;
+}
+
+.farmer-login-page.dark-mode .login-input:focus-within {
+  border-color: #35e878;
+
+  box-shadow:
+    0 0 0 3px rgba(53, 232, 120, 0.10),
+    0 0 18px rgba(53, 232, 120, 0.06);
+}
+
+.farmer-login-page.dark-mode .login-input input {
+  color: #f5fff8;
+}
+
+.farmer-login-page.dark-mode .login-input input::placeholder {
+  color: #718c7c;
+}
+
+.farmer-login-page.dark-mode .login-country-code {
+  color: #f5fff8;
+  border-color: #28553b;
+}
+
+
+/* Forgot */
+
+.farmer-login-page.dark-mode .forgot-farmer-id {
+  color: #35e878;
+}
+
+
+/* OTP */
+
+.farmer-login-page.dark-mode .otp-info {
+  background: #082117;
+
+  border: 1px solid #1b5634;
+
+  color: #b7cfc0;
+}
+
+.farmer-login-page.dark-mode .otp-info svg {
+  color: #35e878;
+}
+
+
+/* Login button */
+
+.farmer-login-page.dark-mode .farmer-login-button {
+  background:
+    linear-gradient(
+      135deg,
+      #087b3e,
+      #25bd55
+    );
+
+  color: #ffffff;
+
+  box-shadow:
+    0 0 25px rgba(53, 232, 120, 0.12),
+    0 14px 30px rgba(0, 0, 0, 0.40);
+}
+
+.farmer-login-page.dark-mode .farmer-login-button:hover {
+  background:
+    linear-gradient(
+      135deg,
+      #0a8d47,
+      #35d965
+    );
+
+  box-shadow:
+    0 0 32px rgba(53, 232, 120, 0.18),
+    0 18px 38px rgba(0, 0, 0, 0.45);
+}
+
+
+/* Registration */
+
+.farmer-login-page.dark-mode .register-line {
+  border-color: #24563a;
+}
+
+.farmer-login-page.dark-mode .register-line span {
+  color: #9fbaaa;
+}
+
+.farmer-login-page.dark-mode .register-line button {
+  color: #35e878;
+}
+
+
+/* Security */
+
+.farmer-login-page.dark-mode .login-security {
+  color: #9fbaaa;
+}
+
+.farmer-login-page.dark-mode .login-security svg {
+  color: #35e878;
+}
+
+
+/* Tagline */
+
+.farmer-login-page.dark-mode .login-tagline {
+  color: #8da999;
+}
+
+.farmer-login-page.dark-mode .login-tagline svg {
+  color: #35e878;
+}

@@ -1,0 +1,505 @@
+.forgot-id-page {
+  min-height: 100vh;
+  width: 100%;
+
+  background: #f8fcf9;
+  color: #173b29;
+
+  padding: 18px 17px 35px;
+}
+
+.forgot-id-header {
+  width: min(100%, 900px);
+  margin: auto;
+}
+
+.forgot-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.forgot-brand-icon {
+  width: 43px;
+  height: 43px;
+
+  border-radius: 14px;
+
+  background: #eaf7ec;
+  color: #138344;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.forgot-brand h1 {
+  font-size: 19px;
+  font-weight: 900;
+}
+
+.forgot-brand h1 span {
+  color: #43b957;
+}
+
+.forgot-brand p {
+  margin-top: 2px;
+  color: #718077;
+  font-size: 9px;
+}
+
+.forgot-id-content {
+  width: min(100%, 450px);
+
+  margin: 50px auto 0;
+
+  text-align: center;
+}
+
+.forgot-back {
+  border: none;
+  background: transparent;
+
+  color: #138344;
+
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  font-size: 12px;
+  font-weight: 750;
+
+  cursor: pointer;
+
+  margin-bottom: 35px;
+}
+
+.forgot-icon {
+  width: 70px;
+  height: 70px;
+
+  margin: auto;
+
+  border-radius: 22px;
+
+  background: #eaf7ec;
+  color: #138344;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow:
+    0 12px 30px
+    rgba(20, 126, 59, 0.1);
+}
+
+.forgot-heading h2 {
+  margin-top: 20px;
+
+  font-size: 27px;
+  font-weight: 900;
+
+  letter-spacing: -1px;
+}
+
+.forgot-heading p {
+  margin-top: 9px;
+
+  color: #718077;
+
+  font-size: 12px;
+
+  line-height: 1.55;
+}
+
+.forgot-card {
+  margin-top: 25px;
+
+  padding: 20px;
+
+  border: 1px solid #dce7de;
+  border-radius: 21px;
+
+  background: white;
+
+  box-shadow:
+    0 18px 45px
+    rgba(20, 100, 45, 0.08);
+
+  text-align: left;
+}
+
+.forgot-card label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.forgot-card label span {
+  color: #e54848;
+}
+
+.forgot-input {
+  height: 53px;
+
+  border: 1px solid #dce7de;
+  border-radius: 14px;
+
+  padding: 0 14px;
+
+  display: flex;
+  align-items: center;
+
+  color: #789084;
+}
+
+.forgot-input:focus-within {
+  border-color: #138344;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(67, 185, 87, 0.1);
+}
+
+.forgot-input input {
+  width: 100%;
+
+  margin-left: 9px;
+
+  border: none;
+  outline: none;
+
+  color: #173b29;
+
+  font-size: 13px;
+}
+
+.forgot-input input::placeholder {
+  color: #a2aaa5;
+}
+
+.forgot-country {
+  padding-right: 10px;
+  margin-right: 9px;
+
+  border-right: 1px solid #dce7de;
+
+  font-size: 12px;
+  font-weight: 750;
+
+  color: #173b29;
+}
+
+.forgot-info {
+  margin-top: 14px;
+
+  padding: 11px;
+
+  border-radius: 12px;
+
+  background: #f0f8f1;
+
+  color: #718077;
+
+  display: flex;
+  gap: 8px;
+
+  font-size: 10px;
+  line-height: 1.45;
+}
+
+.forgot-info svg {
+  flex-shrink: 0;
+  color: #138344;
+}
+
+.recover-button {
+  width: 100%;
+
+  min-height: 53px;
+
+  margin-top: 18px;
+
+  border: none;
+  border-radius: 15px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #08753b,
+      #29a650
+    );
+
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  font-size: 13px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 12px 25px
+    rgba(20, 126, 59, 0.2);
+}
+
+.recovery-success {
+  animation: recoveryAppear 0.4s ease;
+}
+
+.success-circle {
+  width: 90px;
+  height: 90px;
+
+  margin: auto;
+
+  border-radius: 50%;
+
+  background: #eaf7ec;
+  color: #138344;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.recovery-success h2 {
+  margin-top: 22px;
+
+  font-size: 25px;
+  font-weight: 900;
+}
+
+.recovery-success > p {
+  margin-top: 8px;
+
+  color: #718077;
+
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.recovery-success > p strong {
+  color: #173b29;
+}
+
+.demo-id-box {
+  margin-top: 22px;
+
+  padding: 19px;
+
+  border: 1px solid #dce7de;
+  border-radius: 17px;
+
+  background: white;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 6px;
+}
+
+.demo-id-box span {
+  color: #718077;
+  font-size: 10px;
+}
+
+.demo-id-box strong {
+  color: #138344;
+  font-size: 21px;
+  letter-spacing: 1px;
+}
+
+.demo-id-box small {
+  margin-top: 4px;
+
+  color: #8b9890;
+
+  font-size: 9px;
+  line-height: 1.4;
+}
+
+.recovery-success .recover-button {
+  margin-top: 18px;
+}
+
+.forgot-security {
+  margin-top: 22px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 6px;
+
+  color: #718077;
+
+  font-size: 10px;
+}
+
+.forgot-security svg {
+  color: #138344;
+}
+
+@keyframes recoveryAppear {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 700px) {
+  .forgot-id-content {
+    margin-top: 70px;
+  }
+}
+
+@media (max-width: 360px) {
+  .forgot-id-content {
+    margin-top: 35px;
+  }
+
+  .forgot-heading h2 {
+    font-size: 23px;
+  }
+
+  .forgot-card {
+    padding: 15px;
+  }
+}
+
+/* =========================================
+   BOOKAGRI - BRIGHT PREMIUM DARK MODE
+   Forgot Farmer ID
+========================================= */
+
+.forgot-id-page.dark-mode {
+  background:
+    radial-gradient(circle at 15% 8%, rgba(20,180,80,.14), transparent 30%),
+    radial-gradient(circle at 85% 88%, rgba(20,180,80,.08), transparent 30%),
+    #020b07;
+  color: #f5fff8;
+}
+
+.forgot-id-page.dark-mode .forgot-brand,
+.forgot-id-page.dark-mode .forgot-heading h2,
+.forgot-id-page.dark-mode .recovery-success h2 {
+  color: #f5fff8;
+}
+
+.forgot-id-page.dark-mode .forgot-brand-icon,
+.forgot-id-page.dark-mode .forgot-icon,
+.forgot-id-page.dark-mode .success-circle {
+  background: #082d1a;
+  color: #35e878;
+  border: 1px solid #168c4d;
+  box-shadow: 0 0 18px rgba(53,232,120,.08);
+}
+
+.forgot-id-page.dark-mode .forgot-brand h1 span,
+.forgot-id-page.dark-mode .forgot-back,
+.forgot-id-page.dark-mode .forgot-info svg,
+.forgot-id-page.dark-mode .forgot-security svg,
+.forgot-id-page.dark-mode .demo-id-box strong {
+  color: #35e878;
+}
+
+.forgot-id-page.dark-mode .forgot-brand p,
+.forgot-id-page.dark-mode .forgot-heading p,
+.forgot-id-page.dark-mode .recovery-success > p,
+.forgot-id-page.dark-mode .forgot-security,
+.forgot-id-page.dark-mode .demo-id-box span,
+.forgot-id-page.dark-mode .demo-id-box small {
+  color: #9fbaaa;
+}
+
+.forgot-id-page.dark-mode .forgot-card,
+.forgot-id-page.dark-mode .demo-id-box {
+  background: #07140e;
+  border-color: #24563a;
+  box-shadow: 0 20px 50px rgba(0,0,0,.35);
+}
+
+.forgot-id-page.dark-mode .forgot-card label {
+  color: #f5fff8;
+}
+
+.forgot-id-page.dark-mode .forgot-input {
+  background: #07140e;
+  border-color: #24563a;
+  color: #9fbaaa;
+}
+
+.forgot-id-page.dark-mode .forgot-input:focus-within {
+  border-color: #35e878;
+  box-shadow: 0 0 0 3px rgba(53,232,120,.10), 0 0 18px rgba(53,232,120,.05);
+}
+
+.forgot-id-page.dark-mode .forgot-input input {
+  color: #f5fff8;
+}
+
+.forgot-id-page.dark-mode .forgot-input input::placeholder {
+  color: #718c7c;
+}
+
+.forgot-id-page.dark-mode .forgot-country {
+  border-color: #24563a;
+  color: #f5fff8;
+}
+
+.forgot-id-page.dark-mode .forgot-info {
+  background: #082117;
+  color: #b8cfc2;
+}
+
+.forgot-id-page.dark-mode .recover-button {
+  background: linear-gradient(135deg, #087b3e, #25bd55);
+  box-shadow: 0 0 25px rgba(53,232,120,.12), 0 14px 30px rgba(0,0,0,.40);
+}
+
+.forgot-id-page.dark-mode .recover-button:hover {
+  background: linear-gradient(135deg, #0a8d47, #35d965);
+}
+
+/* FIX: dark-mode mobile input white background */
+.forgot-id-page.dark-mode .forgot-input input {
+  width: 100%;
+  background: transparent !important;
+  background-color: transparent !important;
+  color: #f5fff8 !important;
+  -webkit-text-fill-color: #f5fff8 !important;
+  -webkit-appearance: none;
+  appearance: none;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  caret-color: #35e878 !important;
+}
+
+.forgot-id-page.dark-mode .forgot-input input::placeholder {
+  color: #8fa99a !important;
+  opacity: 1 !important;
+  -webkit-text-fill-color: #8fa99a !important;
+}
+
+.forgot-id-page.dark-mode .forgot-input input:focus {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  outline: none !important;
+}

@@ -1,0 +1,155 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  background: #f9fcf8;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* =========================
+   THEME BUTTON
+========================= */
+
+.theme-button {
+  width: 108px;
+  height: 42px;
+
+  padding: 4px 7px;
+
+  border: 1px solid #dfe9e1;
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.85);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+
+  color: #4c6558;
+
+  box-shadow:
+    0 8px 24px rgba(25, 90, 45, 0.08);
+
+  cursor: pointer;
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.theme-icon {
+  width: 29px;
+  height: 29px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  transition:
+    color 0.3s ease,
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.theme-icon.active {
+  color: #138344;
+  background: #edf8ef;
+  transform: scale(1.05);
+}
+
+.theme-toggle {
+  width: 34px;
+  height: 20px;
+
+  padding: 2px;
+
+  border-radius: 999px;
+
+  background: #dce8df;
+
+  display: flex;
+  align-items: center;
+
+  transition: background 0.3s ease;
+}
+
+.theme-toggle.dark {
+  background: #376849;
+}
+
+.theme-knob {
+  width: 16px;
+  height: 16px;
+
+  border-radius: 50%;
+
+  background: white;
+
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+
+  transition: transform 0.3s ease;
+}
+
+.theme-toggle.dark .theme-knob {
+  transform: translateX(14px);
+}
+
+/* Dark theme button */
+
+.dark-mode .theme-button {
+  background: rgba(20, 35, 25, 0.9);
+  border-color: #2d4633;
+  color: #b8c9bc;
+}
+
+.dark-mode .theme-icon.active {
+  color: #8bdd8b;
+  background: rgba(87, 193, 102, 0.14);
+}
+
+/* Mobile */
+
+@media (max-width: 480px) {
+  .theme-button {
+    width: 96px;
+    height: 39px;
+  }
+
+  .theme-icon {
+    width: 27px;
+    height: 27px;
+  }
+}
