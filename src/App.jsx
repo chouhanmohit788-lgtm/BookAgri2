@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
 
+import { useEffect, useState } from "react";
 import FarmerLogin from "./pages/auth/FarmerLogin";
 import ForgotFarmerId from "./pages/auth/ForgotFarmerId";
 
@@ -16,6 +16,7 @@ import MyBooking from "./pages/farmer/MyBooking";
 import BookingHistory from "./pages/farmer/BookingHistory";
 import TokenQueue from "./pages/farmer/TokenQueue";
 import Profile from "./pages/farmer/Profile";
+import Weather from "./pages/farmer/Weather";
 
 
 function App() {
@@ -207,6 +208,10 @@ if (screen === "bookSlot") {
       <MyBooking
         booking={booking}
         onBack={() => setScreen("farmerDashboard")}
+        onBookingUpdated={(updatedBooking) => {
+          setBooking(updatedBooking);
+          setScreen("farmerDashboard");
+        }}
       />
     );
   }
@@ -239,6 +244,18 @@ if (screen === "bookSlot") {
   }
 
   // =========================
+  // WEATHER
+  // =========================
+
+  if (screen === "weather") {
+    return (
+      <Weather
+        onBack={() => setScreen("farmerDashboard")}
+      />
+    );
+  }
+
+  // =========================
   // FARMER DASHBOARD
   // =========================
 
@@ -251,6 +268,7 @@ if (screen === "bookSlot") {
       onHistory={() => setScreen("bookingHistory")}
       onPayment={() => setScreen("payment")}
       onProfile={() => setScreen("profile")}
+      onWeather={() => setScreen("weather")}
       booking={booking}
     />
   );

@@ -869,3 +869,13 @@
 .simple-profile-button:hover {
   opacity: 0.92;
 }
+/* Weather Quick Access */
+.weather-quick-icon {
+  font-size: 30px;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.dark-mode .weather-quick-icon {
+  filter: brightness(1.08);
+}

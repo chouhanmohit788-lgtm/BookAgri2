@@ -250,6 +250,90 @@ function Profile({ onBack, onLogout }) {
           </div>
         </section>
 
+        {/* Help & Support */}
+        <section className="profile-card profile-help-card">
+          <div className="profile-section-title">
+            <Phone size={19} />
+            <h3>{language === "hi" ? "सहायता और समर्थन" : "Help & Support"}</h3>
+          </div>
+
+          <div className="profile-help-list">
+            <button type="button" className="profile-help-item">
+              <div className="profile-help-icon">?</div>
+              <div>
+                <strong>
+                  {language === "hi"
+                    ? "अक्सर पूछे जाने वाले प्रश्न"
+                    : "Frequently Asked Questions"}
+                </strong>
+                <span>
+                  {language === "hi"
+                    ? "सामान्य सवालों के जवाब देखें"
+                    : "Find answers to common questions"}
+                </span>
+              </div>
+              <span className="profile-help-arrow">→</span>
+            </button>
+
+            <button
+              type="button"
+              className="profile-help-item"
+              onClick={() =>
+                window.alert(
+                  language === "hi"
+                    ? "किसान हेल्पलाइन: 1800-123-4567"
+                    : "Farmer Helpline: 1800-123-4567"
+                )
+              }
+            >
+              <div className="profile-help-icon">
+                <Phone size={17} />
+              </div>
+              <div>
+                <strong>
+                  {language === "hi" ? "किसान हेल्पलाइन" : "Farmer Helpline"}
+                </strong>
+                <span>1800-123-4567</span>
+              </div>
+              <span className="profile-help-arrow">→</span>
+            </button>
+
+            <button type="button" className="profile-help-item">
+              <div className="profile-help-icon">!</div>
+              <div>
+                <strong>
+                  {language === "hi" ? "शिकायत दर्ज करें" : "Raise a Complaint"}
+                </strong>
+                <span>
+                  {language === "hi"
+                    ? "अपनी समस्या या शिकायत भेजें"
+                    : "Send your issue or complaint"}
+                </span>
+              </div>
+              <span className="profile-help-arrow">→</span>
+            </button>
+
+            <button type="button" className="profile-help-item">
+              <div className="profile-help-icon">
+                <MapPin size={17} />
+              </div>
+              <div>
+                <strong>
+                  {language === "hi"
+                    ? "प्रोक्योरमेंट केंद्र संपर्क"
+                    : "Procurement Centre Contact"}
+                </strong>
+                <span>
+                  {language === "hi"
+                    ? "अपने केंद्र की संपर्क जानकारी देखें"
+                    : "View contact information for your centre"}
+                </span>
+              </div>
+              <span className="profile-help-arrow">→</span>
+            </button>
+          </div>
+        </section>
+
         <div className="profile-actions">
           <div className="profile-language-control">
             <Languages size={18} />

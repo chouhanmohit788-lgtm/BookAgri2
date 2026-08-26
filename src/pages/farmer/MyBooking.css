@@ -216,3 +216,338 @@
     padding: 17px;
   }
 }
+
+/* Booking action buttons */
+.my-booking-status-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.my-booking-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.my-booking-cancel,
+.my-booking-reschedule {
+  min-height: 36px;
+  padding: 0 13px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: .18s ease;
+}
+
+.my-booking-cancel {
+  border: 1px solid #efb8b8;
+  background: #fff4f4;
+  color: #c62828;
+}
+
+.my-booking-reschedule {
+  border: 1px solid #b9dfc7;
+  background: #eef7f1;
+  color: #176b3a;
+}
+
+.my-booking-cancel:hover,
+.my-booking-reschedule:hover {
+  transform: translateY(-1px);
+}
+
+.dark-mode .my-booking-cancel {
+  background: #2a1212;
+  border-color: #6f2b2b;
+  color: #ff9b9b;
+}
+
+.dark-mode .my-booking-reschedule {
+  background: #0d2117;
+  border-color: rgba(74,222,125,.20);
+  color: #8ff0ae;
+}
+
+@media (max-width: 600px) {
+  .my-booking-status-row {
+    align-items: flex-start;
+  }
+
+  .my-booking-actions {
+    width: 100%;
+  }
+
+  .my-booking-cancel,
+  .my-booking-reschedule {
+    flex: 1;
+  }
+}
+/* Cancel + Reschedule modal */
+.my-booking-status-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.my-booking-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.my-booking-cancel,
+.my-booking-reschedule {
+  min-height: 36px;
+  padding: 0 13px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.my-booking-cancel {
+  border: 1px solid #efb8b8;
+  background: #fff4f4;
+  color: #c62828;
+}
+
+.my-booking-reschedule {
+  border: 1px solid #b9dfc7;
+  background: #eef7f1;
+  color: #176b3a;
+}
+
+.booking-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(7, 25, 16, .48);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+}
+
+.booking-modal {
+  width: min(420px, 100%);
+  background: #fff;
+  border: 1px solid #dce9e1;
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 22px 60px rgba(0,0,0,.20);
+  text-align: center;
+}
+
+.booking-modal-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 11px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 22px;
+}
+
+.booking-modal-icon.warning {
+  background: #fff1df;
+  color: #d97706;
+}
+
+.booking-modal-icon.schedule {
+  background: #eaf6ee;
+  color: #176b3a;
+}
+
+.booking-modal h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #173c2a;
+}
+
+.booking-modal > p {
+  margin: 8px 0 17px;
+  color: #6e8077;
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.booking-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.booking-modal-actions button {
+  min-height: 40px;
+  padding: 0 15px;
+  border-radius: 11px;
+  font-weight: 800;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.booking-modal-secondary {
+  border: 1px solid #d5e2da;
+  background: #f7faf8;
+  color: #50695b;
+}
+
+.booking-modal-danger {
+  border: 1px solid #d86f6f;
+  background: #c62828;
+  color: #fff;
+}
+
+.booking-modal-primary {
+  border: 1px solid #168047;
+  background: linear-gradient(135deg, #0d7c3f, #29b956);
+  color: #fff;
+}
+
+.booking-modal-primary:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+.booking-reschedule-modal {
+  text-align: left;
+}
+
+.booking-reschedule-modal h3,
+.booking-reschedule-modal .booking-modal-icon {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.booking-modal-label {
+  display: block;
+  margin: 14px 0 7px;
+  color: #345544;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.booking-modal-select {
+  width: 100%;
+  min-height: 42px;
+  border: 1px solid #d7e5dc;
+  border-radius: 11px;
+  padding: 0 11px;
+  background: #fbfdfb;
+  color: #20392b;
+  outline: none;
+}
+
+.booking-time-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.booking-time-option {
+  min-height: 54px;
+  border: 1px solid #d8e6dc;
+  border-radius: 11px;
+  background: #f8fbf9;
+  color: #234232;
+  cursor: pointer;
+  text-align: left;
+  padding: 8px;
+}
+
+.booking-time-option span {
+  display: block;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.booking-time-option small {
+  display: block;
+  margin-top: 3px;
+  font-size: 9px;
+  color: #7b8e84;
+}
+
+.booking-time-option.active {
+  border-color: #168047;
+  background: #eaf6ee;
+  color: #0d6f37;
+  box-shadow: 0 0 0 2px rgba(22,128,71,.08);
+}
+
+.booking-modal-note {
+  margin: 10px 0 0;
+  padding: 9px 10px;
+  border-radius: 10px;
+  background: #f2f7f4;
+  color: #63776c;
+  font-size: 10px;
+  line-height: 1.45;
+}
+
+.dark-mode .booking-modal {
+  background: #10251b;
+  border-color: rgba(74,222,125,.18);
+}
+
+.dark-mode .booking-modal h3,
+.dark-mode .booking-modal-label {
+  color: #effff5;
+}
+
+.dark-mode .booking-modal > p,
+.dark-mode .booking-modal-note,
+.dark-mode .booking-time-option small {
+  color: #9fbaaa;
+}
+
+.dark-mode .booking-modal-secondary,
+.dark-mode .booking-modal-select,
+.dark-mode .booking-time-option,
+.dark-mode .booking-modal-note {
+  background: #0b1c14;
+  border-color: rgba(74,222,125,.16);
+  color: #effff5;
+}
+
+.dark-mode .booking-time-option.active {
+  background: #0d2117;
+  border-color: #32c85c;
+  color: #8ff0ae;
+}
+
+@media (max-width: 600px) {
+  .my-booking-status-row {
+    align-items: flex-start;
+  }
+
+  .my-booking-actions {
+    width: 100%;
+  }
+
+  .my-booking-cancel,
+  .my-booking-reschedule {
+    flex: 1;
+  }
+
+  .booking-time-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .booking-modal-actions {
+    width: 100%;
+  }
+
+  .booking-modal-actions button {
+    flex: 1;
+  }
+}

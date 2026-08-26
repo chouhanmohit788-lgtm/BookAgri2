@@ -19,7 +19,7 @@ import ThemeButton from "../../components/ThemeButton";
 
 import "./FarmerDashboard.css";
 
-function FarmerDashboard({ onProfile,  onPayment, onHistory, onBookSlot, booking, onMyBooking, onTokenQueue }) {
+function FarmerDashboard({ onProfile, onPayment, onHistory, onBookSlot, booking, onMyBooking, onTokenQueue, onWeather }) {
   const { isDark, toggleTheme } = useTheme();
   const { language, t } = useLanguage();
   const [showNotifications, setShowNotifications] = useState(false);
@@ -324,6 +324,17 @@ function FarmerDashboard({ onProfile,  onPayment, onHistory, onBookSlot, booking
             >
               <WalletCards size={28} />
               <strong>{t.payment}</strong>
+            </button>
+
+            <button
+              type="button"
+              className="quick-card blue"
+              onClick={onWeather}
+            >
+              <span className="weather-quick-icon">☁️</span>
+              <strong>
+                {language === "hi" ? "मौसम" : "Weather"}
+              </strong>
             </button>
 
           </div>
