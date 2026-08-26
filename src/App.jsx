@@ -10,6 +10,12 @@ import RoleSelection from "./pages/onboarding/RoleSelection";
 
 import FarmerRegistration from "./pages/farmer/FarmerRegistration";
 import FarmerDashboard from "./pages/farmer/FarmerDashboard";
+import BookSlot from "./pages/farmer/BookSlot";
+import Payment from "./pages/farmer/Payment";
+import MyBooking from "./pages/farmer/MyBooking";
+import BookingHistory from "./pages/farmer/BookingHistory";
+import TokenQueue from "./pages/farmer/TokenQueue";
+import Profile from "./pages/farmer/Profile";
 
 
 function App() {
@@ -17,6 +23,7 @@ function App() {
   const [screen, setScreen] = useState("splash");
 
   const [selectedRole, setSelectedRole] = useState(null);
+  const [booking, setBooking] = useState(null);
 
 
   // Splash → Language
@@ -149,19 +156,105 @@ function App() {
     );
 
   }
+// =========================
+// BOOK SLOT
+// =========================
 
+if (screen === "bookSlot") {
+  return (
+    <BookSlot
+      onBack={() => setScreen("farmerDashboard")}
+      onBookingConfirmed={(newBooking) => {
+        setBooking(newBooking);
+        setScreen("farmerDashboard");
+      }}
+    />
+  );
+}
+
+  // =========================
+  // BOOKING HISTORY
+  // =========================
+
+  if (screen === "bookingHistory") {
+    return (
+      <BookingHistory
+        booking={booking}
+        onBack={() => setScreen("farmerDashboard")}
+      />
+    );
+  }
+
+  // =========================
+  // TOKEN & QUEUE
+  // =========================
+
+  if (screen === "tokenQueue") {
+    return (
+      <TokenQueue
+        booking={booking}
+        onBack={() => setScreen("farmerDashboard")}
+      />
+    );
+  }
+
+  // =========================
+  // MY BOOKING
+  // =========================
+
+  if (screen === "myBooking") {
+    return (
+      <MyBooking
+        booking={booking}
+        onBack={() => setScreen("farmerDashboard")}
+      />
+    );
+  }
+
+  // =========================
+  // PAYMENT
+  // =========================
+
+  if (screen === "payment") {
+    return (
+      <Payment
+        booking={booking}
+        onBack={() => setScreen("farmerDashboard")}
+      />
+    );
+  }
+
+  // =========================
+  // PROFILE
+  // =========================
+
+  if (screen === "profile") {
+    return (
+      <Profile
+        onBack={() => setScreen("farmerDashboard")}
+        onChangeLanguage={() => setScreen("language")}
+        onLogout={() => setScreen("role")}
+      />
+    );
+  }
 
   // =========================
   // FARMER DASHBOARD
   // =========================
 
   if (screen === "farmerDashboard") {
-
-    return (
-      <FarmerDashboard />
-    );
-
-  }
+  return (
+    <FarmerDashboard
+      onBookSlot={() => setScreen("bookSlot")}
+      onMyBooking={() => setScreen("myBooking")}
+      onTokenQueue={() => setScreen("tokenQueue")}
+      onHistory={() => setScreen("bookingHistory")}
+      onPayment={() => setScreen("payment")}
+      onProfile={() => setScreen("profile")}
+      booking={booking}
+    />
+  );
+}
 
 
   return <Home />;

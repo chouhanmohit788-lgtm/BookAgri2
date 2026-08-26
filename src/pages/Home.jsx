@@ -5,17 +5,17 @@ function Home() {
       <div className="home-content">
 
         <div className="logo-circle">
-          <div className="logo-b">
-            B
-          </div>
-
-          <div className="logo-leaf">🌿</div>
-          <div className="logo-wheat">🌾</div>
-        </div>
+  <img
+    src="/farmbuddy-logo.png"
+    alt="FarmBuddy"
+    className="home-logo-image"
+  />
+</div>
 
         <h1 className="brand-name">
-          Book<span>Agri</span>
-        </h1>
+  <span style={{ color: "#07552f" }}>Farm</span>
+  <span style={{ color: "#45c35b" }}>Buddy</span>
+</h1>
 
         <div className="divider">
           <span></span>

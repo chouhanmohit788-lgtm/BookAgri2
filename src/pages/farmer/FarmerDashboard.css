@@ -597,9 +597,21 @@
   }
 
   .simple-brand {
-    font-size: 20px;
+    font-size: 18px;
   }
 
+  .simple-brand > span {
+  font-size: 18px !important;
+  font-weight: 800;
+  line-height: 1;
+}
+  .brand-primary {
+  color: #0b4d2b;
+}
+
+.brand-accent {
+  color: #43b95f;
+}
   .simple-brand svg {
     width: 23px;
   }
@@ -843,4 +855,17 @@
     min-height: 95px;
   }
 
+}
+/* Clickable top-right profile */
+.simple-profile-button {
+  border: none;
+  background: transparent;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.simple-profile-button:hover {
+  opacity: 0.92;
 }

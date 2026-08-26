@@ -158,42 +158,24 @@
   width: 70px;
   height: 70px;
 
-  border-radius: 22px;
-
-  background: linear-gradient(
-    145deg,
-    #08763c,
-    #31a852
-  );
-
-  box-shadow:
-    0 14px 30px rgba(18, 125, 61, 0.23);
-
   display: flex;
   align-items: center;
   justify-content: center;
 
   position: relative;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+  overflow: hidden;
 }
 
-.language-logo span {
-  color: white;
-
-  font-size: 52px;
-  font-weight: 900;
-
-  line-height: 1;
-  letter-spacing: -5px;
-}
-
-.logo-leaf {
-  position: absolute;
-  bottom: 11px;
-  right: 8px;
-
-  color: #8ad764;
-
-  transform: rotate(-12deg);
+.language-logo-image {
+  width: 70px;
+  height: 70px;
+  max-width: 70px;
+  max-height: 70px;
+  object-fit: contain;
+  display: block;
 }
 
 /* =========================
@@ -555,11 +537,13 @@
   .language-logo {
     width: 64px;
     height: 64px;
-    border-radius: 20px;
   }
 
-  .language-logo span {
-    font-size: 47px;
+  .language-logo-image {
+    width: 64px;
+    height: 64px;
+    max-width: 64px;
+    max-height: 64px;
   }
 
   .language-heading {
@@ -718,19 +702,8 @@
 }
 
 .language-page.dark-mode .language-logo {
-  background: linear-gradient(
-    145deg,
-    #08763c,
-    #32c85c
-  );
-
-  box-shadow:
-    0 0 30px rgba(53, 232, 120, 0.18),
-    0 14px 30px rgba(0, 0, 0, 0.35);
-}
-
-.language-page.dark-mode .logo-leaf {
-  color: #8dff9e;
+  background: transparent;
+  box-shadow: none;
 }
 
 

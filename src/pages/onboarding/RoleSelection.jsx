@@ -23,7 +23,7 @@ function RoleSelection({ onContinue }) {
   const content = {
     en: {
       title: "Select Your Role",
-      subtitle: "Choose how you want to use BookAgri",
+      subtitle: "Choose how you want to use FarmBuddy",
 
       farmer: "Farmer",
       farmerDesc: "Book slots, manage produce & track bookings",
@@ -40,7 +40,7 @@ function RoleSelection({ onContinue }) {
 
     hi: {
       title: "अपनी भूमिका चुनें",
-      subtitle: "चुनें कि आप BookAgri का उपयोग कैसे करना चाहते हैं",
+      subtitle: "चुनें कि आप FarmBuddy का उपयोग कैसे करना चाहते हैं",
 
       farmer: "किसान",
       farmerDesc: "स्लॉट बुक करें, उपज प्रबंधित करें और बुकिंग देखें",
@@ -96,8 +96,9 @@ function RoleSelection({ onContinue }) {
         <div className="role-mini-brand">
           <Leaf size={18} fill="currentColor" />
           <span>
-            Book<span>Agri</span>
-          </span>
+  <span style={{ color: "#07552f" }}>Farm</span>
+  <span style={{ color: "#45c35b" }}>Buddy</span>
+</span>
         </div>
 
         <ThemeButton
@@ -116,12 +117,10 @@ function RoleSelection({ onContinue }) {
           <div className="role-logo-ring">
 
             <div className="role-logo">
-              <span>B</span>
-
-              <Leaf
-                size={26}
-                className="role-logo-leaf"
-                fill="currentColor"
+              <img
+                src="/farmbuddy-logo.png"
+                alt="FarmBuddy"
+                className="role-logo-image"
               />
             </div>
 

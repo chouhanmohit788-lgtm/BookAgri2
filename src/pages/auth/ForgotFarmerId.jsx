@@ -35,9 +35,10 @@ function ForgotFarmerId({ onBack }) {
           </div>
 
           <div>
-            <h1>
-              Book<span>Agri</span>
-            </h1>
+            <h1 className="brand-name">
+  <span style={{ color: "#07552f" }}>Farm</span>
+  <span style={{ color: "#45c35b" }}>Buddy</span>
+</h1>
             <p>Farmer Portal</p>
           </div>
         </div>

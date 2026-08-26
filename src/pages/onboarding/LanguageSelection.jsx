@@ -19,7 +19,10 @@ function LanguageSelection({ onContinue }) {
       <header className="language-topbar">
         <div className="mini-brand">
           <Leaf size={17} strokeWidth={2.2} />
-          <span>BookAgri</span>
+          <span>
+  <span style={{ color: "#07552f" }}>Farm</span>
+  <span style={{ color: "#45c35b" }}>Buddy</span>
+</span>
         </div>
 
         <ThemeButton
@@ -35,11 +38,10 @@ function LanguageSelection({ onContinue }) {
         <div className="language-logo-wrap">
           <div className="language-logo-ring">
             <div className="language-logo">
-              <span>B</span>
-              <Leaf
-                className="logo-leaf"
-                size={25}
-                fill="currentColor"
+              <img
+                src="/farmbuddy-logo.png"
+                alt="FarmBuddy"
+                className="language-logo-image"
               />
             </div>
           </div>
@@ -47,9 +49,10 @@ function LanguageSelection({ onContinue }) {
 
         {/* Brand */}
         <div className="language-brand">
-          <h1>
-            Book<span>Agri</span>
-          </h1>
+          <h1 className="brand-name">
+  <span style={{ color: "#07552f" }}>Farm</span>
+  <span style={{ color: "#45c35b" }}>Buddy</span>
+</h1>
 
           <div className="brand-divider">
             <span />

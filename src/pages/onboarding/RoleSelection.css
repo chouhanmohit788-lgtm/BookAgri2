@@ -190,18 +190,6 @@
   width: 75px;
   height: 75px;
 
-  border-radius: 23px;
-
-  background:
-    linear-gradient(
-      145deg,
-      #08753b,
-      #36a957
-    );
-
-  box-shadow:
-    0 15px 32px rgba(14, 118, 56, 0.22);
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -913,16 +901,6 @@
     0 15px 32px rgba(0, 0, 0, 0.4);
 }
 
-.role-page.dark-mode .role-logo-leaf {
-  color: #8dff9e;
-}
-
-
-/* Heading */
-
-.role-page.dark-mode .role-heading-title {
-  color: #35e878;
-}
 
 .role-page.dark-mode .role-heading-title h1 {
   color: #f5fff8;
@@ -1097,4 +1075,27 @@
 .role-page.dark-mode .role-bottom-decoration {
   color: #35e878;
   opacity: 0.22;
+}
+.role-logo {
+  width: 75px !important;
+  height: 75px !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.role-logo-image {
+  width: 75px !important;
+  height: 75px !important;
+  max-width: 75px !important;
+  max-height: 75px !important;
+  object-fit: contain;
+  display: block;
 }
