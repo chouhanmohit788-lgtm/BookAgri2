@@ -1,7 +1,8 @@
-
 import { useEffect, useState } from "react";
 import FarmerLogin from "./pages/auth/FarmerLogin";
 import ForgotFarmerId from "./pages/auth/ForgotFarmerId";
+import OperatorLogin from "./pages/auth/operatorLogin";
+import OperatorDashboard from "./pages/Operator/operatorDashboard";
 
 import Home from "./pages/Home";
 
@@ -52,6 +53,8 @@ function App() {
 
     if (role === "farmer") {
       setScreen("farmerLogin");
+    } else if (role === "operator") {
+      setScreen("procurementCentreLogin");
     }
 
   };
@@ -95,6 +98,34 @@ function App() {
 
   }
 
+
+  // =========================
+  // PROCUREMENT CENTRE LOGIN
+  // =========================
+
+  if (screen === "procurementCentreLogin") {
+    return (
+      <OperatorLogin
+        onBack={() => setScreen("role")}
+        onLoginSuccess={() => {
+          setScreen("procurementCentreDashboard");
+        }}
+      />
+    );
+  }
+
+  // =========================
+  // PROCUREMENT CENTRE DASHBOARD
+  // =========================
+
+  if (screen === "procurementCentreDashboard") {
+    return (
+      <OperatorDashboard
+        onBack={() => setScreen("role")}
+        onLogout={() => setScreen("role")}
+      />
+    );
+  }
 
   // =========================
   // FARMER LOGIN

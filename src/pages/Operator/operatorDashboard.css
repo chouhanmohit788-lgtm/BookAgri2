@@ -1,0 +1,461 @@
+.proc-dashboard-page {
+  min-height: 100vh;
+  background: #f4f8f5;
+  color: #183126;
+  padding-bottom: 35px;
+}
+
+.proc-dashboard-header {
+  width: min(1180px, calc(100% - 30px));
+  margin: auto;
+  padding: 18px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.proc-dashboard-back {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #dce9e1;
+  border-radius: 12px;
+  background: #fff;
+  color: #176b3a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.proc-dashboard-brand {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.proc-dashboard-brand-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: #e6f5eb;
+  color: #176b3a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.proc-dashboard-brand strong {
+  display: block;
+  color: #07552f;
+  font-size: 14px;
+}
+
+.proc-dashboard-brand span {
+  display: block;
+  margin-top: 2px;
+  color: #789087;
+  font-size: 8px;
+}
+
+.proc-dashboard-centre {
+  margin-left: auto;
+  padding-right: 8px;
+  text-align: right;
+}
+
+.proc-dashboard-centre strong {
+  display: block;
+  color: #294737;
+  font-size: 10px;
+}
+
+.proc-dashboard-centre span {
+  display: block;
+  margin-top: 3px;
+  color: #7c9085;
+  font-size: 8px;
+}
+
+.proc-dashboard-logout {
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid #e0e9e4;
+  border-radius: 11px;
+  background: #fff;
+  color: #9b4242;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.proc-dashboard-content {
+  width: min(1180px, calc(100% - 30px));
+  margin: 12px auto;
+}
+
+.proc-dashboard-welcome {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 17px;
+}
+
+.proc-dashboard-welcome p {
+  margin: 0 0 5px;
+  color: #4c8161;
+  font-size: 9px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+.proc-dashboard-welcome h1 {
+  margin: 0;
+  font-size: 25px;
+  font-weight: 850;
+}
+
+.proc-dashboard-date {
+  padding: 9px 12px;
+  border: 1px solid #dce9e1;
+  border-radius: 11px;
+  background: #fff;
+  color: #557263;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 9px;
+}
+
+.proc-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 17px;
+}
+
+.proc-stat-card {
+  min-height: 88px;
+  padding: 15px;
+  border: 1px solid #dce9e1;
+  border-radius: 16px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.proc-stat-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.proc-stat-icon.bookings {
+  background: #e7f3ff;
+  color: #2c6c9e;
+}
+
+.proc-stat-icon.farmers {
+  background: #eeeaff;
+  color: #6950a8;
+}
+
+.proc-stat-icon.pending {
+  background: #fff4dc;
+  color: #9b7417;
+}
+
+.proc-stat-icon.completed {
+  background: #e5f6ea;
+  color: #1b7740;
+}
+
+.proc-stat-icon.quantity {
+  background: #edf5df;
+  color: #5c7c29;
+}
+
+.proc-stat-icon.arrivals {
+  background: #e9f0f5;
+  color: #42657b;
+}
+
+.proc-stat-card span {
+  display: block;
+  color: #7b8e84;
+  font-size: 8px;
+}
+
+.proc-stat-card strong {
+  display: block;
+  margin-top: 4px;
+  color: #294737;
+  font-size: 21px;
+}
+
+.proc-bookings-card {
+  overflow: hidden;
+  border: 1px solid #dce9e1;
+  border-radius: 18px;
+  background: #fff;
+}
+
+.proc-bookings-heading {
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e7eee9;
+}
+
+.proc-bookings-heading h2 {
+  margin: 0;
+  font-size: 14px;
+}
+
+.proc-bookings-heading p {
+  margin: 4px 0 0;
+  color: #819189;
+  font-size: 9px;
+}
+
+.proc-booking-count {
+  padding: 7px 10px;
+  border-radius: 20px;
+  background: #e8f5ed;
+  color: #176b3a;
+  font-size: 8px;
+  font-weight: 850;
+}
+
+.proc-booking-search {
+  margin: 14px 18px;
+  height: 42px;
+  padding: 0 12px;
+  border: 1px solid #d8e4dc;
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #81948a;
+}
+
+.proc-booking-search input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #263e31;
+  font-size: 9px;
+}
+
+.proc-booking-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.proc-booking-table {
+  width: 100%;
+  min-width: 900px;
+  border-collapse: collapse;
+}
+
+.proc-booking-table th {
+  padding: 11px 17px;
+  background: #f8fbf9;
+  color: #758980;
+  text-align: left;
+  font-size: 8px;
+  font-weight: 800;
+}
+
+.proc-booking-table td {
+  padding: 13px 17px;
+  border-top: 1px solid #edf2ef;
+  color: #40584b;
+  font-size: 9px;
+}
+
+.proc-kisan-code {
+  color: #176b3a;
+}
+
+.proc-farmer-cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.proc-farmer-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  background: #e8f5ed;
+  color: #176b3a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 850;
+}
+
+.proc-farmer-cell strong {
+  color: #294737;
+  font-size: 9px;
+}
+
+.proc-token {
+  color: #176b3a;
+}
+
+.proc-status {
+  display: inline-flex;
+  padding: 5px 8px;
+  border-radius: 20px;
+  font-size: 7px;
+  font-weight: 850;
+  white-space: nowrap;
+}
+
+.proc-status-booked {
+  background: #fff4d9;
+  color: #967011;
+}
+
+.proc-status-arrived {
+  background: #e5f0ff;
+  color: #28629d;
+}
+
+.proc-status-procurement {
+  background: #eee8ff;
+  color: #6849a3;
+}
+
+.proc-status-completed {
+  background: #e4f5e9;
+  color: #19723d;
+}
+
+.proc-no-bookings {
+  padding: 35px;
+  text-align: center;
+  color: #84958c;
+  font-size: 10px;
+}
+
+.proc-dashboard-security {
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: #82938a;
+  font-size: 8px;
+}
+
+.proc-dashboard-security svg {
+  color: #319055;
+}
+
+/* Dark Mode */
+.dark-mode.proc-dashboard-page {
+  background: #07130e;
+  color: #effff5;
+}
+
+.dark-mode .proc-dashboard-back,
+.dark-mode .proc-dashboard-date,
+.dark-mode .proc-dashboard-logout,
+.dark-mode .proc-stat-card,
+.dark-mode .proc-bookings-card {
+  background: #10251b;
+  border-color: rgba(74, 222, 125, .18);
+}
+
+.dark-mode .proc-dashboard-centre strong,
+.dark-mode .proc-stat-card strong,
+.dark-mode .proc-farmer-cell strong {
+  color: #effff5;
+}
+
+.dark-mode .proc-dashboard-centre span,
+.dark-mode .proc-dashboard-brand span,
+.dark-mode .proc-dashboard-date,
+.dark-mode .proc-stat-card span,
+.dark-mode .proc-bookings-heading p {
+  color: #9fbaaa;
+}
+
+.dark-mode .proc-bookings-heading,
+.dark-mode .proc-booking-table td {
+  border-color: rgba(74, 222, 125, .12);
+}
+
+.dark-mode .proc-booking-search {
+  border-color: rgba(74, 222, 125, .18);
+}
+
+.dark-mode .proc-booking-search input {
+  color: #effff5;
+}
+
+.dark-mode .proc-booking-table th {
+  background: #0b1c14;
+  color: #9fbaaa;
+}
+
+.dark-mode .proc-booking-table td {
+  color: #c7ddd0;
+}
+
+.dark-mode .proc-dashboard-security {
+  color: #9fbaaa;
+}
+
+@media (max-width: 850px) {
+  .proc-overview-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .proc-dashboard-centre {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .proc-dashboard-header,
+  .proc-dashboard-content {
+    width: calc(100% - 22px);
+  }
+
+  .proc-dashboard-brand {
+    flex: 1;
+  }
+
+  .proc-dashboard-logout span {
+    display: none;
+  }
+
+  .proc-dashboard-welcome {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .proc-overview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .proc-dashboard-welcome h1 {
+    font-size: 21px;
+  }
+}
