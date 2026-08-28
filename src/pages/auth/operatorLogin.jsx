@@ -156,13 +156,13 @@ function ProcurementCentreLogin({ onBack, onLoginSuccess }) {
             <h1>
               {isHindi
                 ? "ऑपरेटर / यूज़र लॉगिन"
-                : "Operator / User Login"}
+                : "Operator"}
             </h1>
 
             <p>
               {isHindi
-                ? "अपने ऑपरेटर / यूज़र खाते में सुरक्षित रूप से लॉगिन करें"
-                : "Securely login to your operator / user account"}
+                ? "अपने ऑपरेटर खाते में सुरक्षित रूप से लॉगिन करें"
+                : "Securely login to your operator account"}
             </p>
           </div>
 

@@ -459,3 +459,553 @@
     font-size: 21px;
   }
 }
+
+
+/* Notifications */
+.proc-notification-wrapper {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.proc-notification-button {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #dce9e1;
+  border-radius: 12px;
+  background: #fff;
+  color: #176b3a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.proc-notification-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  min-width: 17px;
+  height: 17px;
+  padding: 0 4px;
+  border-radius: 20px;
+  background: #d94f4f;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 7px;
+  font-weight: 850;
+}
+
+.proc-notification-panel {
+  position: absolute;
+  top: 48px;
+  right: 0;
+  width: 315px;
+  z-index: 50;
+  overflow: hidden;
+  border: 1px solid #dce9e1;
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: 0 14px 35px rgba(20, 55, 35, 0.12);
+}
+
+.proc-notification-heading {
+  padding: 13px 14px;
+  border-bottom: 1px solid #e7eee9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.proc-notification-heading strong,
+.proc-notification-heading span {
+  display: block;
+}
+
+.proc-notification-heading strong {
+  color: #294737;
+  font-size: 11px;
+}
+
+.proc-notification-heading span {
+  margin-top: 3px;
+  color: #819189;
+  font-size: 7px;
+}
+
+.proc-notification-heading button {
+  border: 0;
+  background: transparent;
+  color: #7d9086;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.proc-notification-item {
+  width: 100%;
+  padding: 11px 13px;
+  border: 0;
+  background: transparent;
+  display: flex;
+  gap: 9px;
+  text-align: left;
+  border-bottom: 1px solid #edf2ef;
+  cursor: pointer;
+  font: inherit;
+}
+
+.proc-notification-item:hover {
+  background: #f4faf6;
+}
+
+.proc-notification-item:focus-visible {
+  outline: 2px solid #176b3a;
+  outline-offset: -2px;
+}
+
+.proc-notification-item:last-child {
+  border-bottom: 0;
+}
+
+.proc-notification-icon {
+  width: 29px;
+  height: 29px;
+  flex: 0 0 29px;
+  border-radius: 9px;
+  background: #e6f5eb;
+  color: #176b3a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.proc-notification-item strong {
+  color: #294737;
+  font-size: 8px;
+}
+
+.proc-notification-item p {
+  margin: 3px 0;
+  color: #64796d;
+  font-size: 7px;
+  line-height: 1.45;
+}
+
+.proc-notification-item span {
+  color: #9aa9a1;
+  font-size: 6px;
+}
+
+.dark-mode .proc-notification-button,
+.dark-mode .proc-notification-panel {
+  background: #10251b;
+  border-color: rgba(74, 222, 125, 0.18);
+}
+
+.dark-mode .proc-notification-heading,
+.dark-mode .proc-notification-item {
+  border-color: rgba(74, 222, 125, 0.12);
+}
+
+.dark-mode .proc-notification-item:hover {
+  background: #163224;
+}
+
+.dark-mode .proc-notification-heading strong,
+.dark-mode .proc-notification-item strong {
+  color: #effff5;
+}
+
+.dark-mode .proc-notification-heading span,
+.dark-mode .proc-notification-item p,
+.dark-mode .proc-notification-item span {
+  color: #9fbaaa;
+}
+
+@media (max-width: 520px) {
+  .proc-notification-panel {
+    position: fixed;
+    top: 70px;
+    right: 11px;
+    left: 11px;
+    width: auto;
+  }
+}
+
+
+/* Operator Profile button */
+.proc-dashboard-profile {
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid #dce9e1;
+  border-radius: 11px;
+  background: #fff;
+  color: #176b3a;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.proc-dashboard-profile:hover {
+  background: #f4faf6;
+  border-color: #b9d8c4;
+}
+
+.dark-mode .proc-dashboard-profile {
+  background: #10251b;
+  border-color: rgba(74, 222, 125, .18);
+  color: #effff5;
+}
+
+.dark-mode .proc-dashboard-profile:hover {
+  background: #163224;
+}
+
+@media (max-width: 600px) {
+  .proc-dashboard-profile span {
+    display: none;
+  }
+
+  .proc-dashboard-profile {
+    width: 40px;
+    padding: 0;
+    justify-content: center;
+  }
+}
+
+
+/* Dashboard analytics charts */
+.proc-analytics-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, .9fr);
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.proc-chart-card {
+  min-width: 0;
+  padding: 18px 20px 16px;
+  border: 1px solid #dce9e1;
+  border-radius: 18px;
+  background: #fff;
+}
+
+.proc-chart-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 12px;
+}
+
+.proc-chart-kicker {
+  display: block;
+  color: #5c8a6d;
+  font-size: 7px;
+  font-weight: 850;
+  letter-spacing: .08em;
+}
+
+.proc-chart-heading h3 {
+  margin: 4px 0 3px;
+  color: #183126;
+  font-size: 16px;
+}
+
+.proc-chart-heading p {
+  margin: 0;
+  color: #81928a;
+  font-size: 8px;
+}
+
+.proc-chart-total {
+  padding: 6px 9px;
+  border-radius: 20px;
+  background: #edf7f0;
+  color: #176b3a;
+  font-size: 8px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.proc-line-chart {
+  height: 220px;
+  display: flex;
+  gap: 8px;
+}
+
+.proc-y-labels {
+  width: 18px;
+  padding: 7px 0 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #8b9b93;
+  font-size: 7px;
+  text-align: right;
+}
+
+.proc-line-area {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  padding-bottom: 25px;
+}
+
+.proc-chart-grid-lines {
+  position: absolute;
+  inset: 7px 0 29px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.proc-chart-grid-lines i {
+  display: block;
+  width: 100%;
+  border-top: 1px dashed #e7eee9;
+}
+
+.proc-line-area svg {
+  position: absolute;
+  inset: 7px 0 29px;
+  width: 100%;
+  height: calc(100% - 36px);
+  overflow: visible;
+}
+
+.proc-line-path {
+  fill: none;
+  stroke: #168447;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.proc-line-fill {
+  fill: url(#bookingArea);
+  stroke: none;
+}
+
+.proc-line-area svg circle {
+  fill: #fff;
+  stroke: #168447;
+  stroke-width: 3;
+}
+
+.proc-line-values {
+  position: absolute;
+  inset: 0 0 29px;
+  pointer-events: none;
+}
+
+.proc-line-values b {
+  position: absolute;
+  top: 5px;
+  transform: translateX(-50%);
+  color: #176b3a;
+  font-size: 8px;
+}
+
+.proc-x-labels {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  color: #82938b;
+  font-size: 7px;
+}
+
+.proc-crop-chart {
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.proc-donut {
+  width: 155px;
+  height: 155px;
+  flex: 0 0 155px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: conic-gradient(#168447 0 67%, #438de0 67% 90%, #f2a32b 90% 100%);
+}
+
+.proc-donut-inner {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.proc-donut-inner strong {
+  color: #183126;
+  font-size: 23px;
+  line-height: 1;
+}
+
+.proc-donut-inner span {
+  margin-top: 4px;
+  color: #7e9187;
+  font-size: 8px;
+}
+
+.proc-crop-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.proc-crop-legend > div {
+  display: grid;
+  grid-template-columns: 9px auto;
+  column-gap: 7px;
+  align-items: center;
+}
+
+.crop-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  grid-row: span 2;
+}
+
+.crop-dot.wheat { background: #168447; }
+.crop-dot.soybean { background: #438de0; }
+.crop-dot.maize { background: #f2a32b; }
+
+.proc-crop-legend span {
+  color: #30483b;
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.proc-crop-legend strong {
+  color: #63786d;
+  font-size: 8px;
+  font-weight: 600;
+}
+
+.proc-crop-legend small {
+  margin-left: 4px;
+  color: #176b3a;
+  font-weight: 800;
+}
+
+.dark-mode .proc-chart-card {
+  background: #10251b;
+  border-color: rgba(74, 222, 125, .18);
+}
+
+.dark-mode .proc-chart-heading h3,
+.dark-mode .proc-donut-inner,
+.dark-mode .proc-crop-legend span {
+  color: #effff5;
+}
+
+.dark-mode .proc-chart-heading p,
+.dark-mode .proc-crop-legend strong,
+.dark-mode .proc-x-labels,
+.dark-mode .proc-y-labels {
+  color: #9fbaaa;
+}
+
+.dark-mode .proc-chart-grid-lines i {
+  border-color: rgba(74, 222, 125, .12);
+}
+
+.dark-mode .proc-donut-inner {
+  background: #10251b;
+}
+
+@media (max-width: 900px) {
+  .proc-analytics-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .proc-crop-chart {
+    gap: 18px;
+  }
+
+  .proc-donut {
+    width: 125px;
+    height: 125px;
+    flex-basis: 125px;
+  }
+
+  .proc-donut-inner {
+    width: 78px;
+    height: 78px;
+  }
+}
+
+
+/* Clickable Completed Procurement card */
+.proc-completed-card {
+  border: 1px solid #dce9e1;
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+}
+.proc-completed-card:hover {
+  border-color: #b9d8c4;
+  background: #f8fbf9;
+}
+.dark-mode .proc-completed-card:hover {
+  background: #163224;
+}
+/* Completed Procurement clickable card */
+.proc-completed-card {
+  width: 100%;
+  border: 1px solid #dce9e1;
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+}
+
+.proc-completed-card:hover {
+  border-color: #b9d8c4;
+  background: #f8fbf9;
+}
+
+.dark-mode .proc-completed-card:hover {
+  background: #163224;
+}
+
+.proc-expected-arrivals-card{width:100%;border:1px solid #dce9e1;text-align:left;font:inherit;cursor:pointer}.proc-expected-arrivals-card:hover{border-color:#b9d8c4;background:#f8fbf9}.dark-mode .proc-expected-arrivals-card:hover{background:#163224}
+/* Completed Procurement clickable card */
+.proc-completed-card {
+  width: 100%;
+  border: 1px solid #dce9e1;
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+}
+
+.proc-completed-card:hover {
+  border-color: #b9d8c4;
+  background: #f8fbf9;
+}
+
+.dark-mode .proc-completed-card:hover {
+  background: #163224;
+}
+
+.proc-transaction-history-card{width:100%;border:1px solid #dce9e1;text-align:left;font:inherit;cursor:pointer}.proc-transaction-history-card:hover{border-color:#b9d8c4;background:#f8fbf9}.dark-mode .proc-transaction-history-card:hover{background:#163224}

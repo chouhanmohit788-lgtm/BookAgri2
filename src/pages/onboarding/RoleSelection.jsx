@@ -29,11 +29,14 @@ function RoleSelection({ onContinue }) {
       farmer: "Farmer",
       farmerDesc: "Book slots, manage produce & track bookings",
 
-      operator: "Operator / User",
+      operator: "Operator",
       operatorDesc: "Manage procurement, verification & queues",
 
       admin: "Admin",
-      adminDesc: "Manage users, approvals & reports",
+      adminDesc: "Manage operator, approvals & reports",
+      adminWarning: "⚠️ Government Officials Only",
+      adminWarningDesc:
+        "This role is only for authorized government officials responsible for monitoring and managing procurement activities.",
 
       continue: "Continue",
       secure: "Your data is secure with us",
@@ -46,11 +49,14 @@ function RoleSelection({ onContinue }) {
       farmer: "किसान",
       farmerDesc: "स्लॉट बुक करें, उपज प्रबंधित करें और बुकिंग देखें",
 
-      operator: "ऑपरेटर / यूज़र",
+      operator: "ऑपरेटर ",
       operatorDesc: "खरीद, सत्यापन और कतार प्रबंधित करें",
 
       admin: "एडमिन",
-      adminDesc: "यूज़र, अनुमोदन और रिपोर्ट प्रबंधित करें",
+      adminDesc: "ऑपरेटर, अनुमोदन और रिपोर्ट प्रबंधित करें",
+      adminWarning: "⚠️ केवल सरकारी अधिकारियों के लिए",
+      adminWarningDesc:
+        "यह भूमिका केवल अधिकृत सरकारी अधिकारियों के लिए है, जो खरीद गतिविधियों और केंद्रों की निगरानी एवं प्रबंधन करते हैं।",
 
       continue: "जारी रखें",
       secure: "आपका डेटा हमारे साथ सुरक्षित है",
@@ -76,6 +82,8 @@ function RoleSelection({ onContinue }) {
       id: "admin",
       title: text.admin,
       description: text.adminDesc,
+      warning: text.adminWarning,
+      warningDesc: text.adminWarningDesc,
       icon: ShieldCheck,
     },
   ];
@@ -208,6 +216,13 @@ function RoleSelection({ onContinue }) {
                 <p>
                   {role.description}
                 </p>
+
+                {role.id === "admin" && isSelected && (
+                  <div className="admin-role-warning">
+                    <strong>{role.warning}</strong>
+                    <span>{role.warningDesc}</span>
+                  </div>
+                )}
 
                 <div className="role-arrow">
                   <ArrowRight size={18} />

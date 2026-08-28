@@ -1,0 +1,39 @@
+.today-bookings-page { min-height: 100vh; background: #f4f8f5; color: #183126; padding-bottom: 35px; }
+.today-bookings-header, .today-bookings-content { width: min(1180px, calc(100% - 30px)); margin: auto; }
+.today-bookings-header { padding: 18px 0; display: flex; align-items: center; gap: 12px; }
+.today-bookings-back { width: 40px; height: 40px; border: 1px solid #dce9e1; border-radius: 12px; background: #fff; color: #176b3a; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+.today-bookings-brand { display: flex; align-items: center; gap: 9px; color: #176b3a; }
+.today-bookings-brand strong, .today-bookings-brand span { display: block; }
+.today-bookings-brand strong { color: #07552f; font-size: 14px; }
+.today-bookings-brand span { margin-top: 2px; color: #789087; font-size: 8px; }
+.today-bookings-content { margin-top: 15px; }
+.today-bookings-heading { margin-bottom: 16px; display: flex; align-items: flex-end; justify-content: space-between; gap: 15px; }
+.today-bookings-heading p { margin: 0 0 5px; color: #4c8161; font-size: 9px; font-weight: 850; letter-spacing: .08em; }
+.today-bookings-heading h1 { margin: 0; font-size: 25px; }
+.today-bookings-heading span { display: block; margin-top: 5px; color: #7d9086; font-size: 9px; }
+.today-bookings-count { padding: 7px 10px; border-radius: 20px; background: #e8f5ed; color: #176b3a; font-size: 8px; font-weight: 850; }
+.today-bookings-search { height: 42px; margin-bottom: 14px; padding: 0 12px; border: 1px solid #d8e4dc; border-radius: 11px; background: #fff; color: #81948a; display: flex; align-items: center; gap: 8px; }
+.today-bookings-search input { width: 100%; border: 0; outline: 0; background: transparent; color: #263e31; font-size: 9px; }
+.today-bookings-card { overflow: hidden; border: 1px solid #dce9e1; border-radius: 18px; background: #fff; }
+.today-bookings-table-wrap { overflow-x: auto; }
+.today-bookings-table { width: 100%; min-width: 920px; border-collapse: collapse; }
+.today-bookings-table th { padding: 11px 14px; background: #f8fbf9; color: #758980; text-align: left; font-size: 8px; }
+.today-bookings-table td { padding: 12px 14px; border-top: 1px solid #edf2ef; color: #40584b; font-size: 9px; }
+.today-bookings-code, .today-bookings-token { color: #176b3a; }
+.today-bookings-status { display: inline-flex; padding: 5px 8px; border-radius: 20px; font-size: 7px; font-weight: 850; white-space: nowrap; }
+.status-booked { background: #fff4d9; color: #967011; }
+.status-arrived { background: #e5f0ff; color: #28629d; }
+.status-procurement { background: #eee8ff; color: #6849a3; }
+.status-completed { background: #e4f5e9; color: #19723d; }
+.today-bookings-empty { padding: 35px; text-align: center; color: #84958c; font-size: 10px; }
+.dark-mode.today-bookings-page { background: #07130e; color: #effff5; }
+.dark-mode .today-bookings-back, .dark-mode .today-bookings-search, .dark-mode .today-bookings-card { background: #10251b; border-color: rgba(74,222,125,.18); }
+.dark-mode .today-bookings-brand strong, .dark-mode .today-bookings-heading h1, .dark-mode .today-bookings-table td strong { color: #effff5; }
+.dark-mode .today-bookings-brand span, .dark-mode .today-bookings-heading span { color: #9fbaaa; }
+.dark-mode .today-bookings-search input, .dark-mode .today-bookings-table td { color: #c7ddd0; }
+.dark-mode .today-bookings-table th { background: #0b1c14; color: #9fbaaa; }
+.dark-mode .today-bookings-table td { border-color: rgba(74,222,125,.12); }
+@media (max-width:700px) {
+  .today-bookings-header, .today-bookings-content { width: calc(100% - 22px); }
+  .today-bookings-heading { align-items: flex-start; flex-direction: column; }
+}

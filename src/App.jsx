@@ -1,8 +1,19 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import FarmerLogin from "./pages/auth/FarmerLogin";
 import ForgotFarmerId from "./pages/auth/ForgotFarmerId";
 import OperatorLogin from "./pages/auth/operatorLogin";
+import AdminLogin from "./pages/auth/AdminLogin";
 import OperatorDashboard from "./pages/Operator/operatorDashboard";
+import Farmers from "./pages/Operator/Farmers";
+import Procurement from "./pages/Operator/Procurement";
+import StockDispatch from "./pages/Operator/StockDispatch";
+import Reports from "./pages/Operator/Reports";
+import OperatorProfile from "./pages/Operator/OperatorProfile";
+import TodayBookings from "./pages/Operator/TodayBookings";
+import CompletedProcurement from "./pages/Operator/CompletedProcurement";
+import ProcurementCapacity from "./pages/Operator/ProcurementCapacity";
+import ExpectedArrivals from "./pages/Operator/ExpectedArrivals";
+import TransactionHistory from "./pages/Operator/TransactionHistory";
 
 import Home from "./pages/Home";
 
@@ -22,6 +33,8 @@ import Weather from "./pages/farmer/Weather";
 
 function App() {
 
+  // Always start the app from the Home/Splash page on a fresh app load.
+  // Do not restore the previous screen from localStorage.
   const [screen, setScreen] = useState("splash");
 
   const [selectedRole, setSelectedRole] = useState(null);
@@ -30,14 +43,14 @@ function App() {
 
   // Splash → Language
   useEffect(() => {
+    if (screen !== "splash") return;
 
     const timer = setTimeout(() => {
       setScreen("language");
     }, 3000);
 
     return () => clearTimeout(timer);
-
-  }, []);
+  }, [screen]);
 
 
   // Language → Role
@@ -55,6 +68,8 @@ function App() {
       setScreen("farmerLogin");
     } else if (role === "operator") {
       setScreen("procurementCentreLogin");
+    } else if (role === "admin") {
+      setScreen("adminLogin");
     }
 
   };
@@ -100,6 +115,23 @@ function App() {
 
 
   // =========================
+  // ADMIN LOGIN
+  // =========================
+
+  if (screen === "adminLogin") {
+    return (
+      <AdminLogin
+        onBack={() => setScreen("role")}
+        onLogin={(adminData) => {
+          console.log("Admin verified:", adminData);
+          // Admin dashboard will be connected here next.
+          setScreen("role");
+        }}
+      />
+    );
+  }
+
+  // =========================
   // PROCUREMENT CENTRE LOGIN
   // =========================
 
@@ -123,9 +155,144 @@ function App() {
       <OperatorDashboard
         onBack={() => setScreen("role")}
         onLogout={() => setScreen("role")}
+        onFarmers={() => setScreen("farmers")}
+        onProcurement={() => setScreen("procurement")}
+        onStockDispatch={() => setScreen("stockDispatch")}
+        onReports={() => setScreen("reports")}
+        onProfile={() => setScreen("operatorProfile")}
+        onTodayBookings={() => setScreen("todayBookings")}
+        onCompletedProcurement={() => setScreen("completedProcurement")}
+        onQuantityProcured={() => setScreen("procurementCapacity")}
+        onExpectedArrivals={() => setScreen("expectedArrivals")}
+        onTransactionHistory={() => setScreen("transactionHistory")}
+/>
+    );
+  }
+
+  // =========================
+  // TODAY'S BOOKINGS
+  // =========================
+
+  if (screen === "todayBookings") {
+    return (
+      <TodayBookings
+        onBack={() => setScreen("procurementCentreDashboard")}
       />
     );
   }
+
+  // =========================
+  // OPERATOR PROFILE
+  // =========================
+
+  if (screen === "operatorProfile") {
+    return (
+      <OperatorProfile
+        onBack={() => setScreen("procurementCentreDashboard")}
+        onLogout={() => setScreen("role")}
+      />
+    );
+  }
+
+  // =========================
+  // COMPLETED PROCUREMENT
+  // =========================
+
+  if (screen === "completedProcurement") {
+    return (
+      <CompletedProcurement
+        onBack={() => setScreen("procurementCentreDashboard")}
+      />
+    );
+  }
+
+  // =========================
+  // PROCUREMENT CAPACITY
+  // =========================
+
+  if (screen === "procurementCapacity") {
+    return (
+      <ProcurementCapacity
+        onBack={() => setScreen("procurementCentreDashboard")}
+      />
+    );
+  }
+
+  // =========================
+  // EXPECTED ARRIVALS
+  // =========================
+
+  if (screen === "expectedArrivals") {
+    return (
+      <ExpectedArrivals
+        onBack={() => setScreen("procurementCentreDashboard")}
+      />
+    );
+  }
+
+  // =========================
+  // TRANSACTION HISTORY
+  // =========================
+
+  if (screen === "transactionHistory") {
+    return (
+      <TransactionHistory
+        onBack={() => setScreen("procurementCentreDashboard")}
+      />
+    );
+  }
+
+  // =========================
+  // FARMERS
+  // =========================
+
+  if (screen === "farmers") {
+    return (
+      <Farmers
+        onBack={() => setScreen("procurementCentreDashboard")}
+      />
+    );
+  }
+
+  // =========================
+  // PROCUREMENT
+  // =========================
+
+  if (screen === "procurement") {
+    return (
+      <Procurement
+        onBack={() => setScreen("procurementCentreDashboard")}
+      />
+    );
+  }
+
+  // =========================
+  // STOCK & DISPATCH
+  // =========================
+
+  if (screen === "stockDispatch") {
+    return (
+      <StockDispatch
+        onBack={() => setScreen("procurementCentreDashboard")}
+      />
+    );
+  }
+
+  // =========================
+  // REPORTS
+  // =========================
+
+  if (screen === "reports") {
+    return (
+      <Reports
+        onBack={() => setScreen("procurementCentreDashboard")}
+      />
+    );
+  }
+
+  // =========================
+  // RECEIPT & PROCUREMENT RECORD
+  // =========================
 
   // =========================
   // FARMER LOGIN
