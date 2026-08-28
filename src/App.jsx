@@ -3,6 +3,10 @@ import FarmerLogin from "./pages/auth/FarmerLogin";
 import ForgotFarmerId from "./pages/auth/ForgotFarmerId";
 import OperatorLogin from "./pages/auth/operatorLogin";
 import AdminLogin from "./pages/auth/AdminLogin";
+import AdminDashboard from "./pages/admin/AdminDashboard";
+import ProcurementCentres from "./pages/admin/ProcurementCentres";
+import ProcurementOverviewMonitoring from "./pages/admin/ProcurementOverviewMonitoring";
+import FarmerComplaints from "./pages/admin/FarmerComplaints";
 import OperatorDashboard from "./pages/Operator/operatorDashboard";
 import Farmers from "./pages/Operator/Farmers";
 import Procurement from "./pages/Operator/Procurement";
@@ -124,9 +128,67 @@ function App() {
         onBack={() => setScreen("role")}
         onLogin={(adminData) => {
           console.log("Admin verified:", adminData);
-          // Admin dashboard will be connected here next.
-          setScreen("role");
+          setScreen("adminDashboard");
         }}
+      />
+    );
+  }
+
+  // =========================
+  // PROCUREMENT OVERVIEW & MONITORING
+  // =========================
+
+  if (screen === "procurementOverview") {
+    return (
+      <ProcurementOverviewMonitoring
+        onBack={() => setScreen("adminDashboard")}
+      />
+    );
+  }
+
+  // =========================
+  // PROCUREMENT CENTRES
+  // =========================
+
+  if (screen === "procurementCentres") {
+    return (
+      <ProcurementCentres
+        onBack={() => setScreen("adminDashboard")}
+      />
+    );
+  }
+
+  // =========================
+  // FARMER COMPLAINTS
+  // =========================
+
+  if (screen === "farmerComplaints") {
+    return (
+      <FarmerComplaints
+        onBack={() => setScreen("adminDashboard")}
+      />
+    );
+  }
+
+  // =========================
+  // ADMIN DASHBOARD
+  // =========================
+
+  if (screen === "adminDashboard") {
+    return (
+      <AdminDashboard
+        onNavigate={(page) => {
+          if (page === "procurementOverview") {
+            setScreen("procurementOverview");
+          } else if (page === "centres") {
+            setScreen("procurementCentres");
+          } else if (page === "complaints") {
+            setScreen("farmerComplaints");
+          } else {
+            console.log("Admin section selected:", page);
+          }
+        }}
+        onLogout={() => setScreen("role")}
       />
     );
   }

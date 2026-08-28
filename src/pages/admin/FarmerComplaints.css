@@ -1,0 +1,249 @@
+
+
+.farmer-complaints-page{
+  min-height:100vh;
+  padding:25px 34px 42px;
+  background:#f4f8f5;
+  color:#163224;
+  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+.fc-header{
+  width:min(1450px,100%);
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  align-items:center;
+  gap:24px;
+}
+.fc-back-btn{
+  height:35px;
+  padding:0 12px;
+  border:1px solid #d4e2d8;
+  border-radius:9px;
+  background:#fff;
+  color:#08753b;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  font-size:8px;
+  font-weight:800;
+  cursor:pointer;
+  white-space:nowrap;
+}
+.fc-title{display:flex;align-items:center;gap:11px}
+.fc-title-icon{
+  width:42px;height:42px;border-radius:12px;
+  background:#e7f5eb;color:#08753b;
+  display:flex;align-items:center;justify-content:center;
+}
+.fc-title p,.fc-toolbar-heading p,.fc-modal-header p{
+  margin:0;color:#08753b;font-size:7px;font-weight:900;letter-spacing:.1em;
+}
+.fc-title h1{margin:5px 0 3px;font-size:25px;letter-spacing:-.6px}
+.fc-title span{color:#75877e;font-size:8px}
+.fc-admin{display:flex;align-items:center;gap:9px}
+.fc-admin-avatar{
+  width:39px;height:39px;border-radius:10px;background:#08753b;color:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:900;
+}
+.fc-admin strong{display:block;font-size:8px}
+.fc-admin span{display:block;margin-top:3px;color:#819188;font-size:7px}
+
+.fc-summary-grid{
+  width:min(1450px,100%);margin:23px auto 0;
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;
+}
+.fc-summary-card{
+  padding:15px;border:1px solid #dce9df;border-radius:15px;background:#fff;
+  box-shadow:0 7px 22px rgba(24,81,43,.04);
+}
+.fc-summary-icon{
+  width:33px;height:33px;margin-bottom:9px;border-radius:9px;
+  display:flex;align-items:center;justify-content:center;
+  background:#eef3ef;color:#08753b;
+}
+.fc-summary-icon.pending{background:#fff1e0;color:#b07812}
+.fc-summary-icon.progress{background:#eaf0ff;color:#496ab4}
+.fc-summary-icon.resolved{background:#e8f6ec;color:#08753b}
+.fc-summary-icon.total{background:#edf6f0;color:#08753b}
+.fc-summary-card>span{display:block;color:#71857a;font-size:7px;font-weight:700}
+.fc-summary-card>strong{display:block;margin-top:5px;font-size:20px}
+
+.fc-toolbar-card{
+  width:min(1450px,100%);margin:13px auto 0;padding:17px;
+  border:1px solid #dce9df;border-radius:15px;background:#fff;
+  box-shadow:0 7px 22px rgba(24,81,43,.04);
+}
+.fc-toolbar-heading{
+  display:flex;justify-content:space-between;align-items:flex-start;gap:12px;
+}
+.fc-toolbar-heading>svg{color:#08753b}
+.fc-toolbar-heading h2{margin:4px 0 3px;font-size:14px}
+.fc-toolbar-heading span{color:#819188;font-size:7px}
+.fc-toolbar{
+  margin-top:15px;display:flex;align-items:flex-end;gap:10px;
+}
+.fc-search{
+  height:40px;flex:1;min-width:220px;padding:0 10px;
+  border:1px solid #dce9df;border-radius:10px;
+  display:flex;align-items:center;gap:7px;color:#819188;
+}
+.fc-search input{
+  width:100%;border:0;outline:0;color:#163224;
+  font-family:inherit;font-size:8px;
+}
+.fc-search input::placeholder{color:#9aaa9f}
+.fc-filter label{
+  display:block;margin-bottom:5px;color:#71857a;font-size:6px;font-weight:800;
+}
+.fc-select-wrap{position:relative}
+.fc-select-wrap select{
+  width:150px;height:40px;padding:0 27px 0 10px;
+  border:1px solid #dce9df;border-radius:10px;background:#fff;
+  color:#163224;font-size:7px;appearance:none;outline:0;cursor:pointer;
+}
+.fc-select-wrap svg{
+  position:absolute;right:8px;top:50%;transform:translateY(-50%);
+  color:#819188;pointer-events:none;
+}
+
+.fc-table-card{
+  width:min(1450px,100%);margin:13px auto 0;overflow:hidden;
+  border:1px solid #dce9df;border-radius:15px;background:#fff;
+  box-shadow:0 7px 22px rgba(24,81,43,.04);
+}
+.fc-table-head,.fc-table-row{
+  display:grid;
+  grid-template-columns:minmax(230px,1.25fr) minmax(210px,1.2fr) minmax(185px,1fr) minmax(105px,.7fr) minmax(95px,.6fr) 80px;
+  gap:12px;align-items:center;
+}
+.fc-table-head{
+  min-height:38px;padding:0 14px;background:#f5f9f6;
+  color:#819188;font-size:7px;font-weight:850;
+}
+.fc-table-row{
+  min-height:82px;padding:10px 14px;border-top:1px solid #edf2ee;
+  font-size:7px;
+}
+.fc-farmer-cell{display:flex;align-items:center;gap:8px}
+.fc-farmer-icon{
+  width:29px;height:29px;border-radius:8px;background:#e8f6ec;color:#08753b;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.fc-farmer-cell strong{display:block;font-size:8px}
+.fc-farmer-cell span{display:block;margin-top:3px;color:#71857a;font-size:6px}
+.fc-farmer-cell small{
+  display:inline-block;margin-top:4px;padding:3px 5px;border-radius:5px;
+  background:#f2f6f3;color:#84958c;font-size:5px;font-weight:800;
+}
+.fc-centre-cell strong{font-size:7px;line-height:1.4}
+.fc-type{color:#65786d;line-height:1.4}
+.fc-datetime strong{display:block;font-size:7px}
+.fc-datetime span{display:block;margin-top:4px;color:#819188;font-size:6px}
+
+.fc-status{
+  width:max-content;padding:5px 7px;border-radius:7px;
+  display:flex;align-items:center;gap:4px;font-size:6px;font-weight:850;
+  white-space:nowrap;
+}
+.fc-status i{width:7px;height:7px;border-radius:50%;display:block}
+.fc-status.pending{background:#fff1e0;color:#b07812}
+.fc-status.pending i{background:#d69a24}
+.fc-status.in-progress{background:#eaf0ff;color:#496ab4}
+.fc-status.in-progress i{background:#6486d0}
+.fc-status.resolved{background:#e8f6ec;color:#08753b}
+.fc-status.resolved i{background:#35ad55}
+
+.fc-view-btn{
+  height:29px;padding:0 7px;border:1px solid #d5e3da;border-radius:8px;
+  background:#fff;color:#08753b;display:inline-flex;align-items:center;justify-content:center;
+  gap:4px;font-size:6px;font-weight:800;cursor:pointer;
+}
+.fc-view-btn:hover{background:#f3faf5}
+.fc-empty{
+  min-height:220px;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:7px;color:#819188;
+}
+.fc-empty svg{color:#08753b}.fc-empty strong{font-size:10px;color:#486055}.fc-empty span{font-size:7px}
+.fc-note{
+  width:min(1450px,100%);margin:12px auto 0;display:flex;justify-content:center;
+  align-items:center;gap:6px;color:#829088;font-size:7px;
+}
+.fc-note svg{color:#08753b}
+
+/* Complaint modal */
+.fc-modal-backdrop{
+  position:fixed;inset:0;z-index:100;padding:20px;
+  background:rgba(6,22,14,.48);display:flex;align-items:center;justify-content:center;
+}
+.fc-modal{
+  width:min(720px,100%);max-height:calc(100vh - 40px);overflow:auto;
+  padding:20px;border:1px solid #dce9df;border-radius:17px;background:#fff;
+  box-shadow:0 25px 70px rgba(0,0,0,.2);
+}
+.fc-modal-header{
+  display:flex;justify-content:space-between;align-items:flex-start;gap:14px;
+}
+.fc-modal-header h2{margin:4px 0 3px;font-size:16px}
+.fc-modal-header span{color:#819188;font-size:7px}
+.fc-close-btn{
+  width:30px;height:30px;border:0;border-radius:8px;background:#fff0f0;color:#c84a4a;
+  display:flex;align-items:center;justify-content:center;cursor:pointer;
+}
+.fc-detail-grid{
+  margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:10px;
+}
+.fc-detail{
+  padding:10px;border-radius:9px;background:#f6faf7;
+}
+.fc-detail.wide{grid-column:1/-1}
+.fc-detail label,.fc-description label,.fc-current-status label,.fc-action-field label{
+  display:block;margin-bottom:5px;color:#71857a;font-size:6px;font-weight:800;
+}
+.fc-detail strong{font-size:8px;line-height:1.35}
+.fc-description{margin-top:13px}
+.fc-description p{
+  margin:0;padding:11px;border:1px solid #e2ebe5;border-radius:9px;
+  color:#55695e;font-size:8px;line-height:1.5;
+}
+.fc-current-status{
+  margin-top:13px;display:flex;align-items:center;justify-content:space-between;
+  gap:10px;padding:10px;border-radius:9px;background:#f6faf7;
+}
+.fc-current-status label{margin:0}
+.fc-action-field{margin-top:13px}
+.fc-action-field textarea{
+  width:100%;padding:10px;resize:vertical;
+  border:1px solid #dce9df;border-radius:9px;outline:0;
+  color:#163224;font-family:inherit;font-size:8px;
+}
+.fc-action-field textarea:focus{
+  border-color:#08753b;box-shadow:0 0 0 3px rgba(8,117,59,.08);
+}
+.fc-modal-actions{
+  margin-top:16px;display:flex;justify-content:flex-end;gap:8px;
+}
+.fc-close-action,.fc-status-btn{
+  height:35px;padding:0 11px;border-radius:9px;font-size:7px;font-weight:850;cursor:pointer;
+}
+.fc-close-action{border:1px solid #d5e3da;background:#fff;color:#65786d}
+.fc-status-btn{border:0}
+.progress-btn{background:#eaf0ff;color:#496ab4}
+.resolve-btn{background:#08753b;color:#fff;display:flex;align-items:center;gap:5px}
+
+@media(max-width:1100px){
+  .farmer-complaints-page{padding:22px 20px 35px}
+  .fc-header{grid-template-columns:1fr;align-items:flex-start}
+  .fc-summary-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .fc-toolbar{flex-wrap:wrap}.fc-search{min-width:100%}
+  .fc-table-card{overflow-x:auto}.fc-table-head,.fc-table-row{min-width:1000px}
+}
+@media(max-width:700px){
+  .farmer-complaints-page{padding:17px 12px 28px}
+  .fc-title h1{font-size:22px}
+  .fc-summary-grid{grid-template-columns:1fr}
+  .fc-toolbar{flex-direction:column;align-items:stretch}
+  .fc-search{width:100%}.fc-filter,.fc-select-wrap,.fc-select-wrap select{width:100%}
+  .fc-detail-grid{grid-template-columns:1fr}.fc-detail.wide{grid-column:auto}
+  .fc-modal-actions{flex-direction:column}.fc-close-action,.fc-status-btn{width:100%}
+}
