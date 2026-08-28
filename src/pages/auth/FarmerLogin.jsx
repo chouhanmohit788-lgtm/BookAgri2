@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useTheme } from "../../context/ThemeContext";
 import { useLanguage } from "../../context/LanguageContext";
 import ThemeButton from "../../components/ThemeButton";
@@ -14,8 +14,6 @@ import {
 import "./FarmerLogin.css";
 
 function FarmerLogin({
-  onRegister,
-  onForgotId,
   onLoginSuccess,
 }) {
   const { isDark, toggleTheme } = useTheme();
@@ -153,13 +151,7 @@ function FarmerLogin({
     );
   };
 
-  const handleRegister = () => {
-    console.log("Open Farmer Registration");
-  };
 
-  const handleForgotId = () => {
-    console.log("Open Forgot Farmer ID");
-  };
 
   return (
     <main className={`farmer-login-page ${isDark ? "dark-mode" : ""}`}>
@@ -330,13 +322,7 @@ function FarmerLogin({
                 </div>
               </div>
 
-              <button
-                type="button"
-                className="forgot-farmer-id"
-                onClick={onForgotId}
-              >
-                {t.forgotKisanCode}
-              </button>
+
 
               <div className="otp-info">
                 <ShieldCheck size={18} />
@@ -354,19 +340,6 @@ function FarmerLogin({
                 <ArrowRight size={20} />
               </button>
             </form>
-
-            <div className="register-line">
-              <span>
-                {t.newToFarmBuddy}
-              </span>
-
-              <button
-                type="button"
-                onClick={onRegister}
-              >
-                {t.registration}
-              </button>
-            </div>
           </div>
         ) : (
           <div className="login-card">
@@ -444,17 +417,7 @@ function FarmerLogin({
 
                 <ArrowRight size={20} />
               </button>
-
-              <button
-                type="button"
-                className="forgot-farmer-id"
-                onClick={handleResendOtp}
-              >
-                {language === "hi"
-                  ? "↻ OTP फिर से भेजें"
-                  : "↻ Resend OTP"}
-              </button>
-            </form>
+</form>
           </div>
         )}
 

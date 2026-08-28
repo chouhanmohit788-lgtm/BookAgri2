@@ -13,7 +13,7 @@ import "./BookSlot.css";
 
 function BookSlot({ onBack, onBookingConfirmed }) {
   const { isDark } = useTheme();
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const [crop, setCrop] = useState("");
   const [quantity, setQuantity] = useState("");
@@ -21,6 +21,12 @@ function BookSlot({ onBack, onBookingConfirmed }) {
   const [centerSearch, setCenterSearch] = useState("");
   const [date, setDate] = useState("");
   const [selectedTime, setSelectedTime] = useState("");
+  const [calendarOpen, setCalendarOpen] = useState(false);
+  const [calendarMonth, setCalendarMonth] = useState(() => {
+    const initial = new Date();
+    initial.setDate(1);
+    return initial;
+  });
 
   const procurementCentres = [
     "Bhopal Mandi",
@@ -90,27 +96,88 @@ function BookSlot({ onBack, onBookingConfirmed }) {
   );
 
   const timeSlots = [
-  {
-    time: "9:00 AM – 11:00 AM",
-    period: "Morning",
-    available: true,
-  },
-  {
-    time: "11:00 AM – 1:00 PM",
-    period: "Morning",
-    available: true,
-  },
-  {
-    time: "2:00 PM – 04:00 PM",
-    period: "Afternoon",
-    available: false,
-  },
-  {
-    time: "4:00 PM – 5:30 PM",
-    period: "Afternoon",
-    available: true,
-  },
-];
+    {
+      time: "9:00 AM – 11:00 AM",
+      period: "Morning",
+      available: true,
+    },
+    {
+      time: "11:00 AM – 1:00 PM",
+      period: "Morning",
+      available: true,
+    },
+    {
+      time: "2:00 PM – 04:00 PM",
+      period: "Afternoon",
+      available: false,
+    },
+    {
+      time: "4:00 PM – 5:30 PM",
+      period: "Afternoon",
+      available: true,
+    },
+  ];
+
+  const formatDateValue = (year, month, day) => {
+    return `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+  };
+
+  const selectedDateObject = date
+    ? (() => {
+        const [year, month, day] = date.split("-").map(Number);
+        return new Date(year, month - 1, day);
+      })()
+    : null;
+
+  const calendarYear = calendarMonth.getFullYear();
+  const calendarMonthIndex = calendarMonth.getMonth();
+  const calendarMonthName = calendarMonth.toLocaleString("en-US", {
+    month: "long",
+    year: "numeric",
+  });
+  const daysInMonth = new Date(
+    calendarYear,
+    calendarMonthIndex + 1,
+    0
+  ).getDate();
+  const firstDayOffset = new Date(
+    calendarYear,
+    calendarMonthIndex,
+    1
+  ).getDay();
+
+  const calendarDays = Array.from({ length: daysInMonth }, (_, index) => index + 1);
+
+  // Aaj ki date midnight (00:00:00) par set kar rahe hain taaki comparison sahi ho
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  const selectDate = (day) => {
+    const selectedDate = new Date(calendarYear, calendarMonthIndex, day);
+    selectedDate.setHours(0, 0, 0, 0);
+
+    // Agar past ki date hai toh return kar jao (select mat hone do)
+    if (selectedDate < today) return;
+
+    setDate(formatDateValue(calendarYear, calendarMonthIndex, day));
+    setCalendarOpen(false);
+  };
+
+  const previousMonth = () => {
+    // Optional: Agar chahein ki user past ke months mein bhi na ja sake toh yeh condition laga sakte hain
+    const prevMonthDate = new Date(calendarYear, calendarMonthIndex - 1, 1);
+    const currentMonthFirstDay = new Date(new Date().getFullYear(), new Date().getMonth(), 1);
+    
+    if (prevMonthDate >= currentMonthFirstDay) {
+      setCalendarMonth(prevMonthDate);
+    }
+  };
+
+  const nextMonth = () => {
+    setCalendarMonth(
+      new Date(calendarYear, calendarMonthIndex + 1, 1)
+    );
+  };
 
   const handleBooking = () => {
     if (!crop || !quantity || !center || !date || !selectedTime) {
@@ -232,12 +299,71 @@ function BookSlot({ onBack, onBookingConfirmed }) {
             <span>{t.selectDate}</span>
           </div>
 
-          <input
-            className="date-input"
-            type="date"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
-          />
+          <div className="custom-date-picker">
+            <button
+              type="button"
+              className={`date-picker-trigger ${calendarOpen ? "open" : ""}`}
+              onClick={() => setCalendarOpen((open) => !open)}
+            >
+              <span>
+                {selectedDateObject
+                  ? selectedDateObject.toLocaleDateString("en-GB", {
+                      day: "2-digit",
+                      month: "2-digit",
+                      year: "numeric",
+                    })
+                  : (language === "hi" ? "तारीख चुनें" : "Select a date")}
+              </span>
+              <CalendarDays size5={17} />
+            </button>
+
+            {calendarOpen && (
+              <div className="date-picker-popover">
+                <div className="date-picker-header">
+                  <button type="button" onClick={previousMonth} aria-label="Previous month">
+                    ←
+                  </button>
+                  <strong>{calendarMonthName}</strong>
+                  <button type="button" onClick={nextMonth} aria-label="Next month">
+                    →
+                  </button>
+                </div>
+
+                <div className="date-picker-weekdays">
+                  {["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"].map((day) => (
+                    <span key={day}>{day}</span>
+                  ))}
+                </div>
+
+                <div className="date-picker-grid">
+                  {Array.from({ length: firstDayOffset }).map((_, index) => (
+                    <span className="date-picker-empty" key={`empty-${index}`} />
+                  ))}
+
+                  {calendarDays.map((day) => {
+                    const currentDateObj = new Date(calendarYear, calendarMonthIndex, day);
+                    currentDateObj.setHours(0, 0, 0, 0);
+
+                    const isPast = currentDateObj < today;
+                    const value = formatDateValue(calendarYear, calendarMonthIndex, day);
+                    const selected = value === date;
+
+                    return (
+                      <button
+                        type="button"
+                        key={value}
+                        disabled={isPast}
+                        className={`date-picker-day ${selected ? "selected" : ""} ${isPast ? "disabled-day" : ""}`}
+                        onClick={() => selectDate(day)}
+                      >
+                        {day}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </div>
         </div>
 
         {/* Time */}
@@ -248,34 +374,32 @@ function BookSlot({ onBack, onBookingConfirmed }) {
           </div>
 
           <div className="time-grid">
-  {timeSlots.map((slot) => (
-    <button
-      key={slot.time}
-      type="button"
-      disabled={!slot.available}
-      className={`time-slot ${
-        selectedTime === slot.time ? "selected" : ""
-      } ${!slot.available ? "disabled" : ""}`}
-      onClick={() => setSelectedTime(slot.time)}
-    >
-      <span className="slot-period">
-        {slot.period === "Morning" ? t.morning : t.afternoon}
-      </span>
+            {timeSlots.map((slot) => (
+              <button
+                key={slot.time}
+                type="button"
+                disabled={!slot.available}
+                className={`time-slot ${
+                  selectedTime === slot.time ? "selected" : ""
+                } ${!slot.available ? "disabled" : ""}`}
+                onClick={() => setSelectedTime(slot.time)}
+              >
+                <span className="slot-period">
+                  {slot.period === "Morning" ? t.morning : t.afternoon}
+                </span>
 
-      <strong className="slot-time">
-        {slot.time}
-      </strong>
+                <strong className="slot-time">
+                  {slot.time}
+                </strong>
 
-      <span className="slot-duration">
-        
-      </span>
+                <span className="slot-duration"></span>
 
-      <span className="slot-status">
-        {slot.available ? `✓ ${t.available}` : `✕ ${t.full}`}
-      </span>
-    </button>
-  ))}
-</div>
+                <span className="slot-status">
+                  {slot.available ? `✓ ${t.available}` : `✕ ${t.full}`}
+                </span>
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Summary */}
