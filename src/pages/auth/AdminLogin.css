@@ -122,7 +122,7 @@
 
 .admin-brand strong {
   display: block;
-  font-size: 16px;
+  font-size: 19px;
   line-height: 1;
 }
 
@@ -142,7 +142,7 @@
   display: block;
   margin-top: 4px;
   color: var(--muted);
-  font-size: 7px;
+  font-size: 10px;
 }
 
 /* CONTENT */
@@ -173,7 +173,7 @@
   background: rgba(255, 255, 255, 0.65);
   color: var(--primary);
 
-  font-size: 8px;
+  font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.04em;
 }
@@ -233,7 +233,7 @@
 
   color: var(--primary);
 
-  font-size: 8px;
+  font-size: 11px;
   font-weight: 850;
   letter-spacing: 0.1em;
 }
@@ -255,7 +255,7 @@
 
   color: var(--muted);
 
-  font-size: 9px;
+  font-size: 12px;
 }
 
 /* WARNING */
@@ -277,7 +277,7 @@
 .admin-login-warning strong {
   display: block;
 
-  font-size: 9px;
+  font-size: 12px;
   font-weight: 850;
 }
 
@@ -286,7 +286,7 @@
 
   margin-top: 4px;
 
-  font-size: 8px;
+  font-size: 11px;
   line-height: 1.45;
 }
 
@@ -307,7 +307,7 @@
 
   color: var(--text);
 
-  font-size: 9px;
+  font-size: 12px;
   font-weight: 800;
 }
 
@@ -326,7 +326,7 @@
   background: var(--surface);
   color: var(--text);
 
-  font-size: 9px;
+  font-size: 12px;
 
   box-sizing: border-box;
 
@@ -388,7 +388,7 @@
 
   color: var(--muted);
 
-  font-size: 7px;
+  font-size: 10px;
   line-height: 1.4;
 }
 
@@ -423,7 +423,7 @@
   align-items: center;
   justify-content: center;
 
-  font-size: 16px;
+  font-size: 19px;
   font-weight: 900;
 
   letter-spacing: 3px;
@@ -469,7 +469,7 @@
   background: var(--error-bg);
   color: var(--error-text);
 
-  font-size: 8px;
+  font-size: 11px;
   line-height: 1.4;
 }
 
@@ -499,7 +499,7 @@
 
   gap: 8px;
 
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 850;
 
   cursor: pointer;
@@ -528,7 +528,7 @@
 
   color: var(--muted);
 
-  font-size: 7px;
+  font-size: 10px;
 }
 
 .admin-security-info div {
@@ -561,7 +561,7 @@
   align-items: center;
   gap: 7px;
 
-  font-size: 8px;
+  font-size: 11px;
 }
 
 .otp-input {
@@ -583,7 +583,7 @@
 
   color: var(--primary);
 
-  font-size: 8px;
+  font-size: 11px;
   font-weight: 800;
 
   cursor: pointer;
@@ -599,7 +599,7 @@
 
   color: var(--muted);
 
-  font-size: 8px;
+  font-size: 11px;
 
   cursor: pointer;
 }
@@ -617,7 +617,7 @@
 
   color: var(--muted);
 
-  font-size: 7px;
+  font-size: 10px;
   text-align: center;
 }
 
@@ -678,13 +678,13 @@
   gap: 8px;
   margin-bottom: 10px;
   color: var(--text);
-  font-size: 9px;
+  font-size: 12px;
   font-weight: 850;
 }
 
 .admin-demo-title small {
   color: var(--muted);
-  font-size: 7px;
+  font-size: 10px;
   font-weight: 600;
 }
 
@@ -702,7 +702,7 @@
   display: block;
   margin-bottom: 4px;
   color: var(--muted);
-  font-size: 7px;
+  font-size: 10px;
   font-weight: 700;
 }
 
@@ -714,7 +714,7 @@
   background: var(--surface);
   color: var(--primary);
   font-family: monospace;
-  font-size: 8px;
+  font-size: 11px;
   font-weight: 800;
   text-align: center;
   white-space: nowrap;
@@ -728,7 +728,7 @@
   border-radius: 9px;
   background: var(--surface);
   color: var(--primary);
-  font-size: 8px;
+  font-size: 11px;
   font-weight: 800;
   cursor: pointer;
 }
@@ -758,4 +758,39 @@
   .admin-demo-grid code {
     text-align: left;
   }
+}
+
+
+/* Readable typography adjustment */
+.admin-login-page .admin-brand strong { font-size: 19px; }
+.admin-login-page .admin-brand small { font-size: 10px; }
+.admin-login-page .admin-security-badge { font-size: 11px; }
+.admin-login-page .admin-login-heading p { font-size: 10px; }
+.admin-login-page .admin-login-heading h1 { font-size: 28px; }
+.admin-login-page .admin-login-heading span { font-size: 11px; }
+.admin-login-page .admin-login-warning strong { font-size: 11px; }
+.admin-login-page .admin-login-warning span { font-size: 10px; }
+.admin-login-page .admin-field label { font-size: 11px; }
+.admin-login-page .admin-field input,
+.admin-login-page .admin-field select { font-size: 11px; }
+.admin-login-page .password-hint { font-size: 9px; }
+.admin-login-page .admin-error { font-size: 10px; }
+.admin-login-page .admin-login-button { font-size: 12px; }
+.admin-login-page .admin-security-info { font-size: 9px; }
+.admin-login-page .otp-info { font-size: 10px; }
+.admin-login-page .otp-resend,
+.admin-login-page .otp-back { font-size: 10px; }
+.admin-login-page .admin-footer-security { font-size: 9px; }
+.admin-login-page .admin-demo-title { font-size: 11px; }
+.admin-login-page .admin-demo-title small { font-size: 9px; }
+.admin-login-page .admin-demo-grid label { font-size: 9px; }
+.admin-login-page .admin-demo-grid code { font-size: 10px; }
+.admin-login-page .admin-demo-fill { font-size: 10px; }
+.admin-login-page .admin-demo-otp { font-size: 19px; }
+
+@media (max-width: 600px) {
+  .admin-login-page .admin-login-heading h1 { font-size: 24px; }
+  .admin-login-page .admin-field input,
+  .admin-login-page .admin-field select { font-size: 11px; }
+  .admin-login-page .admin-login-button { font-size: 11px; }
 }
