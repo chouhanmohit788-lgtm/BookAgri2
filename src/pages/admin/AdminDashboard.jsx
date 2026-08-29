@@ -73,21 +73,21 @@ export default function AdminDashboard({ onNavigate, onLogout }) {
 
           <div className="admin-feature-grid">
             <FeatureCard
-              number="01"
+              number=""
               icon={<Activity />}
               title="Procurement Overview & Monitoring"
               text="Overall procurement, daily activity, centre-wise procurement and capacity/status."
               onClick={() => go("procurementOverview")}
             />
             <FeatureCard
-              number="02"
+              number=""
               icon={<Building2 />}
               title="Procurement Centres"
               text="Centre list, add/manage, code, location, institution and capacity."
               onClick={() => go("centres")}
             />
             <FeatureCard
-              number="03"
+              number=""
               icon={<AlertCircle />}
               title="Farmer Complaints"
               text="Farmer, Kisan Code, centre, date, complaint details and status."

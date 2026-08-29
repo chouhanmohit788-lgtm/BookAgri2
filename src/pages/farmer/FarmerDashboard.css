@@ -879,3 +879,17 @@
 .dark-mode .weather-quick-icon {
   filter: brightness(1.08);
 }
+
+
+/* Farmer Dashboard: new Quick Access features */
+.quick-card.green strong,
+.quick-card.yellow strong {
+  font-size: 13px;
+}
+
+@media (max-width: 600px) {
+  .quick-card.green strong,
+  .quick-card.yellow strong {
+    font-size: 11px;
+  }
+}

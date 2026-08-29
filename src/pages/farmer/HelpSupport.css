@@ -1,0 +1,72 @@
+/* FarmBuddy - Help & Support */
+
+.help-support-page{
+  min-height:100vh;
+  background:#f5faf6;
+  color:#163224;
+  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  padding-bottom:35px;
+}
+.hs-header{
+  height:72px;padding:0 5%;background:#fff;border-bottom:1px solid #e3ece6;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+}
+.hs-back{
+  border:1px solid #d8e5dc;background:#fff;color:#08753b;border-radius:10px;
+  min-width:70px;height:38px;padding:0 10px;display:flex;align-items:center;justify-content:center;
+  gap:6px;cursor:pointer;font-size:11px;font-weight:800;
+}
+.hs-brand{display:flex;align-items:center;gap:10px}
+.hs-brand-icon{width:40px;height:40px;border-radius:11px;background:#e7f5eb;color:#08753b;display:flex;align-items:center;justify-content:center}
+.hs-brand strong{display:block;font-size:19px;line-height:1}.hs-brand strong span{color:#07552f}
+.hs-brand small{display:block;margin-top:4px;color:#7a8d82;font-size:9px}
+.hs-content{width:min(1050px,92%);margin:0 auto;padding:30px 0}
+.hs-hero{display:flex;align-items:center;gap:15px;padding:22px;background:linear-gradient(135deg,#edf9f0,#fff);border:1px solid #dce9df;border-radius:20px}
+.hs-hero-icon{width:54px;height:54px;border-radius:15px;background:#dff3e5;color:#08753b;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.hs-hero p,.hs-section-head p,.hs-support-card p{margin:0;color:#08753b;font-size:9px;font-weight:900;letter-spacing:.09em}
+.hs-hero h1{margin:5px 0 4px;font-size:28px;letter-spacing:-.5px}.hs-hero span{color:#71857a;font-size:11px}
+.hs-search-card{margin-top:16px;padding:17px;border:1px solid #dce9df;border-radius:16px;background:#fff}
+.hs-search{height:48px;padding:0 13px;border:1px solid #dce9df;border-radius:12px;display:flex;align-items:center;gap:8px;color:#7b8e84}
+.hs-search:focus-within{border-color:#43b95f;box-shadow:0 0 0 3px rgba(67,185,95,.1)}
+.hs-search input{width:100%;border:0;outline:0;background:transparent;color:#163224;font:inherit;font-size:12px}
+.hs-search input::placeholder{color:#9aaa9f}
+.hs-category-row{margin-top:12px;display:flex;gap:7px;flex-wrap:wrap}
+.hs-category-row button{border:1px solid #dce9df;background:#f8fbf9;color:#65786d;border-radius:9px;padding:7px 10px;cursor:pointer;font-size:9px;font-weight:750}
+.hs-category-row button.active{background:#e6f5ea;color:#08753b;border-color:#b9dec2}
+.hs-section-head{margin-top:24px;display:flex;align-items:flex-end;justify-content:space-between}
+.hs-section-head h2{margin:5px 0 0;font-size:20px}.hs-section-head>span{color:#819188;font-size:10px}
+.hs-faq-list{margin-top:10px;display:flex;flex-direction:column;gap:8px}
+.hs-faq{border:1px solid #dce9df;border-radius:13px;background:#fff;overflow:hidden}
+.hs-question{width:100%;min-height:65px;padding:11px 14px;border:0;background:transparent;text-align:left;display:grid;grid-template-columns:34px 1fr 22px;gap:10px;align-items:center;cursor:pointer}
+.hs-q-number{color:#9aaba1;font-size:9px;font-weight:900}.hs-q-text strong{display:block;color:#163224;font-size:12px;line-height:1.35}
+.hs-q-text small{display:block;margin-top:4px;color:#7d8f85;font-size:8px}
+.hs-chevron{color:#82958a;transition:.18s ease}.hs-faq.open .hs-chevron{transform:rotate(180deg);color:#08753b}
+.hs-answer{padding:0 18px 16px 58px;display:flex;align-items:flex-start;gap:7px;color:#53675c}
+.hs-answer svg{color:#08753b;flex-shrink:0;margin-top:2px}.hs-answer p{margin:0;font-size:10px;line-height:1.6}
+.hs-no-result{padding:45px 20px;border:1px dashed #cbdace;border-radius:14px;background:#fff;color:#819188;display:flex;align-items:center;flex-direction:column;gap:7px;text-align:center}
+.hs-no-result svg{color:#08753b}.hs-no-result strong{font-size:12px;color:#53675c}.hs-no-result span{font-size:9px}
+.hs-support-card{margin-top:18px;padding:18px;border:1px solid #cfe2d3;border-radius:16px;background:#eaf7ee;display:grid;grid-template-columns:46px 1fr auto;align-items:center;gap:12px}
+.hs-support-icon{width:46px;height:46px;border-radius:12px;background:#d8efde;color:#08753b;display:flex;align-items:center;justify-content:center}
+.hs-support-card h2{margin:4px 0 2px;font-size:16px}.hs-support-card span{color:#587063;font-size:9px}
+.hs-support-card button{height:38px;padding:0 13px;border:0;border-radius:10px;background:#08753b;color:#fff;font-size:9px;font-weight:850;cursor:pointer}
+
+.dark-mode.help-support-page{background:#07150e;color:#eef8f1}
+.dark-mode .hs-header,.dark-mode .hs-search-card,.dark-mode .hs-faq,.dark-mode .hs-no-result{background:#0d2116;border-color:#1e3a29}
+.dark-mode .hs-back{background:#0d2116;border-color:#2d4a37;color:#68df83}
+.dark-mode .hs-brand strong{color:#55d96f}.dark-mode .hs-brand strong span{color:#d7f3df}
+.dark-mode .hs-brand small,.dark-mode .hs-hero span,.dark-mode .hs-section-head>span,.dark-mode .hs-q-text small,.dark-mode .hs-answer,.dark-mode .hs-no-result,.dark-mode .hs-search input::placeholder{color:#9db2a4}
+.dark-mode .hs-hero{background:linear-gradient(135deg,#10291a,#0d2116);border-color:#1e3a29}
+.dark-mode .hs-search{border-color:#2c4735}.dark-mode .hs-search input{color:#eef8f1}
+.dark-mode .hs-category-row button{background:#102319;border-color:#294535;color:#b0c2b6}
+.dark-mode .hs-category-row button.active{background:#173821;border-color:#386b48;color:#66df80}
+.dark-mode .hs-question strong{color:#edf8f1}
+.dark-mode .hs-support-card{background:#10291a;border-color:#2b5036}.dark-mode .hs-support-card span{color:#a8bcad}
+
+@media(max-width:700px){
+  .hs-header{padding:0 14px}.hs-content{width:94%;padding:20px 0}.hs-hero{align-items:flex-start;padding:17px}.hs-hero h1{font-size:23px}.hs-hero span{font-size:10px}
+  .hs-support-card{grid-template-columns:42px 1fr}.hs-support-card button{grid-column:1/-1;width:100%}
+}
+@media(max-width:500px){
+  .hs-brand small{font-size:8px}.hs-brand strong{font-size:17px}.hs-back span{display:none}.hs-hero{gap:10px}.hs-hero-icon{width:44px;height:44px}.hs-hero h1{font-size:20px}
+  .hs-search input{font-size:11px}.hs-question{grid-template-columns:27px 1fr 19px;padding:10px 11px}.hs-q-text strong{font-size:11px}.hs-answer{padding-left:48px}.hs-answer p{font-size:9px}
+}

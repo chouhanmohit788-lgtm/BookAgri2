@@ -4,6 +4,8 @@ import {
   Bell,
   CalendarDays,
   CheckCircle2,
+  CircleHelp,
+  MessageSquareWarning,
   Clock3,
   ClipboardList,
   MapPin,
@@ -19,7 +21,7 @@ import ThemeButton from "../../components/ThemeButton";
 
 import "./FarmerDashboard.css";
 
-function FarmerDashboard({ onProfile, onPayment, onHistory, onBookSlot, booking, onMyBooking, onTokenQueue, onWeather }) {
+function FarmerDashboard({ onProfile, onPayment, onHistory, onBookSlot, booking, onMyBooking, onTokenQueue, onWeather, onHelpSupport, onComplaints }) {
   const { isDark, toggleTheme } = useTheme();
   const { language, t } = useLanguage();
   const [showNotifications, setShowNotifications] = useState(false);
@@ -304,7 +306,8 @@ function FarmerDashboard({ onProfile, onPayment, onHistory, onBookSlot, booking,
               type="button"
               className="quick-card yellow"
               onClick={onTokenQueue}
-            >
+            
+>
               <Ticket size={28} />
               <strong>{t.tokenQueue}</strong>
             </button>
@@ -334,6 +337,28 @@ function FarmerDashboard({ onProfile, onPayment, onHistory, onBookSlot, booking,
               <span className="weather-quick-icon">☁️</span>
               <strong>
                 {language === "hi" ? "मौसम" : "Weather"}
+              </strong>
+            </button>
+
+            <button
+              type="button"
+              className="quick-card green"
+              onClick={onHelpSupport}
+            >
+              <CircleHelp size={28} />
+              <strong>
+                {language === "hi" ? "मदद और सहायता" : "Help & Support"}
+              </strong>
+            </button>
+
+            <button
+              type="button"
+              className="quick-card yellow"
+              onClick={onComplaints}
+            >
+              <MessageSquareWarning size={28} />
+              <strong>
+                {language === "hi" ? "शिकायत" : "Complaint"}
               </strong>
             </button>
 

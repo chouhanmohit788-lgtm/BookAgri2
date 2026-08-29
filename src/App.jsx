@@ -6,7 +6,8 @@ import AdminLogin from "./pages/auth/AdminLogin";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import ProcurementCentres from "./pages/admin/ProcurementCentres";
 import ProcurementOverviewMonitoring from "./pages/admin/ProcurementOverviewMonitoring";
-import FarmerComplaints from "./pages/admin/FarmerComplaints";
+import ComplaintReceive from "./pages/admin/ComplaintReceive";
+import FarmerComplaints from "./pages/farmer/FarmerComplaints";
 import OperatorDashboard from "./pages/Operator/operatorDashboard";
 import Farmers from "./pages/Operator/Farmers";
 import Procurement from "./pages/Operator/Procurement";
@@ -33,16 +34,17 @@ import BookingHistory from "./pages/farmer/BookingHistory";
 import TokenQueue from "./pages/farmer/TokenQueue";
 import Profile from "./pages/farmer/Profile";
 import Weather from "./pages/farmer/Weather";
+import HelpSupport from "./pages/farmer/HelpSupport";
 
 
 function App() {
 
   // Always start the app from the Home/Splash page on a fresh app load.
   // Do not restore the previous screen from localStorage.
-  const [screen, setScreen] = useState("splash");
+  const [screen, setScreen] = React.useState("splash");
 
-  const [selectedRole, setSelectedRole] = useState(null);
-  const [booking, setBooking] = useState(null);
+  const [selectedRole, setSelectedRole] = React.useState(null);
+  const [booking, setBooking] = React.useState(null);
 
 
   // Splash → Language
@@ -165,6 +167,18 @@ function App() {
   if (screen === "farmerComplaints") {
     return (
       <FarmerComplaints
+        onBack={() => setScreen("farmerDashboard")}
+      />
+    );
+  }
+
+  // =========================
+  // ADMIN COMPLAINT RECEIVE
+  // =========================
+
+  if (screen === "adminComplaints") {
+    return (
+      <ComplaintReceive
         onBack={() => setScreen("adminDashboard")}
       />
     );
@@ -183,7 +197,7 @@ function App() {
           } else if (page === "centres") {
             setScreen("procurementCentres");
           } else if (page === "complaints") {
-            setScreen("farmerComplaints");
+            setScreen("adminComplaints");
           } else {
             console.log("Admin section selected:", page);
           }
@@ -516,6 +530,18 @@ if (screen === "bookSlot") {
   }
 
   // =========================
+  // HELP & SUPPORT
+  // =========================
+
+  if (screen === "helpSupport") {
+    return (
+      <HelpSupport
+        onBack={() => setScreen("farmerDashboard")}
+      />
+    );
+  }
+
+  // =========================
   // FARMER DASHBOARD
   // =========================
 
@@ -529,6 +555,8 @@ if (screen === "bookSlot") {
       onPayment={() => setScreen("payment")}
       onProfile={() => setScreen("profile")}
       onWeather={() => setScreen("weather")}
+      onHelpSupport={() => setScreen("helpSupport")}
+      onComplaints={() => setScreen("farmerComplaints")}
       booking={booking}
     />
   );

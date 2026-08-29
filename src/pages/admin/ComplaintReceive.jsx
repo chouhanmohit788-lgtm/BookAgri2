@@ -15,7 +15,7 @@ import {
   UserRound,
   X,
 } from "lucide-react";
-import "./FarmerComplaints.css";
+import "./ComplaintReceive.css";
 
 const initialComplaints = [
   {

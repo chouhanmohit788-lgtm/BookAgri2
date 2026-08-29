@@ -24,15 +24,15 @@
   display:flex;align-items:center;justify-content:center;
 }
 .admin-brand strong{
-  display:block;font-size:18px;line-height:1;color:#43bd5a;
+  display:block;font-size:16px;line-height:1;color:#43bd5a;
 }
 .admin-brand strong span{color:#07552f}
 .admin-brand small{display:block;margin-top:4px;color:#7a8d82;font-size:8px}
 .admin-heading{text-align:center}
 .admin-heading p,.feature-section-heading p,.admin-card-heading p{
-  margin:0;color:#08753b;font-size:7px;font-weight:900;letter-spacing:.1em;
+  margin:0;color:#08753b;font-size:8px;font-weight:900;letter-spacing:.1em;
 }
-.admin-heading h1{margin:5px 0 3px;font-size:28px;line-height:1.1;letter-spacing:-.7px}
+.admin-heading h1{margin:5px 0 3px;font-size:25px;line-height:1.1;letter-spacing:-.7px}
 .admin-heading span{color:#75877e;font-size:9px}
 .admin-user{
   display:flex;align-items:center;gap:10px;min-width:260px;justify-content:flex-end;
@@ -40,15 +40,15 @@
 .admin-user>div:first-child{
   padding-right:15px;border-right:1px solid #dce7df;
 }
-.admin-user span{display:block;color:#84958c;font-size:7px}
-.admin-user strong{display:block;margin-top:3px;font-size:8px}
+.admin-user span{display:block;color:#84958c;font-size:9px}
+.admin-user strong{display:block;margin-top:3px;font-size:9px}
 .admin-avatar{
   width:39px;height:39px;border-radius:10px;background:#08753b;color:#fff;
-  display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:900;
+  display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:900;
 }
 .admin-logout-top{
   height:32px;padding:0 12px;border:1px solid #ead2d2;border-radius:9px;
-  background:#fff5f5;color:#c84a4a;font-size:7px;font-weight:800;cursor:pointer;
+  background:#fff5f5;color:#c84a4a;font-size:9px;font-weight:800;cursor:pointer;
 }
 .admin-logout-top:hover{background:#ffecec}
 
@@ -64,9 +64,9 @@
   background:#e8f6ec;color:#08753b;display:flex;align-items:center;justify-content:center;
 }
 .stat-icon svg{width:17px;height:17px}
-.admin-stat-card>span{display:block;color:#71857a;font-size:7px;font-weight:700}
-.admin-stat-card>strong{display:block;margin-top:4px;font-size:20px;line-height:1.15}
-.admin-stat-card>small{display:block;margin-top:4px;color:#9aaa9f;font-size:6px}
+.admin-stat-card>span{display:block;color:#71857a;font-size:9px;font-weight:700}
+.admin-stat-card>strong{display:block;margin-top:4px;font-size:21px;line-height:1.15}
+.admin-stat-card>small{display:block;margin-top:4px;color:#9aaa9f;font-size:8px}
 
 .admin-card{
   min-width:0;padding:19px;border:1px solid #dce9df;border-radius:16px;
@@ -75,13 +75,13 @@
 .admin-card-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:15px}
 .admin-card-heading>svg{color:#08753b;flex-shrink:0}
 .admin-card-heading h2{margin:4px 0 0;font-size:14px;line-height:1.2}
-.today-metrics{margin-top:18px;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
-.today-metrics div{min-width:0;padding:12px;border-radius:11px;background:#f6faf7}
+.today-metrics{margin-top:18px;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
+.today-metrics div{min-width:0;min-height:72px;padding:13px;border-radius:11px;background:#f6faf7}
 .today-metrics strong{display:block;font-size:15px}
-.today-metrics span{display:block;margin-top:4px;color:#7d8f85;font-size:6px}
+.today-metrics span{display:block;margin-top:4px;color:#7d8f85;font-size:8px;line-height:1.4}
 .capacity-progress{margin-top:18px}
 .progress-label,.progress-foot{display:flex;justify-content:space-between;align-items:center}
-.progress-label{color:#60756a;font-size:7px}.progress-label strong{color:#08753b}
+.progress-label{color:#60756a;font-size:8px}.progress-label strong{color:#08753b}
 .progress-track{height:8px;margin-top:7px;overflow:hidden;border-radius:10px;background:#e8eee9}
 .progress-value{width:62%;height:100%;border-radius:inherit;background:linear-gradient(90deg,#08753b,#48c660)}
 .progress-foot{margin-top:6px;color:#99a69f;font-size:6px}
@@ -89,7 +89,7 @@
 .status-row{
   min-height:40px;border-bottom:1px solid #edf2ee;display:flex;align-items:center;justify-content:space-between;font-size:8px;
 }
-.status-row span{display:flex;align-items:center;gap:7px}.status-row strong{font-size:11px}
+.status-row span{display:flex;align-items:center;gap:7px}.status-row strong{font-size:9px}
 .status-dot{width:7px;height:7px;display:inline-block;border-radius:50%;background:#9aa69f;flex-shrink:0}
 .status-dot.active{background:#35ad55}.status-dot.inactive{background:#d75555}.status-dot.review{background:#d6a42e}
 
@@ -100,12 +100,12 @@
   gap:12px;align-items:center;
 }
 .centre-table-head{
-  padding:9px 10px;border-radius:8px;background:#f5f9f6;color:#819188;font-size:7px;font-weight:800;
+  padding:9px 10px;border-radius:8px;background:#f5f9f6;color:#819188;font-size:8px;font-weight:800;
 }
 .centre-table-row{
-  min-height:46px;padding:7px 10px;border-bottom:1px solid #edf2ee;font-size:7px;
+  min-height:46px;padding:7px 10px;border-bottom:1px solid #edf2ee;font-size:8px;
 }
-.centre-table-row strong{display:flex;align-items:center;gap:6px;font-size:7px}
+.centre-table-row strong{display:flex;align-items:center;gap:6px;font-size:8px}
 .centre-table-row strong svg{color:#08753b;flex-shrink:0}
 .centre-table-row>span{display:flex;align-items:center;gap:5px;color:#71857a}
 
@@ -126,13 +126,13 @@
 .today-activity-card .today-metrics span{
   line-height:1.35;
 }
-/* Six main features */
+/* Main admin features */
 .admin-feature-section{margin-top:13px}
 .feature-section-heading{
   display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:11px;
 }
 .feature-section-heading h2{margin:4px 0 0;font-size:16px}
-.feature-section-heading>span{color:#87968e;font-size:7px}
+.feature-section-heading>span{color:#87968e;font-size:9px}
 .admin-feature-grid{
   display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
 }
@@ -151,7 +151,7 @@
   border-color:#b9dfc3;background:#f7fcf8;cursor:default;
 }
 .admin-feature-card:disabled{opacity:1}
-.feature-number{align-self:start;color:#a1afa7;font-size:7px;font-weight:900;padding-top:2px}
+.feature-number{align-self:start;color:#a1afa7;font-size:8px;font-weight:900;padding-top:2px}
 .feature-icon{
   width:40px;height:40px;border-radius:11px;background:#e8f6ec;color:#08753b;
   display:flex;align-items:center;justify-content:center;
@@ -160,12 +160,12 @@
 .feature-content{min-width:0}
 .feature-content strong{display:block;font-size:10px;line-height:1.2}
 .feature-content span{
-  display:block;margin-top:5px;color:#819188;font-size:7px;line-height:1.45;
+  display:block;margin-top:5px;color:#819188;font-size:8px;line-height:1.45;
 }
 .feature-arrow{color:#8da097}
 .feature-current{
   align-self:start;justify-self:end;padding:4px 6px;border-radius:6px;
-  background:#e5f4e9;color:#08753b;font-size:6px;font-weight:900;
+  background:#e5f4e9;color:#08753b;font-size:8px;font-weight:900;
 }
 
 @media(max-width:1100px){
@@ -191,4 +191,100 @@
   .today-metrics{grid-template-columns:1fr}
   .centre-table{overflow-x:auto}
   .centre-table-head,.centre-table-row{min-width:650px}
+}
+
+
+/* Readable dashboard typography */
+@media(max-width:750px){
+  .admin-heading h1{font-size:25px}
+  .feature-content strong{font-size:13px}
+  .feature-content span{font-size:9px}
+}
+@media(max-width:560px){
+  .admin-heading h1{font-size:23px}
+  .admin-stat-card>strong{font-size:22px}
+  .today-metrics strong{font-size:17px}
+  .today-metrics span{font-size:9px}
+}
+
+
+/* Admin Dashboard typography aligned with Operator Dashboard */
+.admin-dashboard .admin-brand strong{font-size:16px}
+.admin-dashboard .admin-brand small{font-size:8px}
+.admin-dashboard .admin-heading p,
+.admin-dashboard .feature-section-heading p,
+.admin-dashboard .admin-card-heading p{font-size:8px}
+.admin-dashboard .admin-heading h1{font-size:25px}
+.admin-dashboard .admin-heading span{font-size:9px}
+.admin-dashboard .admin-user span{font-size:8px}
+.admin-dashboard .admin-user strong{font-size:9px}
+.admin-dashboard .admin-logout-top{font-size:9px}
+
+.admin-dashboard .admin-stat-card>span{font-size:8px}
+.admin-dashboard .admin-stat-card>strong{font-size:21px}
+.admin-dashboard .admin-stat-card>small{font-size:7px}
+
+.admin-dashboard .admin-card-heading h2{font-size:14px}
+.admin-dashboard .today-metrics strong{font-size:15px}
+.admin-dashboard .today-metrics span{font-size:8px}
+
+.admin-dashboard .feature-section-heading h2{font-size:16px}
+.admin-dashboard .feature-section-heading>span{font-size:8px}
+.admin-dashboard .feature-number{font-size:8px}
+.admin-dashboard .feature-content strong{font-size:10px}
+.admin-dashboard .feature-content span{font-size:8px;line-height:1.45}
+.admin-dashboard .feature-current{font-size:7px}
+
+@media(max-width:560px){
+  .admin-dashboard .admin-heading h1{font-size:23px}
+  .admin-dashboard .admin-stat-card>strong{font-size:20px}
+  .admin-dashboard .today-metrics strong{font-size:15px}
+  .admin-dashboard .feature-content strong{font-size:10px}
+  .admin-dashboard .feature-content span{font-size:8px}
+}
+
+
+
+/* Final Admin Dashboard readability adjustment */
+.admin-dashboard .admin-heading h1{font-size:30px}
+.admin-dashboard .admin-heading span{font-size:11px}
+
+.admin-dashboard .admin-stat-card>span{font-size:10px}
+.admin-dashboard .admin-stat-card>strong{font-size:24px}
+.admin-dashboard .admin-stat-card>small{font-size:9px}
+
+.admin-dashboard .feature-section-heading h2{font-size:20px}
+.admin-dashboard .feature-section-heading>span{font-size:10px}
+
+/* Feature cards: title + especially the descriptive subheading */
+.admin-dashboard .feature-content strong{
+  font-size:13px;
+  line-height:1.3;
+}
+.admin-dashboard .feature-content span{
+  font-size:10px;
+  line-height:1.6;
+  margin-top:6px;
+}
+
+/* Number and small status text */
+.admin-dashboard .feature-number{font-size:9px}
+.admin-dashboard .feature-current{font-size:8px}
+
+/* Today's Activity */
+.admin-dashboard .admin-card-heading h2{font-size:16px}
+.admin-dashboard .today-metrics strong{font-size:17px}
+.admin-dashboard .today-metrics span{font-size:9px;line-height:1.45}
+
+@media(max-width:750px){
+  .admin-dashboard .admin-heading h1{font-size:28px}
+  .admin-dashboard .admin-stat-card>strong{font-size:23px}
+  .admin-dashboard .feature-content strong{font-size:13px}
+  .admin-dashboard .feature-content span{font-size:10px;line-height:1.6}
+}
+@media(max-width:560px){
+  .admin-dashboard .admin-heading h1{font-size:25px}
+  .admin-dashboard .admin-stat-card>strong{font-size:21px}
+  .admin-dashboard .feature-content strong{font-size:12px}
+  .admin-dashboard .feature-content span{font-size:10px}
 }
