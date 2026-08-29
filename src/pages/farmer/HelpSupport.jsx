@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import {
   ArrowLeft,
   ChevronDown,
@@ -17,8 +17,8 @@ const faqData = [
   {
     "id": 1,
     "category": "Account & Kisan Code",
-    "question": "Kisan Code kya hota hai?",
-    "answer": "Kisan Code farmer ki unique identification code hoti hai jisse FarmBuddy par farmer ko identify kiya ja sakta hai.",
+    "question": "What is a Kisan Code?",
+    "answer": "A Kisan Code is a unique identification code for a farmer that can be used to identify the farmer on FarmBuddy.",
     "hiAnswer": "किसान कोड किसान की एक विशिष्ट पहचान संख्या है, जिससे FarmBuddy पर किसान की पहचान की जाती है।",
     "keywords": [
       "kisan code",
@@ -29,8 +29,8 @@ const faqData = [
   {
     "id": 2,
     "category": "Account & Kisan Code",
-    "question": "Kisan Code kahan milega?",
-    "answer": "Apna Kisan Code registration ke time milne wale official record ya registered procurement details se check karein.",
+    "question": "Where can I find my Kisan Code?",
+    "answer": "You can find your Kisan Code in the official record provided during registration or in your registered procurement details.",
     "hiAnswer": "अपना किसान कोड पंजीकरण के समय मिले आधिकारिक रिकॉर्ड या पंजीकृत खरीद विवरण से देखें।",
     "keywords": [
       "kisan code",
@@ -41,8 +41,8 @@ const faqData = [
   {
     "id": 3,
     "category": "Account & Kisan Code",
-    "question": "Main Kisan Code bhool gaya hoon, kya karun?",
-    "answer": "Apne registered mobile number aur official farmer records ke through Kisan Code verify ya recover karne ki process follow karein.",
+    "question": "I forgot my Kisan Code. What should I do?",
+    "answer": "Use your registered mobile number and official farmer records to verify or recover your Kisan Code.",
     "hiAnswer": "अपने पंजीकृत मोबाइल नंबर और आधिकारिक किसान रिकॉर्ड से किसान कोड सत्यापित या रिकवर करने की प्रक्रिया अपनाएँ।",
     "keywords": [
       "bhool",
@@ -53,8 +53,8 @@ const faqData = [
   {
     "id": 4,
     "category": "Account & Kisan Code",
-    "question": "Kisan Code galat dikha raha hai, kya karun?",
-    "answer": "Code dobara carefully enter karein. Problem continue ho to Contact Support se verification karwayein.",
+    "question": "My Kisan Code is showing as incorrect. What should I do?",
+    "answer": "Enter the code again carefully. If the problem continues, contact Support for verification.",
     "hiAnswer": "कोड दोबारा ध्यान से दर्ज करें। समस्या बनी रहे तो Contact Support से सत्यापन करवाएँ।",
     "keywords": [
       "galat",
@@ -65,8 +65,8 @@ const faqData = [
   {
     "id": 5,
     "category": "Account & Kisan Code",
-    "question": "Kya mobile number se login kar sakta hoon?",
-    "answer": "FarmBuddy login mein registered farmer details aur mobile verification ka use kiya ja sakta hai.",
+    "question": "Can I log in using my mobile number?",
+    "answer": "FarmBuddy login can use the registered farmer details and mobile verification.",
     "hiAnswer": "FarmBuddy में किसान लॉगिन के लिए पंजीकृत किसान विवरण और मोबाइल सत्यापन का उपयोग किया जाता है।",
     "keywords": [
       "mobile",
@@ -76,8 +76,8 @@ const faqData = [
   {
     "id": 6,
     "category": "Account & Kisan Code",
-    "question": "OTP kya hota hai?",
-    "answer": "OTP ek one-time verification code hota hai jo login ya verification ke time registered mobile par milta hai.",
+    "question": "What is an OTP?",
+    "answer": "An OTP is a one-time verification code received on the registered mobile number during login or verification.",
     "hiAnswer": "OTP एक बार इस्तेमाल होने वाला सत्यापन कोड है, जो लॉगिन या सत्यापन के समय पंजीकृत मोबाइल पर मिलता है।",
     "keywords": [
       "otp",
@@ -87,8 +87,8 @@ const faqData = [
   {
     "id": 7,
     "category": "Account & Kisan Code",
-    "question": "OTP nahi aa raha hai, kya karun?",
-    "answer": "Network check karein, kuch seconds wait karke resend karein. Phir bhi problem ho to support se contact karein.",
+    "question": "I am not receiving the OTP. What should I do?",
+    "answer": "Check your network, wait a few seconds, and resend the OTP. If the problem continues, contact support.",
     "hiAnswer": "नेटवर्क जाँचें, कुछ सेकंड प्रतीक्षा करके OTP दोबारा भेजें। फिर भी समस्या हो तो सपोर्ट से संपर्क करें।",
     "keywords": [
       "otp",
@@ -99,8 +99,8 @@ const faqData = [
   {
     "id": 8,
     "category": "Account & Kisan Code",
-    "question": "OTP kitni baar resend kar sakte hain?",
-    "answer": "OTP resend limited attempts ke saath hota hai. Baar-baar request karne par thoda wait karna pad sakta hai.",
+    "question": "How many times can I resend the OTP?",
+    "answer": "OTP resending is limited to a certain number of attempts. You may need to wait before trying again.",
     "hiAnswer": "OTP दोबारा भेजने के प्रयास सीमित होते हैं। बार-बार अनुरोध करने पर कुछ समय प्रतीक्षा करनी पड़ सकती है।",
     "keywords": [
       "otp",
@@ -111,8 +111,8 @@ const faqData = [
   {
     "id": 9,
     "category": "Account & Kisan Code",
-    "question": "Galat OTP dal diya, kya karun?",
-    "answer": "Sahi OTP dobara enter karein ya latest OTP resend karke verify karein.",
+    "question": "I entered the wrong OTP. What should I do?",
+    "answer": "Enter the correct OTP again or resend the latest OTP and verify it.",
     "hiAnswer": "सही OTP दोबारा दर्ज करें या नया OTP भेजकर सत्यापन करें।",
     "keywords": [
       "wrong otp",
@@ -122,8 +122,8 @@ const faqData = [
   {
     "id": 10,
     "category": "Account & Kisan Code",
-    "question": "Mobile number change ho gaya hai, kya karun?",
-    "answer": "Registered mobile update ke liye applicable official verification process follow karein ya support se help lein.",
+    "question": "My mobile number has changed. What should I do?",
+    "answer": "Follow the applicable official verification process to update your registered mobile number or contact support for help.",
     "hiAnswer": "पंजीकृत मोबाइल अपडेट करने के लिए आधिकारिक सत्यापन प्रक्रिया अपनाएँ या सपोर्ट से सहायता लें।",
     "keywords": [
       "mobile change",
@@ -133,8 +133,8 @@ const faqData = [
   {
     "id": 11,
     "category": "Account & Kisan Code",
-    "question": "Kya ek mobile se do farmer account login ho sakte hain?",
-    "answer": "Account access registered farmer details aur verification par depend karega. Duplicate access ke liye support se verify karein.",
+    "question": "Can two farmer accounts be logged in using the same mobile number?",
+    "answer": "Account access depends on the registered farmer details and verification. Contact support to verify duplicate access.",
     "hiAnswer": "अकाउंट का एक्सेस पंजीकृत किसान विवरण और सत्यापन पर निर्भर करता है। डुप्लीकेट एक्सेस के लिए सपोर्ट से जाँच करवाएँ।",
     "keywords": [
       "same mobile",
@@ -144,8 +144,8 @@ const faqData = [
   {
     "id": 12,
     "category": "Account & Kisan Code",
-    "question": "Login kyun nahi ho raha hai?",
-    "answer": "Kisan Code, mobile number aur required details check karein. OTP bhi sahi enter karein.",
+    "question": "Why am I unable to log in?",
+    "answer": "Check the Kisan Code, mobile number, and required details. Also make sure the OTP is entered correctly.",
     "hiAnswer": "किसान कोड, मोबाइल नंबर और जरूरी विवरण जाँचें। OTP भी सही दर्ज करें।",
     "keywords": [
       "login problem",
@@ -155,8 +155,8 @@ const faqData = [
   {
     "id": 13,
     "category": "Account & Kisan Code",
-    "question": "Password ki zarurat hai kya?",
-    "answer": "Farmer login ka current prototype OTP-based verification use karta hai.",
+    "question": "Do I need a password?",
+    "answer": "The current farmer login prototype uses OTP-based verification.",
     "hiAnswer": "वर्तमान किसान लॉगिन प्रोटोटाइप OTP आधारित सत्यापन का उपयोग करता है।",
     "keywords": [
       "password",
@@ -166,8 +166,8 @@ const faqData = [
   {
     "id": 14,
     "category": "Account & Kisan Code",
-    "question": "Kya logout karna zaroori hai?",
-    "answer": "Haan, shared ya public device par use ke baad logout karna safer hai.",
+    "question": "Is it necessary to log out?",
+    "answer": "Yes, logging out after using a shared or public device is safer.",
     "hiAnswer": "हाँ, साझा या सार्वजनिक डिवाइस इस्तेमाल करने के बाद लॉगआउट करना अधिक सुरक्षित है।",
     "keywords": [
       "logout",
@@ -177,8 +177,8 @@ const faqData = [
   {
     "id": 15,
     "category": "Account & Kisan Code",
-    "question": "Mera account secure kaise rahega?",
-    "answer": "OTP kisi ke saath share na karein aur sirf official FarmBuddy access ka use karein.",
+    "question": "How can I keep my account secure?",
+    "answer": "Do not share your OTP with anyone and use only the official FarmBuddy access.",
     "hiAnswer": "OTP किसी के साथ साझा न करें और केवल आधिकारिक FarmBuddy का उपयोग करें।",
     "keywords": [
       "security",
@@ -189,8 +189,8 @@ const faqData = [
   {
     "id": 16,
     "category": "Booking & Slot",
-    "question": "Procurement slot kaise book karein?",
-    "answer": "Book New Slot par jaakar crop, quantity, procurement centre, date aur available time select karke booking confirm karein.",
+    "question": "How can I book a procurement slot?",
+    "answer": "Go to Book New Slot, select the crop, quantity, procurement centre, date, and available time, then confirm the booking.",
     "hiAnswer": "Book New Slot पर जाकर फसल, मात्रा, खरीद केंद्र, तारीख और उपलब्ध समय चुनकर बुकिंग की पुष्टि करें।",
     "keywords": [
       "slot",
@@ -201,8 +201,8 @@ const faqData = [
   {
     "id": 17,
     "category": "Booking & Slot",
-    "question": "Slot book karne ke liye kya details chahiye?",
-    "answer": "Crop, expected quantity, procurement centre, date aur available time slot select karna hota hai.",
+    "question": "What details are required to book a slot?",
+    "answer": "You need to select the crop, expected quantity, procurement centre, date, and available time slot.",
     "hiAnswer": "फसल, अनुमानित मात्रा, खरीद केंद्र, तारीख और उपलब्ध समय स्लॉट चुनना होता है।",
     "keywords": [
       "details",
@@ -213,8 +213,8 @@ const faqData = [
   {
     "id": 18,
     "category": "Booking & Slot",
-    "question": "Kya main booking ke baad details dekh sakta hoon?",
-    "answer": "Haan, My Booking section mein confirmed booking details dekhi ja sakti hain.",
+    "question": "Can I view my booking details after booking?",
+    "answer": "Yes, confirmed booking details can be viewed in the My Booking section.",
     "hiAnswer": "हाँ, My Booking सेक्शन में पुष्टि की गई बुकिंग की जानकारी देख सकते हैं।",
     "keywords": [
       "my booking",
@@ -224,8 +224,8 @@ const faqData = [
   {
     "id": 19,
     "category": "Booking & Slot",
-    "question": "Meri booking confirm hui ya nahi kaise pata chalega?",
-    "answer": "My Booking ya notification section mein booking status check karein.",
+    "question": "How can I know whether my booking is confirmed?",
+    "answer": "Check the booking status in My Booking or the notification section.",
     "hiAnswer": "My Booking या Notification सेक्शन में बुकिंग की स्थिति देखें।",
     "keywords": [
       "confirmed",
@@ -235,8 +235,8 @@ const faqData = [
   {
     "id": 20,
     "category": "Booking & Slot",
-    "question": "Kya booking ka date badal sakte hain?",
-    "answer": "Date change availability aur current booking rules par depend karega. Applicable option ho to My Booking se update karein.",
+    "question": "Can I change the booking date?",
+    "answer": "Changing the date depends on availability and current booking rules. If the option is available, update it from My Booking.",
     "hiAnswer": "तारीख बदलना उपलब्धता और मौजूदा बुकिंग नियमों पर निर्भर करता है। विकल्प हो तो My Booking से अपडेट करें।",
     "keywords": [
       "date change",
@@ -246,8 +246,8 @@ const faqData = [
   {
     "id": 21,
     "category": "Booking & Slot",
-    "question": "Kya booking cancel kar sakte hain?",
-    "answer": "Cancellation available ho to My Booking section se process start karein; otherwise support se contact karein.",
+    "question": "Can I cancel a booking?",
+    "answer": "If cancellation is available, start the process from My Booking; otherwise contact support.",
     "hiAnswer": "Cancellation उपलब्ध हो तो My Booking से प्रक्रिया शुरू करें, अन्यथा सपोर्ट से संपर्क करें।",
     "keywords": [
       "cancel",
@@ -257,8 +257,8 @@ const faqData = [
   {
     "id": 22,
     "category": "Booking & Slot",
-    "question": "Mujhe slot nahi mil raha hai, kya karun?",
-    "answer": "Dusri available date ya time slot check karein. Sab slots unavailable hon to baad mein retry karein.",
+    "question": "I cannot find an available slot. What should I do?",
+    "answer": "Check another available date or time slot. If all slots are unavailable, try again later.",
     "hiAnswer": "दूसरी उपलब्ध तारीख या समय स्लॉट देखें। सभी स्लॉट उपलब्ध न हों तो बाद में फिर प्रयास करें।",
     "keywords": [
       "slot nahi",
@@ -268,8 +268,8 @@ const faqData = [
   {
     "id": 23,
     "category": "Booking & Slot",
-    "question": "Ek din mein kitne slot book kar sakta hoon?",
-    "answer": "Allowed bookings applicable procurement rules aur system availability par depend karti hain.",
+    "question": "How many slots can I book in one day?",
+    "answer": "The number of bookings allowed in one day depends on the applicable procurement rules and system availability.",
     "hiAnswer": "एक दिन में अनुमत बुकिंग खरीद नियमों और सिस्टम की उपलब्धता पर निर्भर करती हैं।",
     "keywords": [
       "one day",
@@ -279,8 +279,8 @@ const faqData = [
   {
     "id": 24,
     "category": "Booking & Slot",
-    "question": "Kya booking free hai?",
-    "answer": "FarmBuddy prototype mein slot selection ko separate service charge ke bina dikhaya gaya hai; actual charges applicable policy par depend karte hain.",
+    "question": "Is booking free?",
+    "answer": "The FarmBuddy prototype does not show a separate service charge for slot selection; actual charges depend on the applicable policy.",
     "hiAnswer": "FarmBuddy प्रोटोटाइप में स्लॉट चयन के लिए अलग सेवा शुल्क नहीं दिखाया गया है; वास्तविक शुल्क लागू नीति पर निर्भर करेंगे।",
     "keywords": [
       "free",
@@ -291,8 +291,8 @@ const faqData = [
   {
     "id": 25,
     "category": "Booking & Slot",
-    "question": "Quantity galat bhar di ho to kya karun?",
-    "answer": "Confirmation se pehle quantity verify karein. Confirmed booking mein correction option available ho to use karein.",
+    "question": "What should I do if I entered the wrong quantity?",
+    "answer": "Verify the quantity before confirmation. If a correction option is available for a confirmed booking, use it.",
     "hiAnswer": "पुष्टि से पहले मात्रा जाँचें। पुष्टि की गई बुकिंग में सुधार विकल्प हो तो उसका उपयोग करें।",
     "keywords": [
       "quantity",
@@ -302,8 +302,8 @@ const faqData = [
   {
     "id": 26,
     "category": "Booking & Slot",
-    "question": "Kya quantity baad mein badal sakte hain?",
-    "answer": "Confirmed booking mein quantity change availability system ke rules par depend karega.",
+    "question": "Can I change the quantity later?",
+    "answer": "Changing the quantity in a confirmed booking depends on the system rules.",
     "hiAnswer": "पुष्टि की गई बुकिंग में मात्रा बदलना सिस्टम के नियमों पर निर्भर करेगा।",
     "keywords": [
       "quantity change"
@@ -312,8 +312,8 @@ const faqData = [
   {
     "id": 27,
     "category": "Booking & Slot",
-    "question": "Crop kaise select karun?",
-    "answer": "Apni actual procured crop select karein, jaise Wheat, Soybean, Maize ya Mustard.",
+    "question": "How do I select a crop?",
+    "answer": "Select the crop you are actually taking for procurement, such as Wheat, Soybean, Maize, or Mustard.",
     "hiAnswer": "अपनी वास्तविक खरीद वाली फसल चुनें, जैसे गेहूँ, सोयाबीन, मक्का या सरसों।",
     "keywords": [
       "crop select",
@@ -323,8 +323,8 @@ const faqData = [
   {
     "id": 28,
     "category": "Booking & Slot",
-    "question": "Galat crop select ho gaya, kya karun?",
-    "answer": "Booking confirm karne se pehle correct crop select karein. Confirmed booking mein correction option ho to use karein.",
+    "question": "I selected the wrong crop. What should I do?",
+    "answer": "Select the correct crop before confirming the booking. If a correction option is available after confirmation, use it.",
     "hiAnswer": "बुकिंग की पुष्टि से पहले सही फसल चुनें। पुष्टि की गई बुकिंग में सुधार विकल्प हो तो उसका उपयोग करें।",
     "keywords": [
       "wrong crop",
@@ -334,8 +334,8 @@ const faqData = [
   {
     "id": 29,
     "category": "Booking & Slot",
-    "question": "Procurement centre kaise choose karun?",
-    "answer": "Centre search karke available list se apne relevant procurement centre ko select karein.",
+    "question": "How do I choose a procurement centre?",
+    "answer": "Search for a centre and select the relevant procurement centre from the available list.",
     "hiAnswer": "केंद्र खोजकर उपलब्ध सूची में से संबंधित खरीद केंद्र चुनें।",
     "keywords": [
       "centre",
@@ -346,8 +346,8 @@ const faqData = [
   {
     "id": 30,
     "category": "Booking & Slot",
-    "question": "Kya main nearby procurement centre dekh sakta hoon?",
-    "answer": "Centre list mein available procurement centres search karke relevant centre choose kiya ja sakta hai.",
+    "question": "Can I see nearby procurement centres?",
+    "answer": "You can search the list of available procurement centres and choose the relevant centre.",
     "hiAnswer": "उपलब्ध खरीद केंद्रों की सूची में खोज करके अपने लिए सही केंद्र चुनें।",
     "keywords": [
       "nearby",
@@ -357,8 +357,8 @@ const faqData = [
   {
     "id": 31,
     "category": "Booking & Slot",
-    "question": "Date select karne par kya karna hai?",
-    "answer": "Calendar se required available date select karein aur phir available time slot choose karein.",
+    "question": "What should I do after selecting a date?",
+    "answer": "Select the required available date from the calendar and then choose an available time slot.",
     "hiAnswer": "कैलेंडर से उपलब्ध तारीख चुनें और फिर उपलब्ध समय स्लॉट चुनें।",
     "keywords": [
       "date select",
@@ -368,8 +368,8 @@ const faqData = [
   {
     "id": 32,
     "category": "Booking & Slot",
-    "question": "Kya past date select kar sakte hain?",
-    "answer": "Past date ko booking ke liye select nahi karna chahiye. Available future date choose karein.",
+    "question": "Can I select a past date?",
+    "answer": "Past dates should not be selected for booking. Choose an available future date.",
     "hiAnswer": "खरीद के लिए पिछली तारीख नहीं चुननी चाहिए। उपलब्ध भविष्य की तारीख चुनें।",
     "keywords": [
       "past date",
@@ -379,8 +379,8 @@ const faqData = [
   {
     "id": 33,
     "category": "Booking & Slot",
-    "question": "Time slot full dikhe to kya matlab hai?",
-    "answer": "Us time slot ki current availability complete ho chuki hai.",
+    "question": "What does it mean when a time slot is full?",
+    "answer": "It means the current availability of that time slot has been filled.",
     "hiAnswer": "इसका मतलब है कि उस समय स्लॉट की उपलब्ध क्षमता पूरी हो चुकी है।",
     "keywords": [
       "full",
@@ -390,8 +390,8 @@ const faqData = [
   {
     "id": 34,
     "category": "Booking & Slot",
-    "question": "Kya booking confirmation ke baad token milta hai?",
-    "answer": "Confirmed booking ke saath token/queue information available ho sakti hai.",
+    "question": "Do I get a token after booking confirmation?",
+    "answer": "Token or queue information may be available with a confirmed booking.",
     "hiAnswer": "पुष्टि की गई बुकिंग के साथ टोकन या कतार की जानकारी उपलब्ध हो सकती है।",
     "keywords": [
       "token",
@@ -401,8 +401,8 @@ const faqData = [
   {
     "id": 35,
     "category": "Booking & Slot",
-    "question": "Booking karne ke baad centre kab jana hai?",
-    "answer": "Confirmed booking mein selected date aur time slot ke according centre par pahunchna chahiye.",
+    "question": "When should I go to the centre after booking?",
+    "answer": "You should reach the centre according to the selected date and time slot of your confirmed booking.",
     "hiAnswer": "पुष्टि की गई बुकिंग में चुनी गई तारीख और समय के अनुसार केंद्र पर पहुँचना चाहिए।",
     "keywords": [
       "kab jana",
@@ -413,8 +413,8 @@ const faqData = [
   {
     "id": 36,
     "category": "Procurement Process",
-    "question": "Procurement centre par kya hota hai?",
-    "answer": "Farmer crop lekar centre par aata hai, jahan verification, weighing/quantity recording aur procurement process complete kiya ja sakta hai.",
+    "question": "What happens at a procurement centre?",
+    "answer": "The farmer brings the crop to the centre, where verification, weighing or quantity recording, and the procurement process can be completed.",
     "hiAnswer": "किसान फसल लेकर केंद्र पर आता है, जहाँ सत्यापन, वजन/मात्रा दर्ज करना और खरीद प्रक्रिया पूरी की जाती है।",
     "keywords": [
       "procurement centre",
@@ -424,8 +424,8 @@ const faqData = [
   {
     "id": 37,
     "category": "Procurement Process",
-    "question": "Centre par kya lekar jana chahiye?",
-    "answer": "Required farmer identification, booking/token details aur procured crop se related required documents saath rakhein.",
+    "question": "What should I take with me to the centre?",
+    "answer": "Carry the required farmer identification, booking or token details, and any required documents related to the crop.",
     "hiAnswer": "जरूरी किसान पहचान, बुकिंग/टोकन विवरण और फसल से जुड़े आवश्यक दस्तावेज साथ रखें।",
     "keywords": [
       "documents",
@@ -436,8 +436,8 @@ const faqData = [
   {
     "id": 38,
     "category": "Procurement Process",
-    "question": "Token number ka kya use hai?",
-    "answer": "Token/queue number farmer ki turn aur current queue position samajhne mein madad karta hai.",
+    "question": "What is the use of the token number?",
+    "answer": "The token or queue number helps the farmer understand their turn and current queue position.",
     "hiAnswer": "टोकन या कतार नंबर किसान की बारी और वर्तमान कतार स्थिति समझने में मदद करता है।",
     "keywords": [
       "token",
@@ -447,8 +447,8 @@ const faqData = [
   {
     "id": 39,
     "category": "Procurement Process",
-    "question": "Token queue kaise check karun?",
-    "answer": "Token & Queue section mein current token aur queue position check karein.",
+    "question": "How can I check the token queue?",
+    "answer": "Check the current token and queue position in the Token & Queue section.",
     "hiAnswer": "Token & Queue सेक्शन में वर्तमान टोकन और कतार की स्थिति देखें।",
     "keywords": [
       "queue",
@@ -458,8 +458,8 @@ const faqData = [
   {
     "id": 40,
     "category": "Procurement Process",
-    "question": "Meri procurement pending kyun hai?",
-    "answer": "Centre workload, verification, weighing ya processing stage ki wajah se procurement pending ho sakti hai.",
+    "question": "Why is my procurement pending?",
+    "answer": "Procurement may be pending because of centre workload, verification, weighing, or the current processing stage.",
     "hiAnswer": "केंद्र का काम, सत्यापन, वजन या प्रोसेसिंग की स्थिति के कारण खरीद लंबित हो सकती है।",
     "keywords": [
       "pending",
@@ -469,8 +469,8 @@ const faqData = [
   {
     "id": 41,
     "category": "Procurement Process",
-    "question": "Procurement complete hone ka matlab kya hai?",
-    "answer": "Iska matlab centre ne current procurement transaction ko completion status mein mark kar diya hai.",
+    "question": "What does procurement completed mean?",
+    "answer": "It means the centre has marked the current procurement transaction as completed.",
     "hiAnswer": "इसका मतलब है कि केंद्र ने वर्तमान खरीद लेन-देन को पूर्ण स्थिति में दर्ज कर दिया है।",
     "keywords": [
       "completed",
@@ -480,8 +480,8 @@ const faqData = [
   {
     "id": 42,
     "category": "Procurement Process",
-    "question": "Centre par waiting time kitna hota hai?",
-    "answer": "Waiting time centre workload, queue aur daily activity par depend karta hai.",
+    "question": "How long is the waiting time at the centre?",
+    "answer": "Waiting time depends on the centre workload, queue, and daily activity.",
     "hiAnswer": "प्रतीक्षा समय केंद्र के काम, कतार और दैनिक गतिविधि पर निर्भर करता है।",
     "keywords": [
       "waiting time",
@@ -491,8 +491,8 @@ const faqData = [
   {
     "id": 43,
     "category": "Procurement Process",
-    "question": "Kya booking karne ke baad bhi wait karna pad sakta hai?",
-    "answer": "Haan, centre par queue aur daily workload ke according waiting ho sakti hai.",
+    "question": "Do I still have to wait after booking?",
+    "answer": "Yes, there may still be some waiting at the centre depending on the queue and daily workload.",
     "hiAnswer": "हाँ, केंद्र की कतार और दैनिक काम के अनुसार प्रतीक्षा करनी पड़ सकती है।",
     "keywords": [
       "wait",
@@ -502,8 +502,8 @@ const faqData = [
   {
     "id": 44,
     "category": "Procurement Process",
-    "question": "Kya bina booking ke procurement ho sakti hai?",
-    "answer": "Ye centre ke applicable process aur availability par depend karega. Scheduled slot follow karna recommended hai.",
+    "question": "Can procurement be done without a booking?",
+    "answer": "It depends on the centre's applicable process and availability. Following the scheduled slot is recommended.",
     "hiAnswer": "यह केंद्र की लागू प्रक्रिया और उपलब्धता पर निर्भर करता है। निर्धारित स्लॉट का पालन करना बेहतर है।",
     "keywords": [
       "without booking",
@@ -513,8 +513,8 @@ const faqData = [
   {
     "id": 45,
     "category": "Procurement Process",
-    "question": "Procurement ke baad kya milta hai?",
-    "answer": "Procurement record/confirmation aur applicable payment processing information system mein update ki ja sakti hai.",
+    "question": "What do I receive after procurement?",
+    "answer": "The procurement record or confirmation and applicable payment processing information can be updated in the system after procurement.",
     "hiAnswer": "खरीद पूरी होने के बाद खरीद रिकॉर्ड/पुष्टि और लागू भुगतान प्रक्रिया की जानकारी अपडेट की जा सकती है।",
     "keywords": [
       "after procurement",
@@ -524,8 +524,8 @@ const faqData = [
   {
     "id": 46,
     "category": "Procurement Process",
-    "question": "Kya farmer ko receipt milti hai?",
-    "answer": "Procurement completion ke baad applicable record ya receipt process centre/system workflow par depend karta hai.",
+    "question": "Will the farmer receive a receipt?",
+    "answer": "The applicable receipt or record process depends on the centre and system workflow after procurement completion.",
     "hiAnswer": "खरीद पूरी होने के बाद रसीद या रिकॉर्ड केंद्र और सिस्टम की प्रक्रिया पर निर्भर करता है।",
     "keywords": [
       "receipt",
@@ -535,8 +535,8 @@ const faqData = [
   {
     "id": 47,
     "category": "Procurement Process",
-    "question": "Meri crop accept nahi hui, kyun?",
-    "answer": "Quality, quantity, documentation ya applicable procurement criteria ke reasons ho sakte hain. Exact reason centre se verify karein.",
+    "question": "Why was my crop not accepted?",
+    "answer": "Possible reasons include quality, quantity, documentation, or applicable procurement criteria. Verify the exact reason with the centre.",
     "hiAnswer": "गुणवत्ता, मात्रा, दस्तावेज या लागू खरीद मानकों के कारण हो सकते हैं। सही कारण केंद्र से पता करें।",
     "keywords": [
       "crop reject",
@@ -546,8 +546,8 @@ const faqData = [
   {
     "id": 48,
     "category": "Procurement Process",
-    "question": "Quality checking kya hoti hai?",
-    "answer": "Crop ko applicable quality parameters ke according check kiya ja sakta hai.",
+    "question": "What is quality checking?",
+    "answer": "The crop may be checked according to the applicable quality parameters.",
     "hiAnswer": "फसल को लागू गुणवत्ता मानकों के अनुसार जाँचा जा सकता है।",
     "keywords": [
       "quality check",
@@ -557,8 +557,8 @@ const faqData = [
   {
     "id": 49,
     "category": "Procurement Process",
-    "question": "Quality mein problem aaye to kya karun?",
-    "answer": "Centre se exact issue samjhein aur zarurat par Farmer Complaint section se complaint raise karein.",
+    "question": "What should I do if there is a quality issue?",
+    "answer": "Understand the exact issue from the centre and, if necessary, raise a complaint through the Farmer Complaint section.",
     "hiAnswer": "केंद्र से समस्या का सही कारण समझें और जरूरत होने पर Farmer Complaint से शिकायत दर्ज करें।",
     "keywords": [
       "quality problem",
@@ -568,8 +568,8 @@ const faqData = [
   {
     "id": 50,
     "category": "Procurement Process",
-    "question": "Weighing ke time kya check karna chahiye?",
-    "answer": "Recorded quantity aur displayed/recorded weight ko carefully verify karein.",
+    "question": "What should I check during weighing?",
+    "answer": "Carefully verify the recorded quantity and the displayed or recorded weight.",
     "hiAnswer": "दर्ज की गई मात्रा और दिखाए/दर्ज किए गए वजन को ध्यान से जाँचें।",
     "keywords": [
       "weighing",
@@ -579,8 +579,8 @@ const faqData = [
   {
     "id": 51,
     "category": "Procurement Process",
-    "question": "Quantity kam record hui to kya karun?",
-    "answer": "Centre par recorded quantity verify karayein. Issue solve na ho to weighing/quantity complaint raise karein.",
+    "question": "What should I do if the recorded quantity is lower?",
+    "answer": "Ask the centre to verify the recorded quantity. If the issue is not resolved, raise a weighing or quantity complaint.",
     "hiAnswer": "केंद्र पर दर्ज मात्रा की जाँच करवाएँ। समस्या हल न हो तो वजन/मात्रा से जुड़ी शिकायत करें।",
     "keywords": [
       "quantity kam",
@@ -590,8 +590,8 @@ const faqData = [
   {
     "id": 52,
     "category": "Procurement Process",
-    "question": "Kya main procurement status dekh sakta hoon?",
-    "answer": "Haan, My Booking, relevant status screens ya available procurement updates se status check kiya ja sakta hai.",
+    "question": "Can I check my procurement status?",
+    "answer": "Yes, the procurement status can be checked through My Booking, relevant status screens, or available procurement updates.",
     "hiAnswer": "हाँ, My Booking, संबंधित स्टेटस स्क्रीन या उपलब्ध खरीद अपडेट से स्थिति देखी जा सकती है।",
     "keywords": [
       "procurement status"
@@ -600,8 +600,8 @@ const faqData = [
   {
     "id": 53,
     "category": "Procurement Process",
-    "question": "Centre band ho to kya karun?",
-    "answer": "Centre status check karein aur available alternative centre/date ke liye support se contact karein.",
+    "question": "What should I do if the centre is closed?",
+    "answer": "Check the centre status and contact support for an alternative centre or date if needed.",
     "hiAnswer": "केंद्र की स्थिति देखें और वैकल्पिक केंद्र/तारीख के लिए सपोर्ट से संपर्क करें।",
     "keywords": [
       "centre closed",
@@ -611,8 +611,8 @@ const faqData = [
   {
     "id": 54,
     "category": "Procurement Process",
-    "question": "Centre par staff se baat nahi ho rahi, kya karun?",
-    "answer": "Centre help/contact option use karein ya Contact Support ke through issue report karein.",
+    "question": "What should I do if I cannot contact the centre staff?",
+    "answer": "Use the centre help or contact option, or report the issue through Contact Support.",
     "hiAnswer": "केंद्र का Help/Contact विकल्प इस्तेमाल करें या Contact Support से समस्या बताएँ।",
     "keywords": [
       "staff",
@@ -622,8 +622,8 @@ const faqData = [
   {
     "id": 55,
     "category": "Procurement Process",
-    "question": "Procurement process mein problem aaye to kisko batayein?",
-    "answer": "Sabse pehle relevant procurement centre staff se verify karein; unresolved issue ke liye complaint ya support use karein.",
+    "question": "Whom should I contact if there is a problem with the procurement process?",
+    "answer": "First verify the issue with the relevant procurement centre staff. For an unresolved issue, use a complaint or support.",
     "hiAnswer": "पहले संबंधित खरीद केंद्र के स्टाफ से जाँच करें। समस्या हल न हो तो शिकायत या सपोर्ट का उपयोग करें।",
     "keywords": [
       "problem",
@@ -633,8 +633,8 @@ const faqData = [
   {
     "id": 56,
     "category": "Payment",
-    "question": "Payment status kaise check karun?",
-    "answer": "Payment section mein available payment status aur related information check karein.",
+    "question": "How can I check my payment status?",
+    "answer": "Check the available payment status and related information in the Payment section.",
     "hiAnswer": "Payment सेक्शन में उपलब्ध भुगतान स्थिति और संबंधित जानकारी देखें।",
     "keywords": [
       "payment status",
@@ -644,8 +644,8 @@ const faqData = [
   {
     "id": 57,
     "category": "Payment",
-    "question": "Payment kab aayega?",
-    "answer": "Payment timing actual procurement completion aur applicable payment processing par depend karti hai.",
+    "question": "When will the payment arrive?",
+    "answer": "Payment timing depends on actual procurement completion and the applicable payment processing.",
     "hiAnswer": "भुगतान का समय वास्तविक खरीद पूरी होने और भुगतान प्रक्रिया पर निर्भर करता है।",
     "keywords": [
       "payment kab",
@@ -655,8 +655,8 @@ const faqData = [
   {
     "id": 58,
     "category": "Payment",
-    "question": "Payment pending kyun hai?",
-    "answer": "Verification, procurement completion ya payment processing ke kaaran status pending ho sakta hai.",
+    "question": "Why is my payment pending?",
+    "answer": "Payment may be pending because of verification, procurement completion, or payment processing.",
     "hiAnswer": "सत्यापन, खरीद पूरी होने या भुगतान प्रक्रिया के कारण भुगतान लंबित हो सकता है।",
     "keywords": [
       "payment pending"
@@ -665,8 +665,8 @@ const faqData = [
   {
     "id": 59,
     "category": "Payment",
-    "question": "Procurement complete hai lekin payment update nahi hua, kya karun?",
-    "answer": "Procurement record verify karein. Payment update na ho to payment-related complaint raise karein.",
+    "question": "My procurement is complete but the payment has not been updated. What should I do?",
+    "answer": "Verify the procurement record. If the payment is still not updated, raise a payment-related complaint.",
     "hiAnswer": "खरीद रिकॉर्ड की जाँच करें। भुगतान अपडेट न हो तो भुगतान से जुड़ी शिकायत करें।",
     "keywords": [
       "payment not updated",
@@ -676,8 +676,8 @@ const faqData = [
   {
     "id": 60,
     "category": "Payment",
-    "question": "Payment amount galat lag raha hai to kya karun?",
-    "answer": "Transaction details verify karein aur issue continue hone par payment complaint raise karein.",
+    "question": "What should I do if the payment amount seems incorrect?",
+    "answer": "Verify the transaction details and raise a payment complaint if the issue continues.",
     "hiAnswer": "लेन-देन की जानकारी जाँचें और समस्या बनी रहे तो भुगतान संबंधी शिकायत करें।",
     "keywords": [
       "wrong payment",
@@ -687,8 +687,8 @@ const faqData = [
   {
     "id": 61,
     "category": "Payment",
-    "question": "Bank account details kaise check karein?",
-    "answer": "Payment issue ho to registered bank information applicable official records ke through verify karein.",
+    "question": "How can I check my bank account details?",
+    "answer": "If there is a payment issue, verify the registered bank information through the applicable official records.",
     "hiAnswer": "भुगतान समस्या होने पर पंजीकृत बैंक जानकारी को आधिकारिक रिकॉर्ड से सत्यापित करें।",
     "keywords": [
       "bank",
@@ -698,8 +698,8 @@ const faqData = [
   {
     "id": 62,
     "category": "Payment",
-    "question": "Bank account change ho gaya hai, kya karun?",
-    "answer": "Bank detail update ke liye applicable official verification/update process follow karein.",
+    "question": "My bank account has changed. What should I do?",
+    "answer": "Follow the applicable official verification or update process to change bank details.",
     "hiAnswer": "बैंक विवरण बदलने के लिए लागू आधिकारिक सत्यापन/अपडेट प्रक्रिया अपनाएँ।",
     "keywords": [
       "bank change",
@@ -709,8 +709,8 @@ const faqData = [
   {
     "id": 63,
     "category": "Payment",
-    "question": "Payment fail ho gaya to kya karun?",
-    "answer": "Payment status dobara check karein aur required bank/transaction verification ke baad support se contact karein.",
+    "question": "What should I do if the payment failed?",
+    "answer": "Check the payment status again and contact support after the required bank or transaction verification.",
     "hiAnswer": "भुगतान स्थिति दोबारा जाँचें और बैंक/लेन-देन सत्यापन के बाद सपोर्ट से संपर्क करें।",
     "keywords": [
       "payment failed"
@@ -719,8 +719,8 @@ const faqData = [
   {
     "id": 64,
     "category": "Payment",
-    "question": "Kya payment history dekh sakta hoon?",
-    "answer": "Payment/transaction section mein available history check ki ja sakti hai.",
+    "question": "Can I view my payment history?",
+    "answer": "Available payment history can be checked in the Payment or Transaction section.",
     "hiAnswer": "Payment या Transaction सेक्शन में उपलब्ध भुगतान इतिहास देखा जा सकता है।",
     "keywords": [
       "payment history"
@@ -729,8 +729,8 @@ const faqData = [
   {
     "id": 65,
     "category": "Payment",
-    "question": "Payment ke liye Kisan Code important hai kya?",
-    "answer": "Farmer identification aur transaction mapping ke liye Kisan Code relevant ho sakta hai.",
+    "question": "Is the Kisan Code important for payment?",
+    "answer": "The Kisan Code may be relevant for farmer identification and transaction mapping.",
     "hiAnswer": "किसान की पहचान और लेन-देन को जोड़ने के लिए किसान कोड उपयोगी हो सकता है।",
     "keywords": [
       "payment",
@@ -740,8 +740,8 @@ const faqData = [
   {
     "id": 66,
     "category": "Payment",
-    "question": "Payment related complaint kaise karun?",
-    "answer": "Farmer Complaints mein complaint type 'Payment related' select karke issue details submit karein.",
+    "question": "How can I raise a payment-related complaint?",
+    "answer": "In Farmer Complaints, select the Payment related complaint type and submit the issue details.",
     "hiAnswer": "Farmer Complaints में 'Payment related' शिकायत प्रकार चुनकर समस्या दर्ज करें।",
     "keywords": [
       "payment complaint"
@@ -750,8 +750,8 @@ const faqData = [
   {
     "id": 67,
     "category": "Payment",
-    "question": "Payment receipt nahi mili to kya karun?",
-    "answer": "Available transaction details check karein aur support se receipt/record verification karwayein.",
+    "question": "I did not receive the payment receipt. What should I do?",
+    "answer": "Check the available transaction details and contact support for receipt or record verification.",
     "hiAnswer": "लेन-देन की जानकारी जाँचें और रसीद/रिकॉर्ड सत्यापन के लिए सपोर्ट से संपर्क करें।",
     "keywords": [
       "receipt",
@@ -761,8 +761,8 @@ const faqData = [
   {
     "id": 68,
     "category": "Payment",
-    "question": "Payment kis account mein aata hai?",
-    "answer": "Payment registered/verified bank account details ke according process kiya ja sakta hai.",
+    "question": "Which account will receive the payment?",
+    "answer": "Payment may be processed according to the registered or verified bank account details.",
     "hiAnswer": "भुगतान पंजीकृत या सत्यापित बैंक खाते के अनुसार किया जा सकता है।",
     "keywords": [
       "which account",
@@ -772,8 +772,8 @@ const faqData = [
   {
     "id": 69,
     "category": "Payment",
-    "question": "Kya cash payment milta hai?",
-    "answer": "Payment mode applicable official process par depend karta hai; app mein available payment information check karein.",
+    "question": "Is cash payment available?",
+    "answer": "The payment mode depends on the applicable official process; check the payment information available in the app.",
     "hiAnswer": "भुगतान का तरीका लागू आधिकारिक प्रक्रिया पर निर्भर करता है। ऐप में उपलब्ध जानकारी देखें।",
     "keywords": [
       "cash",
@@ -783,8 +783,8 @@ const faqData = [
   {
     "id": 70,
     "category": "Payment",
-    "question": "Payment issue resolve hone mein kitna time lagta hai?",
-    "answer": "Resolution time issue type aur verification process par depend karta hai.",
+    "question": "How long does it take to resolve a payment issue?",
+    "answer": "Resolution time depends on the issue type and verification process.",
     "hiAnswer": "समस्या का समाधान समय शिकायत के प्रकार और सत्यापन प्रक्रिया पर निर्भर करता है।",
     "keywords": [
       "payment issue",
@@ -794,8 +794,8 @@ const faqData = [
   {
     "id": 71,
     "category": "Procurement Centre Help",
-    "question": "Procurement centre ka address kaise pata chalega?",
-    "answer": "Procurement Centres section ya booking centre list se centre location/details check karein.",
+    "question": "How can I find the address of a procurement centre?",
+    "answer": "Check the centre location or details in the Procurement Centres section or the booking centre list.",
     "hiAnswer": "Procurement Centres सेक्शन या बुकिंग की केंद्र सूची से केंद्र का स्थान/पता देखें।",
     "keywords": [
       "address",
@@ -805,8 +805,8 @@ const faqData = [
   {
     "id": 72,
     "category": "Procurement Centre Help",
-    "question": "Centre ka contact number kahan milega?",
-    "answer": "Centre details mein available contact/help information check karein.",
+    "question": "Where can I find the centre contact number?",
+    "answer": "Check the contact or help information available in the centre details.",
     "hiAnswer": "केंद्र की जानकारी में उपलब्ध Contact/Help विवरण देखें।",
     "keywords": [
       "contact number",
@@ -816,8 +816,8 @@ const faqData = [
   {
     "id": 73,
     "category": "Procurement Centre Help",
-    "question": "Mujhe centre ki working status dekhni hai.",
-    "answer": "Available centre status/operational information se Active ya Inactive status check karein.",
+    "question": "How can I see the working status of a centre?",
+    "answer": "Check the available centre status or operational information to see whether it is Active or Inactive.",
     "hiAnswer": "उपलब्ध केंद्र स्थिति में Active या Inactive स्थिति देखें।",
     "keywords": [
       "working status",
@@ -827,8 +827,8 @@ const faqData = [
   {
     "id": 74,
     "category": "Procurement Centre Help",
-    "question": "Centre par aaj procurement ho rahi hai ya nahi kaise pata chalega?",
-    "answer": "Centre status aur current procurement activity updates check karein.",
+    "question": "How can I know whether procurement is happening at the centre today?",
+    "answer": "Check the centre status and current procurement activity updates.",
     "hiAnswer": "केंद्र की स्थिति और वर्तमान खरीद गतिविधि के अपडेट देखें।",
     "keywords": [
       "today procurement",
@@ -838,8 +838,8 @@ const faqData = [
   {
     "id": 75,
     "category": "Procurement Centre Help",
-    "question": "Mere paas wrong centre select ho gaya hai.",
-    "answer": "Booking confirmation se pehle correct centre select karein; confirmed booking mein applicable correction process follow karein.",
+    "question": "I selected the wrong centre. What should I do?",
+    "answer": "Select the correct centre before booking confirmation. After confirmation, follow the available correction process.",
     "hiAnswer": "बुकिंग की पुष्टि से पहले सही केंद्र चुनें। पुष्टि के बाद उपलब्ध सुधार प्रक्रिया अपनाएँ।",
     "keywords": [
       "wrong centre",
@@ -849,8 +849,8 @@ const faqData = [
   {
     "id": 76,
     "category": "Procurement Centre Help",
-    "question": "Mera selected centre bahut door hai.",
-    "answer": "Available procurement centres mein location compare karke relevant centre choose karein.",
+    "question": "My selected centre is too far away.",
+    "answer": "Compare the locations of the available procurement centres and choose the appropriate centre.",
     "hiAnswer": "उपलब्ध खरीद केंद्रों की जगह की तुलना करके उपयुक्त केंद्र चुनें।",
     "keywords": [
       "far centre",
@@ -860,8 +860,8 @@ const faqData = [
   {
     "id": 77,
     "category": "Procurement Centre Help",
-    "question": "Centre mein weighing machine problem ho to kya karun?",
-    "answer": "Centre staff ko inform karein aur weighing/quantity related complaint raise karein.",
+    "question": "What should I do if there is a weighing machine problem at the centre?",
+    "answer": "Inform the centre staff and raise a weighing or quantity-related complaint.",
     "hiAnswer": "केंद्र के स्टाफ को बताएँ और वजन/मात्रा से जुड़ी शिकायत दर्ज करें।",
     "keywords": [
       "weighing machine",
@@ -871,8 +871,8 @@ const faqData = [
   {
     "id": 78,
     "category": "Procurement Centre Help",
-    "question": "Centre par queue bahut lambi hai.",
-    "answer": "Current token/queue status check karein aur centre staff se expected waiting time verify karein.",
+    "question": "The queue at the centre is very long. What should I do?",
+    "answer": "Check the current token or queue status and ask the centre staff for the expected waiting time.",
     "hiAnswer": "वर्तमान टोकन/कतार स्थिति देखें और केंद्र स्टाफ से अनुमानित प्रतीक्षा समय पूछें।",
     "keywords": [
       "long queue",
@@ -882,8 +882,8 @@ const faqData = [
   {
     "id": 79,
     "category": "Procurement Centre Help",
-    "question": "Centre staff ne meri complaint nahi suni.",
-    "answer": "Complaint details record karke Farmer Complaints ke through admin ko issue submit karein.",
+    "question": "The centre staff did not listen to my complaint. What should I do?",
+    "answer": "Record the complaint details and submit the issue to the admin through Farmer Complaints.",
     "hiAnswer": "शिकायत का विवरण दर्ज करके Farmer Complaints के माध्यम से एडमिन को समस्या भेजें।",
     "keywords": [
       "staff complaint",
@@ -893,8 +893,8 @@ const faqData = [
   {
     "id": 80,
     "category": "Procurement Centre Help",
-    "question": "Centre inactive kyun dikh raha hai?",
-    "answer": "Centre temporary operational issue, schedule ya administrative status ke kaaran inactive ho sakta hai. Support se verify karein.",
+    "question": "Why is the centre showing as inactive?",
+    "answer": "A centre may appear inactive because of a temporary operational issue, schedule, or administrative status. Verify with support.",
     "hiAnswer": "केंद्र अस्थायी समस्या, शेड्यूल या प्रशासनिक स्थिति के कारण Inactive हो सकता है। सपोर्ट से पुष्टि करें।",
     "keywords": [
       "inactive centre"
@@ -903,8 +903,8 @@ const faqData = [
   {
     "id": 81,
     "category": "Complaints",
-    "question": "Complaint kaise raise karun?",
-    "answer": "Farmer Dashboard ke Complaint section se complaint type, centre aur description enter karke submit karein.",
+    "question": "How can I raise a complaint?",
+    "answer": "From the Farmer Dashboard Complaint section, enter the complaint type, centre, and description, then submit it.",
     "hiAnswer": "Farmer Dashboard के Complaint सेक्शन में शिकायत प्रकार, केंद्र और विवरण भरकर शिकायत भेजें।",
     "keywords": [
       "complaint",
@@ -914,8 +914,8 @@ const faqData = [
   {
     "id": 82,
     "category": "Complaints",
-    "question": "Complaint ka status kaise check karun?",
-    "answer": "Complaint section mein submitted complaints aur unka current status check kiya ja sakta hai.",
+    "question": "How can I check my complaint status?",
+    "answer": "You can check submitted complaints and their current status in the Complaint section.",
     "hiAnswer": "Complaint सेक्शन में भेजी गई शिकायत और उसकी वर्तमान स्थिति देखें।",
     "keywords": [
       "complaint status"
@@ -924,8 +924,8 @@ const faqData = [
   {
     "id": 83,
     "category": "Complaints",
-    "question": "Complaint status Pending ka matlab kya hai?",
-    "answer": "Complaint receive ho gayi hai aur abhi detailed action start nahi hua hai.",
+    "question": "What does Pending complaint status mean?",
+    "answer": "It means the complaint has been received and detailed action has not started yet.",
     "hiAnswer": "इसका मतलब है कि शिकायत मिल गई है और अभी उस पर विस्तृत कार्रवाई शुरू नहीं हुई है।",
     "keywords": [
       "pending complaint"
@@ -934,8 +934,8 @@ const faqData = [
   {
     "id": 84,
     "category": "Complaints",
-    "question": "In Progress ka matlab kya hai?",
-    "answer": "Admin/concerned team complaint ko review ya resolve karne par kaam kar rahi hai.",
+    "question": "What does In Progress mean?",
+    "answer": "It means the admin or concerned team is reviewing the complaint or working to resolve it.",
     "hiAnswer": "इसका मतलब है कि एडमिन या संबंधित टीम शिकायत की जाँच/समाधान पर काम कर रही है।",
     "keywords": [
       "in progress"
@@ -944,8 +944,8 @@ const faqData = [
   {
     "id": 85,
     "category": "Complaints",
-    "question": "Resolved ka matlab kya hai?",
-    "answer": "Complaint par action/resolution record ho gaya hai aur issue ko resolved mark kiya gaya hai.",
+    "question": "What does Resolved mean?",
+    "answer": "It means the action or resolution has been recorded and the issue has been marked as resolved.",
     "hiAnswer": "इसका मतलब है कि शिकायत पर कार्रवाई/समाधान दर्ज हो गया है और उसे Resolved किया गया है।",
     "keywords": [
       "resolved complaint"
@@ -954,8 +954,8 @@ const faqData = [
   {
     "id": 86,
     "category": "Complaints",
-    "question": "Kaunsi complaint types available hain?",
-    "answer": "Procurement Centre related, Weighing / Quantity related, Payment related, Quality related aur Other.",
+    "question": "What complaint types are available?",
+    "answer": "Available complaint types include Procurement Centre related, Weighing or Quantity related, Payment related, Quality related, and Other.",
     "hiAnswer": "Procurement Centre related, Weighing/Quantity related, Payment related, Quality related और Other शिकायत प्रकार उपलब्ध हैं।",
     "keywords": [
       "complaint type",
@@ -965,8 +965,8 @@ const faqData = [
   {
     "id": 87,
     "category": "Complaints",
-    "question": "Complaint description mein kya likhna chahiye?",
-    "answer": "Problem ko simple details mein likhein: kya hua, kis centre par hua, kab hua aur issue kya hai.",
+    "question": "What should I write in the complaint description?",
+    "answer": "Write what happened, where it happened, when it happened, and what the issue is in simple detail.",
     "hiAnswer": "क्या हुआ, किस केंद्र पर हुआ, कब हुआ और समस्या क्या है—इन बातों को सरल शब्दों में लिखें।",
     "keywords": [
       "description",
@@ -976,8 +976,8 @@ const faqData = [
   {
     "id": 88,
     "category": "Complaints",
-    "question": "Kya complaint ke saath Kisan Code dena hota hai?",
-    "answer": "Haan, farmer identification aur complaint verification ke liye Kisan Code useful hai.",
+    "question": "Do I need to provide my Kisan Code with a complaint?",
+    "answer": "Yes, the Kisan Code is useful for farmer identification and complaint verification.",
     "hiAnswer": "किसान की पहचान और शिकायत सत्यापन के लिए किसान कोड उपयोगी है।",
     "keywords": [
       "kisan code",
@@ -987,8 +987,8 @@ const faqData = [
   {
     "id": 89,
     "category": "Complaints",
-    "question": "Complaint kitne time mein resolve hogi?",
-    "answer": "Resolution time complaint ki type aur verification/action par depend karta hai.",
+    "question": "How long will a complaint take to resolve?",
+    "answer": "Resolution time depends on the complaint type and the verification or action required.",
     "hiAnswer": "समाधान का समय शिकायत के प्रकार और जाँच/कार्रवाई पर निर्भर करता है।",
     "keywords": [
       "resolve time",
@@ -998,8 +998,8 @@ const faqData = [
   {
     "id": 90,
     "category": "Complaints",
-    "question": "Complaint resolve nahi hui to kya karun?",
-    "answer": "Complaint status check karein aur required action/resolution details ke saath Contact Support use karein.",
+    "question": "What should I do if my complaint is not resolved?",
+    "answer": "Check the complaint status and use Contact Support with the required action or resolution details.",
     "hiAnswer": "शिकायत की स्थिति देखें और जरूरी कार्रवाई/समाधान के विवरण के साथ Contact Support का उपयोग करें।",
     "keywords": [
       "not resolved",
@@ -1009,8 +1009,8 @@ const faqData = [
   {
     "id": 91,
     "category": "Help & General",
-    "question": "FarmBuddy mein Help & Support kya hai?",
-    "answer": "Help & Support section common questions, process guidance aur support contact options provide karta hai.",
+    "question": "What is Help & Support in FarmBuddy?",
+    "answer": "The Help & Support section provides common questions, process guidance, and support contact options.",
     "hiAnswer": "Help & Support सेक्शन सामान्य सवालों, प्रक्रिया की जानकारी और सपोर्ट संपर्क की सुविधा देता है।",
     "keywords": [
       "help support"
@@ -1019,8 +1019,8 @@ const faqData = [
   {
     "id": 92,
     "category": "Help & General",
-    "question": "FAQ kya hota hai?",
-    "answer": "FAQ ka matlab Frequently Asked Questions hai, jahan common questions ke ready answers milte hain.",
+    "question": "What does FAQ mean?",
+    "answer": "FAQ stands for Frequently Asked Questions, where ready answers to common questions are provided.",
     "hiAnswer": "FAQ का मतलब Frequently Asked Questions है, जहाँ सामान्य सवालों के तैयार जवाब मिलते हैं।",
     "keywords": [
       "faq"
@@ -1029,8 +1029,8 @@ const faqData = [
   {
     "id": 93,
     "category": "Help & General",
-    "question": "Main apna question search kar sakta hoon?",
-    "answer": "Haan, Help & Support mein apna question type karke matching FAQ answer search kar sakte hain.",
+    "question": "Can I search for my question?",
+    "answer": "Yes, you can type your question in Help & Support and search for the matching FAQ answer.",
     "hiAnswer": "हाँ, Help & Support में अपना सवाल लिखकर उससे मिलता-जुलता FAQ उत्तर खोज सकते हैं।",
     "keywords": [
       "search question",
@@ -1040,8 +1040,8 @@ const faqData = [
   {
     "id": 94,
     "category": "Help & General",
-    "question": "Agar mera exact question list mein nahi hai to?",
-    "answer": "Question ko simple keywords ke saath search karein. Matching answer na mile to Contact Support use karein.",
+    "question": "What if my exact question is not in the list?",
+    "answer": "Search the question using simple keywords. If no matching answer is found, use Contact Support.",
     "hiAnswer": "सवाल को आसान keywords के साथ खोजें। जवाब न मिले तो Contact Support का उपयोग करें।",
     "keywords": [
       "question not found",
@@ -1051,8 +1051,8 @@ const faqData = [
   {
     "id": 95,
     "category": "Help & General",
-    "question": "Kya Hindi mein help mil sakti hai?",
-    "answer": "FarmBuddy language selection ke according Hindi/English interface aur guidance provide kar sakta hai.",
+    "question": "Can I get help in Hindi?",
+    "answer": "Yes, FarmBuddy can provide a Hindi or English interface and guidance according to the selected language.",
     "hiAnswer": "हाँ, भाषा बदलने पर FarmBuddy में हिंदी/अंग्रेजी इंटरफेस और सहायता दिखाई जा सकती है।",
     "keywords": [
       "hindi",
@@ -1062,8 +1062,8 @@ const faqData = [
   {
     "id": 96,
     "category": "Help & General",
-    "question": "Contact Support kya hai?",
-    "answer": "Contact Support option se farmer apni unresolved problem ke liye support team ko request bhej sakta hai.",
+    "question": "What is Contact Support?",
+    "answer": "Contact Support lets a farmer send a request to the support team for an unresolved problem.",
     "hiAnswer": "Contact Support विकल्प से किसान अपनी समस्या के लिए सपोर्ट टीम को अनुरोध भेज सकता है।",
     "keywords": [
       "contact support"
@@ -1072,8 +1072,8 @@ const faqData = [
   {
     "id": 97,
     "category": "Help & General",
-    "question": "Support ko kya details deni chahiye?",
-    "answer": "Kisan Code, procurement centre, issue type aur short problem description dena helpful hota hai.",
+    "question": "What details should I provide to support?",
+    "answer": "Providing the Kisan Code, procurement centre, issue type, and a short problem description is helpful.",
     "hiAnswer": "किसान कोड, खरीद केंद्र, समस्या का प्रकार और समस्या का छोटा विवरण देना उपयोगी है।",
     "keywords": [
       "support details"
@@ -1082,8 +1082,8 @@ const faqData = [
   {
     "id": 98,
     "category": "Help & General",
-    "question": "Kya mujhe complaint aur support mein se kya use karna chahiye?",
-    "answer": "Specific issue record karna ho to Complaint use karein; general guidance ya unresolved help ke liye Help & Support use karein.",
+    "question": "Should I use Complaint or Help & Support?",
+    "answer": "Use Complaint to record a specific issue; use Help & Support for general guidance or unresolved help.",
     "hiAnswer": "विशिष्ट समस्या दर्ज करनी हो तो Complaint का उपयोग करें; सामान्य सहायता के लिए Help & Support इस्तेमाल करें।",
     "keywords": [
       "complaint or support"
@@ -1092,8 +1092,8 @@ const faqData = [
   {
     "id": 99,
     "category": "Help & General",
-    "question": "App mein information update nahi ho rahi hai.",
-    "answer": "Internet connection check karein, page refresh/reopen karein aur issue continue ho to support se contact karein.",
+    "question": "The information in the app is not updating. What should I do?",
+    "answer": "Check the internet connection, refresh or reopen the page, and contact support if the issue continues.",
     "hiAnswer": "इंटरनेट कनेक्शन जाँचें, पेज रिफ्रेश/दोबारा खोलें और समस्या बनी रहे तो सपोर्ट से संपर्क करें।",
     "keywords": [
       "update",
@@ -1103,8 +1103,8 @@ const faqData = [
   {
     "id": 100,
     "category": "Help & General",
-    "question": "FarmBuddy mein problem report karne ka best tarika kya hai?",
-    "answer": "Issue specific ho to Complaint raise karein; general assistance ke liye Help & Support ke Contact Support option ka use karein.",
+    "question": "What is the best way to report a problem in FarmBuddy?",
+    "answer": "For a specific issue, raise a Complaint; for general assistance, use the Contact Support option in Help & Support.",
     "hiAnswer": "विशिष्ट समस्या के लिए Complaint दर्ज करें और सामान्य सहायता के लिए Help & Support के Contact Support विकल्प का उपयोग करें।",
     "keywords": [
       "report problem",
@@ -1119,8 +1119,8 @@ export default function HelpSupport({ onBack }) {
   const { isDark, toggleTheme } = useTheme();
   const { language } = useLanguage();
 
-  const [query, setQuery] = React.useState("");
-  const [category, setCategory] = React.useState("All");
+  const [query, setQuery] = useState("");
+  const [category, setCategory] = useState("All");
 
   const results = useMemo(() => {
     const text = query.trim().toLowerCase();
@@ -1198,7 +1198,7 @@ export default function HelpSupport({ onBack }) {
             <h1>{language === "hi" ? "हम आपकी कैसे मदद कर सकते हैं?" : "How can we help you?"}</h1>
             <span>
               {language === "hi"
-                ? "अपने सवाल को search करें और matching answer तुरंत देखें।"
+                ? "अपने सवाल को खोजें और तुरंत संबंधित जवाब देखें।"
                 : "Search your question and get the closest matching answer instantly."}
             </span>
           </div>
@@ -1291,11 +1291,11 @@ export default function HelpSupport({ onBack }) {
         <section className="hs-support-card">
           <div className="hs-support-icon"><MessageCircle size={22} /></div>
           <div>
-            <p>{language === "hi" ? "ANSWER NAHI MILA?" : "DIDN'T FIND YOUR ANSWER?"}</p>
+            <p>{language === "hi" ? "DIDN'T FIND YOUR ANSWER?" : "DIDN'T FIND YOUR ANSWER?"}</p>
             <h2>Contact Support</h2>
             <span>
               {language === "hi"
-                ? "Apni problem directly support ke saath share karein."
+                ? "Share your problem directly with support."
                 : "Share your problem directly with support."}
             </span>
           </div>
