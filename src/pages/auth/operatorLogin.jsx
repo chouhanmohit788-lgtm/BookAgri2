@@ -1,10 +1,11 @@
-import { useState } from "react";
 
+import { useState } from "react";
 import {
   ArrowLeft,
   Building2,
   Eye,
   EyeOff,
+  Leaf,
   LockKeyhole,
   MapPin,
   ShieldCheck,
@@ -123,6 +124,13 @@ function ProcurementCentreLogin({ onBack, onLoginSuccess }) {
 
   return (
     <main className={`proc-login-page ${isDark ? "dark-mode" : ""}`}>
+      {/* Background */}
+      <div className="login-glow login-glow-one" />
+      <div className="login-glow login-glow-two" />
+
+      <Leaf className="login-leaf login-leaf-one" />
+      <Leaf className="login-leaf login-leaf-two" />
+
       <header className="proc-login-header">
         <button
           type="button"
@@ -147,25 +155,43 @@ function ProcurementCentreLogin({ onBack, onLoginSuccess }) {
       </header>
 
       <section className="proc-login-content">
+        <div className="login-logo-wrapper">
+          <div className="login-logo-ring">
+            <div className="login-logo">
+              <img
+                src="/farmbuddy-logo.png"
+                alt="FarmBuddy"
+                className="login-logo-image"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div className="proc-login-heading">
+            <div className="login-title-row">
+              <Leaf size={17} fill="currentColor" />
+
+              <h1>
+                {isHindi
+                  ? "ऑपरेटर / यूज़र लॉगिन"
+                  : "Operator"}
+              </h1>
+
+              <Leaf
+                size={17}
+                fill="currentColor"
+                className="login-title-leaf-right"
+              />
+            </div>
+
+          <p>
+            {isHindi
+              ? "अपने ऑपरेटर खाते में सुरक्षित रूप से लॉगिन करें"
+              : "Securely login to your operator account"}
+          </p>
+        </div>
+
         <div className="proc-login-card">
-          <div className="proc-login-icon">
-            <Building2 size={38} />
-          </div>
-
-          <div className="proc-login-heading">
-            <h1>
-              {isHindi
-                ? "ऑपरेटर / यूज़र लॉगिन"
-                : "Operator"}
-            </h1>
-
-            <p>
-              {isHindi
-                ? "अपने ऑपरेटर खाते में सुरक्षित रूप से लॉगिन करें"
-                : "Securely login to your operator account"}
-            </p>
-          </div>
-
           <form onSubmit={handleLogin} className="proc-login-form">
             <div className="proc-field">
               <label>

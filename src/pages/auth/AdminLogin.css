@@ -794,3 +794,367 @@
   .admin-login-page .admin-field select { font-size: 11px; }
   .admin-login-page .admin-login-button { font-size: 11px; }
 }
+
+
+/* =========================================
+   FARMER-STYLE VISUAL EFFECTS FOR ADMIN
+   ========================================= */
+
+.admin-login-page {
+  position: relative;
+  overflow: hidden;
+}
+
+.admin-login-page .login-glow,
+.admin-login-page .login-leaf {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.admin-login-page .login-glow-one {
+  width: 310px;
+  height: 310px;
+  top: -170px;
+  left: -150px;
+  border-radius: 50%;
+  background: rgba(76, 185, 93, 0.13);
+}
+
+.admin-login-page .login-glow-two {
+  width: 300px;
+  height: 300px;
+  right: -160px;
+  bottom: -150px;
+  border-radius: 50%;
+  background: rgba(76, 185, 93, 0.09);
+}
+
+.admin-login-page .login-leaf-one {
+  left: -8px;
+  top: 46%;
+  width: 55px;
+  height: 110px;
+  color: rgba(82, 173, 99, 0.10);
+  transform: rotate(-28deg);
+}
+
+.admin-login-page .login-leaf-two {
+  right: -5px;
+  bottom: 17%;
+  width: 55px;
+  height: 110px;
+  color: rgba(82, 173, 99, 0.10);
+  transform: rotate(28deg);
+}
+
+.admin-login-topbar,
+.admin-login-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Centered Logo -> Heading -> Card layout */
+.admin-login-content {
+  width: min(100% - 30px, 520px);
+  margin: 25px auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.admin-login-content .admin-security-badge {
+  margin-bottom: 16px;
+}
+
+.admin-login-content .login-logo-wrapper {
+  width: 100%;
+  margin: 0 auto 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-login-content .login-logo-ring {
+  width: 95px;
+  height: 95px;
+  border: 1px solid rgba(55, 174, 81, 0.32);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 0 auto;
+}
+
+.admin-login-content .login-logo-ring::before {
+  content: "";
+  position: absolute;
+  width: 112px;
+  height: 112px;
+  border: 1px solid rgba(55, 174, 81, 0.13);
+  border-radius: 50%;
+  animation: adminFarmerLogoRing 3s ease-in-out infinite;
+}
+
+.admin-login-content .login-logo {
+  width: 64px;
+  height: 64px;
+  border-radius: 20px;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.admin-login-content .login-logo-image {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  display: block;
+}
+
+.admin-login-content .admin-login-heading {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.admin-login-content .admin-login-heading .login-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  color: #138344;
+}
+
+.admin-login-content .admin-login-heading .login-title-row h1 {
+  margin: 0;
+  color: var(--text);
+  font-size: 28px;
+  font-weight: 850;
+  letter-spacing: -0.7px;
+}
+
+.admin-login-content .admin-login-heading > p {
+  margin: 8px 0 0;
+  color: var(--primary);
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: 0.1em;
+}
+
+.admin-login-content .admin-login-heading > span {
+  display: block;
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.admin-login-content .admin-login-card {
+  width: 100%;
+  margin-top: 25px;
+}
+
+/* Dark mode */
+.dark-mode .admin-login-content .login-logo-ring {
+  border-color: rgba(53, 232, 120, 0.42);
+  box-shadow: 0 0 25px rgba(53, 232, 120, 0.08);
+}
+
+.dark-mode .admin-login-content .login-logo-ring::before {
+  border-color: rgba(53, 232, 120, 0.20);
+}
+
+.dark-mode .admin-login-content .admin-login-heading .login-title-row {
+  color: #35e878;
+}
+
+@keyframes adminFarmerLogoRing {
+  0%,
+  100% {
+    transform: scale(0.96);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: scale(1.06);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .admin-login-content {
+    width: calc(100% - 22px);
+    margin-top: 15px;
+  }
+
+  .admin-login-content .login-logo-ring {
+    width: 85px;
+    height: 85px;
+  }
+
+  .admin-login-content .login-logo-ring::before {
+    width: 100px;
+    height: 100px;
+  }
+
+  .admin-login-content .login-logo,
+  .admin-login-content .login-logo-image {
+    width: 58px;
+    height: 58px;
+  }
+
+  .admin-login-content .admin-login-heading .login-title-row h1 {
+    font-size: 24px;
+  }
+
+  .admin-login-content .admin-login-card {
+    margin-top: 21px;
+  }
+}
+
+
+/* =========================================
+   FINAL FARMER-MATCHED EFFECTS
+   Force visible leaves + glow
+   ========================================= */
+
+.admin-login-page .login-glow {
+  position: absolute !important;
+  border-radius: 50% !important;
+  pointer-events: none !important;
+  filter: blur(2px) !important;
+  z-index: 0 !important;
+  display: block !important;
+}
+
+.admin-login-page .login-glow-one {
+  width: 310px !important;
+  height: 310px !important;
+  top: -170px !important;
+  left: -150px !important;
+  background: rgba(76, 185, 93, 0.13) !important;
+}
+
+.admin-login-page .login-glow-two {
+  width: 300px !important;
+  height: 300px !important;
+  right: -160px !important;
+  bottom: -150px !important;
+  background: rgba(76, 185, 93, 0.09) !important;
+}
+
+/* Exact Farmer leaf sizing/positioning */
+.admin-login-page .login-leaf {
+  position: absolute !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+  display: block !important;
+  color: #75bd78 !important;
+  opacity: 0.18 !important;
+}
+
+.admin-login-page .login-leaf-one {
+  width: 90px !important;
+  height: 90px !important;
+  left: -30px !important;
+  top: 34% !important;
+  transform: rotate(-35deg) !important;
+}
+
+.admin-login-page .login-leaf-two {
+  width: 80px !important;
+  height: 80px !important;
+  right: -25px !important;
+  bottom: 25% !important;
+  transform: rotate(35deg) !important;
+}
+
+/* Keep all actual page content above decoration */
+.admin-login-page .admin-login-topbar,
+.admin-login-page .admin-login-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Farmer-style light background */
+.admin-login-page:not(.dark-mode) {
+  background: #f8fcf9 !important;
+}
+
+/* Farmer-style dark background */
+.admin-login-page.dark-mode .login-glow-one {
+  background: rgba(53, 232, 120, 0.16) !important;
+}
+
+.admin-login-page.dark-mode .login-glow-two {
+  background: rgba(53, 232, 120, 0.10) !important;
+}
+
+.admin-login-page.dark-mode .login-leaf {
+  color: #35e878 !important;
+  opacity: 0.20 !important;
+}
+
+/* Centered Farmer-style logo ring */
+.admin-login-page .login-logo-wrapper {
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 auto 15px !important;
+}
+
+.admin-login-page .login-logo-ring {
+  width: 95px !important;
+  height: 95px !important;
+  margin: 0 auto !important;
+  border: 1px solid rgba(55, 174, 81, 0.32) !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: relative !important;
+}
+
+.admin-login-page .login-logo-ring::before {
+  content: "" !important;
+  position: absolute !important;
+  width: 112px !important;
+  height: 112px !important;
+  border: 1px solid rgba(55, 174, 81, 0.13) !important;
+  border-radius: 50% !important;
+  animation: adminFarmerLogoRing 3s ease-in-out infinite !important;
+}
+
+.admin-login-page .login-logo {
+  width: 64px !important;
+  height: 64px !important;
+  background: transparent !important;
+  border-radius: 20px !important;
+  box-shadow: none !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.admin-login-page .login-logo-image {
+  width: 64px !important;
+  height: 64px !important;
+  object-fit: contain !important;
+  display: block !important;
+}
+
+@media (max-width: 600px) {
+  .admin-login-page .login-leaf-one {
+    left: -30px !important;
+    top: 34% !important;
+  }
+
+  .admin-login-page .login-leaf-two {
+    right: -25px !important;
+    bottom: 25% !important;
+  }
+}

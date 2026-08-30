@@ -3,6 +3,7 @@ import {
   ArrowLeft,
   Eye,
   EyeOff,
+  Leaf,
   LockKeyhole,
   RefreshCw,
   ShieldCheck,
@@ -105,6 +106,12 @@ function AdminLogin({ onBack, onLogin }) {
 
   return (
     <main className={`admin-login-page ${isDark ? "dark-mode" : ""}`}>
+      {/* Farmer-style background effects — visual only */}
+      <div className="login-glow login-glow-one" />
+      <div className="login-glow login-glow-two" />
+      <Leaf className="login-leaf login-leaf-one" />
+      <Leaf className="login-leaf login-leaf-two" />
+
       <header className="admin-login-topbar">
         <button
           type="button"
@@ -146,27 +153,43 @@ function AdminLogin({ onBack, onLogin }) {
           </span>
         </div>
 
-        <div className="admin-login-card">
-          <div className="admin-login-heading">
-            <div className="admin-login-icon">
-              <LockKeyhole size={30} />
+        <div className="login-logo-wrapper">
+          <div className="login-logo-ring">
+            <div className="login-logo">
+              <img
+                src="/farmbuddy-logo.png"
+                alt="FarmBuddy"
+                className="login-logo-image"
+              />
             </div>
+          </div>
+        </div>
 
-            <p>ADMIN LOGIN</p>
-
+        <div className="admin-login-heading">
+          <div className="login-title-row">
+            <Leaf size={17} fill="currentColor" />
             <h1>
               {isHindi
                 ? "सरकारी एडमिन लॉगिन"
                 : "Government Admin Login"}
             </h1>
-
-            <span>
-              {isHindi
-                ? "केवल अधिकृत सरकारी अधिकारियों के लिए"
-                : "For authorized government officials only"}
-            </span>
+            <Leaf
+              size={17}
+              fill="currentColor"
+              className="login-title-leaf-right"
+            />
           </div>
 
+          <p>ADMIN LOGIN</p>
+
+          <span>
+            {isHindi
+              ? "केवल अधिकृत सरकारी अधिकारियों के लिए"
+              : "For authorized government officials only"}
+          </span>
+        </div>
+
+        <div className="admin-login-card">
           {/* Demo details — kept on the SAME login page */}
           <div className="admin-demo-box">
             <div className="admin-demo-title">

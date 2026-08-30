@@ -629,3 +629,483 @@
   background: #102b1c;
   color: #8ff0ae;
 }
+
+
+/* =========================================
+   OPERATOR LOGIN - FARMER STYLE EFFECTS
+   CSS-ONLY PREMIUM EFFECTS
+   ========================================= */
+
+/* Premium background + decorative glow */
+.proc-login-page {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 8% 8%,
+      rgba(76, 185, 93, 0.13),
+      transparent 23%
+    ),
+    radial-gradient(
+      circle at 92% 88%,
+      rgba(76, 185, 93, 0.09),
+      transparent 23%
+    ),
+    #f8fcf9;
+}
+
+/* Soft decorative glow circles */
+.proc-login-page::before,
+.proc-login-page::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(2px);
+  z-index: 0;
+}
+
+.proc-login-page::before {
+  width: 310px;
+  height: 310px;
+  top: -170px;
+  left: -150px;
+  background: rgba(76, 185, 93, 0.13);
+}
+
+.proc-login-page::after {
+  width: 300px;
+  height: 300px;
+  right: -160px;
+  bottom: -150px;
+  background: rgba(76, 185, 93, 0.09);
+}
+
+/* Keep content above background effects */
+.proc-login-header,
+.proc-login-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Header premium entrance */
+.proc-login-header {
+  animation: procHeaderAppear 0.45s ease;
+}
+
+/* Login card - Farmer-like glass/premium feel */
+.proc-login-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow:
+    0 20px 55px rgba(20, 100, 45, 0.09);
+  animation: procCardAppear 0.5s ease;
+}
+
+/* Operator icon gets Farmer-style animated outer ring */
+.proc-login-icon {
+  position: relative;
+  box-shadow:
+    0 14px 30px rgba(14, 118, 56, 0.16);
+}
+
+.proc-login-icon::before {
+  content: "";
+  position: absolute;
+  width: 82px;
+  height: 82px;
+  border: 1px solid rgba(55, 174, 81, 0.13);
+  border-radius: 50%;
+  animation: procIconRing 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Inputs get smoother Farmer-like focus transition */
+.proc-input-wrap {
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.proc-input-wrap:focus-within {
+  border-color: #138344;
+  box-shadow:
+    0 0 0 3px rgba(67, 185, 87, 0.10);
+}
+
+/* OTP box premium effect */
+.proc-otp-box {
+  background: rgba(67, 185, 87, 0.05);
+  transition: box-shadow 0.2s ease;
+}
+
+/* Login button - Farmer-like hover/active motion */
+.proc-login-button {
+  background:
+    linear-gradient(
+      135deg,
+      #08753b,
+      #29a650
+    );
+  box-shadow:
+    0 12px 27px rgba(20, 126, 59, 0.20);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.proc-login-button:hover {
+  transform: translateY(-2px);
+  background:
+    linear-gradient(
+      135deg,
+      #08753b,
+      #25a04c
+    );
+  box-shadow:
+    0 17px 33px rgba(20, 126, 59, 0.27);
+}
+
+.proc-login-button:active {
+  transform: scale(0.98);
+}
+
+/* Smooth appearance animations */
+@keyframes procHeaderAppear {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes procCardAppear {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes procIconRing {
+  0%,
+  100% {
+    transform: scale(0.96);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: scale(1.06);
+    opacity: 1;
+  }
+}
+
+/* =========================================
+   OPERATOR DARK MODE - MATCH FARMER STYLE
+   ========================================= */
+
+.dark-mode.proc-login-page {
+  position: relative;
+  background:
+    radial-gradient(
+      circle at 15% 10%,
+      rgba(20, 180, 80, 0.14),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 85% 85%,
+      rgba(20, 180, 80, 0.08),
+      transparent 30%
+    ),
+    #020b07;
+  color: #f5fff8;
+}
+
+.dark-mode.proc-login-page::before {
+  background: rgba(53, 232, 120, 0.16);
+}
+
+.dark-mode.proc-login-page::after {
+  background: rgba(53, 232, 120, 0.10);
+}
+
+.dark-mode .proc-login-header {
+  color: #f5fff8;
+}
+
+.dark-mode .proc-login-card {
+  background:
+    linear-gradient(
+      145deg,
+      #091b11,
+      #06130c
+    );
+  border-color: #24563a;
+  box-shadow:
+    0 20px 55px rgba(0, 0, 0, 0.45),
+    inset 0 0 30px rgba(53, 232, 120, 0.025);
+}
+
+.dark-mode .proc-login-icon {
+  background:
+    linear-gradient(
+      145deg,
+      #087b3e,
+      #35c85d
+    );
+  color: #ffffff;
+  box-shadow:
+    0 0 30px rgba(53, 232, 120, 0.18),
+    0 14px 30px rgba(0, 0, 0, 0.35);
+}
+
+.dark-mode .proc-login-icon::before {
+  border-color: rgba(53, 232, 120, 0.20);
+}
+
+.dark-mode .proc-input-wrap:focus-within {
+  border-color: #35e878;
+  box-shadow:
+    0 0 0 3px rgba(53, 232, 120, 0.10),
+    0 0 18px rgba(53, 232, 120, 0.06);
+}
+
+.dark-mode .proc-login-button {
+  background:
+    linear-gradient(
+      135deg,
+      #087b3e,
+      #25bd55
+    );
+  box-shadow:
+    0 0 25px rgba(53, 232, 120, 0.12),
+    0 14px 30px rgba(0, 0, 0, 0.40);
+}
+
+.dark-mode .proc-login-button:hover {
+  background:
+    linear-gradient(
+      135deg,
+      #0a8d47,
+      #35d965
+    );
+  box-shadow:
+    0 0 32px rgba(53, 232, 120, 0.18),
+    0 18px 38px rgba(0, 0, 0, 0.45);
+}
+
+
+/* =========================================
+   EXACT FARMER-STYLE FARM BUDDY LOGO
+   ========================================= */
+
+.proc-login-card .login-logo-wrapper {
+  width: 100%;
+  margin: 0 auto 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.proc-login-card .login-logo-ring {
+  width: 95px;
+  height: 95px;
+  border: 1px solid rgba(55, 174, 81, 0.32);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.proc-login-card .login-logo-ring::before {
+  content: "";
+  position: absolute;
+  width: 112px;
+  height: 112px;
+  border: 1px solid rgba(55, 174, 81, 0.13);
+  border-radius: 50%;
+  animation: procFarmerLogoRing 3s ease-in-out infinite;
+}
+
+.proc-login-card .login-logo {
+  width: 64px;
+  height: 64px;
+  border-radius: 20px;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: none;
+  overflow: hidden;
+}
+
+.proc-login-card .login-logo-image {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .proc-login-card .login-logo-ring {
+    width: 85px;
+    height: 85px;
+  }
+
+  .proc-login-card .login-logo-ring::before {
+    width: 100px;
+    height: 100px;
+  }
+
+  .proc-login-card .login-logo,
+  .proc-login-card .login-logo-image {
+    width: 58px;
+    height: 58px;
+  }
+}
+
+/* Dark mode */
+.dark-mode .proc-login-card .login-logo-ring {
+  border-color: rgba(53, 232, 120, 0.42);
+  box-shadow: 0 0 25px rgba(53, 232, 120, 0.08);
+}
+
+.dark-mode .proc-login-card .login-logo-ring::before {
+  border-color: rgba(53, 232, 120, 0.20);
+}
+
+@keyframes procFarmerLogoRing {
+  0%,
+  100% {
+    transform: scale(0.96);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: scale(1.06);
+    opacity: 1;
+  }
+}
+
+
+/* Final logo centering */
+.proc-login-card .login-logo-ring {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* =========================================
+   FINAL LAYOUT FIX - SAME CENTERED STRUCTURE
+   AS FARMER LOGIN
+   ========================================= */
+
+.proc-login-content {
+  width: min(100% - 30px, 520px);
+  margin: 25px auto 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.proc-login-content .login-logo-wrapper {
+  width: auto;
+  margin: 0 auto 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.proc-login-content .login-logo-ring {
+  margin: 0 auto;
+}
+
+.proc-login-heading {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.proc-login-heading .login-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  color: #138344;
+}
+
+.proc-login-heading .login-title-row h1 {
+  margin: 0;
+  color: #173b29;
+  font-size: clamp(23px, 5vw, 30px);
+  font-weight: 850;
+  letter-spacing: -1px;
+}
+
+.proc-login-heading > p {
+  margin: 8px 0 0;
+  color: #718077;
+  font-size: 12px;
+}
+
+/* Card comes below heading, centered */
+.proc-login-content .proc-login-card {
+  width: 100%;
+  margin-top: 25px;
+  text-align: left;
+}
+
+/* Dark mode */
+.dark-mode .proc-login-heading .login-title-row {
+  color: #35e878;
+}
+
+.dark-mode .proc-login-heading .login-title-row h1 {
+  color: #f5fff8;
+}
+
+.dark-mode .proc-login-heading > p {
+  color: #b7cfc0;
+}
+
+/* Mobile */
+@media (max-width: 560px) {
+  .proc-login-content {
+    width: calc(100% - 22px);
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .proc-login-heading .login-title-row h1 {
+    font-size: 21px;
+  }
+
+  .proc-login-heading > p {
+    font-size: 11px;
+  }
+
+  .proc-login-content .proc-login-card {
+    margin-top: 21px;
+  }
+}
