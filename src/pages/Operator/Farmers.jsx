@@ -97,7 +97,7 @@ function Farmers({ onBack }) {
           <div>
             <strong>FarmBuddy</strong>
             <span>
-              {isHindi ? "ऑपरेटर / यूज़र" : "Operator / User"}
+              {isHindi ? "ऑपरेटर " : "Operator"}
             </span>
           </div>
         </div>

@@ -100,7 +100,7 @@ function OperatorProfile({ onBack, onLogout }) {
 
           <div className="operator-profile-address">
             <MapPin size={18} />
-            <span>Indore, Madhya Pradesh, India</span>
+            <span>Sehore, Madhya Pradesh, India</span>
           </div>
         </div>
 

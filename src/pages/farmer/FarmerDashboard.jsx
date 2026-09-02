@@ -26,6 +26,28 @@ function FarmerDashboard({ onProfile, onPayment, onHistory, onBookSlot, booking,
   const { language, t } = useLanguage();
   const [showNotifications, setShowNotifications] = useState(false);
 
+  // Display booking dates as DD/MM/YYYY (day first, then month, then year).
+  const formatBookingDate = (value) => {
+    if (!value) return "25/05/2026";
+
+    const raw = String(value).trim();
+
+    // ISO date: YYYY-MM-DD
+    const isoMatch = raw.match(/^(\d{4})-(\d{2})-(\d{2})/);
+    if (isoMatch) {
+      return `${isoMatch[3]}/${isoMatch[2]}/${isoMatch[1]}`;
+    }
+
+    // Already numeric: DD/MM/YYYY or DD-MM-YYYY
+    const numericMatch = raw.match(/^(\d{1,2})[-\/]([0-9]{1,2})[-\/](\d{4})$/);
+    if (numericMatch) {
+      return `${numericMatch[1].padStart(2, "0")}/${numericMatch[2].padStart(2, "0")}/${numericMatch[3]}`;
+    }
+
+    // Text dates such as "25 May 2026" are already day-month-year.
+    return raw;
+  };
+
   return (
     <main className={`simple-farmer-dashboard ${isDark ? "dark-mode" : ""}`}>
 
@@ -33,11 +55,22 @@ function FarmerDashboard({ onProfile, onPayment, onHistory, onBookSlot, booking,
       <header className="simple-header">
 
         <div className="simple-brand">
-          <Wheat size={28} />
-          <span>
-  <span style={{ color: "#07552f" }}>Farm</span>
-  <span style={{ color: "#45c35b" }}>Buddy</span>
-</span>
+          <img
+            src="/farmbuddy-logo.png"
+            alt="FarmBuddy logo"
+            className="simple-brand-logo"
+            style={{
+              width: "54px",
+              height: "54px",
+              display: "block",
+              objectFit: "contain",
+              flexShrink: 0,
+            }}
+          />
+          <span className="simple-brand-name">
+            <span style={{ color: "#07552f" }}>Farm</span>
+            <span style={{ color: "#45c35b" }}>Buddy</span>
+          </span>
         </div>
 
         <div className="simple-header-actions">
@@ -192,41 +225,47 @@ function FarmerDashboard({ onProfile, onPayment, onHistory, onBookSlot, booking,
 
             <div className="overview-card green">
               <div className="overview-icon">
-                <CalendarDays size={25} />
+                <CalendarDays size={19} />
               </div>
-
-              <strong>{booking ? 1 : 0}</strong>
-              <span>{t.upcomingBooking}</span>
+              <div className="overview-stat">
+                <strong>{booking ? 1 : 0}</strong>
+                <span>{t.upcomingBooking}</span>
+              </div>
             </div>
 
 
             <div className="overview-card yellow">
               <div className="overview-icon">
-                <Ticket size={25} />
+                <Ticket size={19} />
               </div>
-
-              <strong>27</strong>
-              <span>{t.yourToken}</span>
+              <div className="overview-stat">
+                <strong>27</strong>
+                <span>{t.yourToken}</span>
+              </div>
             </div>
 
 
             <div className="overview-card blue">
               <div className="overview-icon">
-                <ClipboardList size={25} />
+                <ClipboardList size={19} />
               </div>
-
-              <strong>{booking ? 1 : 0}</strong>
-              <span>{t.totalBookings}</span>
+              <div className="overview-stat">
+                <strong>{booking ? 1 : 0}</strong>
+                <span className="overview-label">
+                  {language === "hi" ? "कुल बुकिंग" : "Total Bookings"}
+                </span>
+              </div>
             </div>
 
 
             <div className="overview-card green">
               <div className="overview-icon">
-                <CheckCircle2 size={25} />
+                <CheckCircle2 size={19} />
               </div>
-
-              <strong>3</strong>
-              <span>{t.completed}</span>
+              <div className="overview-stat">
+                <strong>3</strong>
+                <span>{t.completed}</span>
+              </div>
             </div>
 
           </div>
@@ -253,28 +292,32 @@ function FarmerDashboard({ onProfile, onPayment, onHistory, onBookSlot, booking,
               <div className="booking-status">
                 {booking ? t.confirmed : t.noBookingYet}
               </div>
-              <h3>{booking?.crop || t.wheat}</h3>
-              <strong>{booking?.quantity || "25"} {t.quintal}</strong>
+              <div className="booking-main-row">
+                <div className="booking-crop">
+                  <h3>{booking?.crop || t.wheat}</h3>
+                  <strong>{booking?.quantity || "25"} {t.quintal}</strong>
+                </div>
+              </div>
               <div className="booking-details">
-                <span><CalendarDays size={17} />{booking?.date || "25 May 2026"}</span>
+                <span><CalendarDays size={17} />{formatBookingDate(booking?.date)}</span>
                 <span><Clock3 size={17} />{booking?.time || "10:30 AM"}</span>
                 <span><MapPin size={17} />{booking?.center || (language === "hi" ? "इंदौर मंडी" : "Indore Mandi")}</span>
               </div>
             </div>
+
+            {/* Main Action */}
+            <button
+              type="button"
+              className="book-new-slot"
+              onClick={onBookSlot}
+            >
+              <CalendarDays size={20} />
+              <span>{t.bookNewSlot}</span>
+              <span className="book-slot-arrow">→</span>
+            </button>
           </div>
 
         </section>
-
-
-        {/* Main Action */}
-        <button
-  type="button"
-  className="book-new-slot"
-  onClick={onBookSlot}
->
-  <CalendarDays size={24} />
-  {t.bookNewSlot}
-</button>
 
 
         {/* Quick Access */}
@@ -299,7 +342,7 @@ function FarmerDashboard({ onProfile, onPayment, onHistory, onBookSlot, booking,
               onClick={onMyBooking}
             >
               <ClipboardList size={28} />
-              <strong>{t.myBooking}</strong>
+              <strong>{language === "hi" ? "मेरी बुकिंग" : "My Booking"}</strong>
             </button>
 
             <button
@@ -373,9 +416,13 @@ function FarmerDashboard({ onProfile, onPayment, onHistory, onBookSlot, booking,
           <Wheat size={35} />
 
           <div>
-            <strong>समय पर बुकिंग करें</strong>
+            <strong>
+              {language === "hi" ? "समय पर बुकिंग करें" : "Book Your Slot on Time"}
+            </strong>
             <p>
-              बेहतर सेवा के लिए अपना procurement slot पहले से book करें।
+              {language === "hi"
+                ? "बेहतर सेवा के लिए अपना procurement slot पहले से book करें।"
+                : "Book your procurement slot in advance for better service."}
             </p>
           </div>
 

@@ -1,4 +1,4 @@
-* {
+
   box-sizing: border-box;
 }
 
@@ -891,5 +891,4145 @@
   .quick-card.green strong,
   .quick-card.yellow strong {
     font-size: 11px;
+  }
+}
+
+
+/* =========================================================
+   FARMER DASHBOARD — FINAL PREMIUM OVERRIDES
+   Today’s Overview + Upcoming Booking only.
+   All other dashboard styles remain from the original CSS above.
+   ========================================================= */
+
+/* TODAY'S OVERVIEW */
+.overview-section {
+  padding: 16px 18px;
+  border: 1px solid rgba(28, 91, 55, 0.07);
+  background: linear-gradient(145deg, #ffffff 0%, #fbfefc 100%);
+  box-shadow:
+    0 5px 18px rgba(24, 74, 45, 0.045),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.overview-section h2 {
+  margin: 0 0 12px;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.overview-card {
+  min-height: 62px;
+  border-radius: 12px;
+  padding: 9px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(20, 70, 40, 0.07);
+  box-shadow:
+    0 2px 8px rgba(20, 70, 40, 0.045),
+    inset 0 1px 0 rgba(255, 255, 255, 0.82);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.overview-card::before {
+  content: "";
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  right: -42px;
+  top: -48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.48);
+  pointer-events: none;
+}
+
+.overview-card:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    0 5px 13px rgba(20, 70, 40, 0.07),
+    inset 0 1px 0 rgba(255, 255, 255, 0.88);
+}
+
+.overview-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.overview-card.green {
+  background: linear-gradient(105deg, #edf9f0 0%, #f8fcf9 58%, #ffffff 100%);
+  border-left: 3px solid #31b968;
+}
+
+.overview-card.yellow {
+  background: linear-gradient(105deg, #fff7e4 0%, #fffdf7 58%, #ffffff 100%);
+  border-left: 3px solid #e5ab2d;
+}
+
+.overview-card.blue {
+  background: linear-gradient(105deg, #eff6fd 0%, #f9fbfe 58%, #ffffff 100%);
+  border-left: 3px solid #4b91df;
+}
+
+.overview-icon {
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.94);
+  box-shadow:
+    0 3px 7px rgba(20, 70, 40, 0.11),
+    inset 0 1px 1px rgba(255, 255, 255, 0.94),
+    inset 0 -1px 1px rgba(20, 70, 40, 0.06);
+  isolation: isolate;
+}
+
+.overview-icon::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(255,255,255,.42), rgba(255,255,255,.10) 35%, transparent 62%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.overview-icon::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 5px;
+  left: 7px;
+  bottom: 3px;
+  border-radius: 50%;
+  background: rgba(0,0,0,.07);
+  filter: blur(2px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.overview-icon svg {
+  width: 19px;
+  height: 19px;
+  position: relative;
+  z-index: 1;
+  stroke-width: 2.1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 1px 0 rgba(255,255,255,.75)) drop-shadow(0 1px 1px rgba(0,0,0,.16));
+}
+
+.overview-card.green .overview-icon {
+  background: linear-gradient(145deg, #e8faec, #d5f1dc);
+  color: #087b3e;
+  box-shadow: 0 3px 8px rgba(8,123,62,.13), inset 0 1px 0 rgba(255,255,255,.92);
+}
+
+.overview-card.yellow .overview-icon {
+  background: linear-gradient(145deg, #fff4cf, #ffe7a0);
+  color: #d89500;
+  box-shadow: 0 3px 8px rgba(209,139,0,.13), inset 0 1px 0 rgba(255,255,255,.92);
+}
+
+.overview-card.blue .overview-icon {
+  background: linear-gradient(145deg, #e8f1ff, #d5e6ff);
+  color: #236fc9;
+  box-shadow: 0 3px 8px rgba(35,111,201,.13), inset 0 1px 0 rgba(255,255,255,.92);
+}
+
+.overview-stat {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.overview-card strong {
+  font-size: 19px;
+  line-height: 1;
+  letter-spacing: -0.25px;
+  color: #19372a;
+}
+
+.overview-card span {
+  margin-top: 3px;
+  font-size: 10px;
+  line-height: 1.15;
+  color: #5f6e66;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+/* OVERVIEW DARK MODE */
+.dark-mode .overview-section {
+  background: linear-gradient(145deg, #0d2116 0%, #0b1d13 100%);
+  border-color: #1d3b28;
+}
+
+.dark-mode .overview-card {
+  border-color: rgba(255,255,255,.055);
+  box-shadow: 0 4px 12px rgba(0,0,0,.20), inset 0 1px 0 rgba(255,255,255,.035);
+}
+
+.dark-mode .overview-card::before {
+  background: rgba(255,255,255,.035);
+}
+
+.dark-mode .overview-card:hover {
+  box-shadow: 0 7px 16px rgba(0,0,0,.27), inset 0 1px 0 rgba(255,255,255,.05);
+}
+
+.dark-mode .overview-card.green {
+  background: linear-gradient(105deg, #10281a 0%, #0d2116 60%, #0c1e14 100%);
+  border-left-color: #32d977;
+}
+
+.dark-mode .overview-card.yellow {
+  background: linear-gradient(105deg, #241d0b 0%, #17160d 60%, #12140e 100%);
+  border-left-color: #f1b936;
+}
+
+.dark-mode .overview-card.blue {
+  background: linear-gradient(105deg, #102438 0%, #0d2116 60%, #0c1d16 100%);
+  border-left-color: #4b9cf0;
+}
+
+.dark-mode .overview-card strong { color: #eaf7ef; }
+.dark-mode .overview-card span { color: #c2d2c8; }
+
+.dark-mode .overview-icon::before {
+  background: linear-gradient(135deg, rgba(255,255,255,.16), rgba(255,255,255,.04) 35%, transparent 62%);
+}
+
+.dark-mode .overview-icon::after { background: rgba(0,0,0,.30); }
+.dark-mode .overview-icon svg { filter: drop-shadow(0 1px 0 rgba(255,255,255,.10)) drop-shadow(0 1px 2px rgba(0,0,0,.45)); }
+
+.dark-mode .overview-card.green .overview-icon {
+  background: linear-gradient(145deg, #123b25, #0d2b1b);
+  color: #35dc78;
+  border-color: rgba(53,220,120,.38);
+}
+
+.dark-mode .overview-card.yellow .overview-icon {
+  background: linear-gradient(145deg, #3a2e0d, #292109);
+  color: #ffc83d;
+  border-color: rgba(255,200,61,.38);
+}
+
+.dark-mode .overview-card.blue .overview-icon {
+  background: linear-gradient(145deg, #112d4a, #0b2238);
+  color: #54a8ff;
+  border-color: rgba(84,168,255,.38);
+}
+
+/* OVERVIEW RESPONSIVE */
+@media (max-width: 800px) {
+  .overview-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .overview-section { padding: 13px; }
+  .overview-section h2 { margin-bottom: 9px; font-size: 16px; }
+  .overview-grid { grid-template-columns: repeat(2, 1fr); gap: 7px; }
+  .overview-card { min-height: 55px; padding: 7px 8px; border-radius: 10px; gap: 7px; }
+  .overview-icon { width: 28px; height: 28px; flex-basis: 28px; }
+  .overview-icon svg { width: 16px; height: 16px; }
+  .overview-card strong { font-size: 17px; }
+  .overview-card span { margin-top: 2px; font-size: 9px; line-height: 1.1; }
+  .overview-card:hover { transform: none; }
+}
+
+@media (max-width: 380px) {
+  .overview-card { min-height: 52px; }
+  .overview-card span { font-size: 8.5px; }
+}
+
+/* =========================================================
+   UPCOMING BOOKING — PREMIUM COMPACT UI
+   Only affects the Upcoming Booking section.
+   Keeps every booking detail visible and places the action
+   inside the booking card.
+   ========================================================= */
+
+.upcoming-section {
+  padding: 16px 18px;
+  border: 1px solid rgba(28, 91, 55, 0.07);
+  background: linear-gradient(145deg, #ffffff 0%, #fbfefc 100%);
+  box-shadow:
+    0 5px 18px rgba(24, 74, 45, 0.045),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.upcoming-section .section-title {
+  margin-bottom: 11px;
+}
+
+.upcoming-section .section-title h2 {
+  font-size: 19px;
+  font-weight: 850;
+  letter-spacing: -0.2px;
+}
+
+.upcoming-section .section-title button {
+  padding: 5px 8px;
+  border-radius: 7px;
+  color: #087b3e;
+  font-size: 13px;
+  font-weight: 800;
+  transition: background .18s ease, transform .18s ease;
+}
+
+.upcoming-section .section-title button:hover {
+  background: #eef9f1;
+  transform: translateX(1px);
+}
+
+.upcoming-section .upcoming-booking {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 220px;
+  align-items: stretch;
+  gap: 14px;
+  padding: 13px;
+  border: 1px solid #e3eee7;
+  border-radius: 14px;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(49, 185, 104, 0.09), transparent 28%),
+    linear-gradient(135deg, #f8fcf9 0%, #ffffff 72%);
+  box-shadow:
+    0 3px 11px rgba(25, 78, 47, 0.055),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  overflow: hidden;
+}
+
+.upcoming-section .upcoming-booking::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 12px;
+  bottom: 12px;
+  width: 3px;
+  border-radius: 0 4px 4px 0;
+  background: linear-gradient(180deg, #31b968, #0b7f40);
+}
+
+.upcoming-section .booking-info {
+  min-width: 0;
+  padding-left: 5px;
+}
+
+.upcoming-section .booking-status {
+  width: fit-content;
+  padding: 4px 9px;
+  border: 1px solid #d6efdc;
+  border-radius: 999px;
+  background: #edf9f0;
+  color: #087b3e;
+  font-size: 10.5px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.upcoming-section .booking-main-row {
+  display: flex;
+  align-items: baseline;
+  margin-top: 6px;
+}
+
+.upcoming-section .booking-info h3 {
+  display: inline;
+  margin: 0 9px 0 0;
+  font-size: 21px;
+  line-height: 1.05;
+  font-weight: 850;
+  letter-spacing: -0.25px;
+}
+
+.upcoming-section .booking-info > .booking-main-row strong,
+.upcoming-section .booking-crop strong {
+  font-size: 13px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.upcoming-section .booking-details {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px 9px;
+  margin-top: 9px;
+}
+
+.upcoming-section .booking-details span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 27px;
+  padding: 4px 8px;
+  border: 1px solid #e7eee9;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.78);
+  color: #596a61;
+  font-size: 11px;
+  line-height: 1.1;
+  white-space: nowrap;
+  box-shadow: 0 1px 3px rgba(30, 80, 50, 0.035);
+}
+
+.upcoming-section .booking-details svg {
+  color: #5e7669;
+  flex: 0 0 auto;
+  stroke-width: 2;
+}
+
+.upcoming-section .book-new-slot {
+  width: 100%;
+  min-height: 42px;
+  align-self: center;
+  margin: 0;
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 10px;
+  background: linear-gradient(135deg, #0b8744 0%, #087b3e 55%, #066e37 100%);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  font-size: 13.5px;
+  font-weight: 850;
+  letter-spacing: -0.1px;
+  cursor: pointer;
+  box-shadow:
+    0 5px 12px rgba(8, 123, 62, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
+  transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+}
+
+.upcoming-section .book-new-slot:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.03);
+  box-shadow:
+    0 7px 15px rgba(8, 123, 62, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.upcoming-section .book-new-slot:active {
+  transform: translateY(0);
+}
+
+.upcoming-section .book-new-slot svg {
+  width: 19px;
+  height: 19px;
+  stroke-width: 2.2;
+}
+
+.upcoming-section .book-slot-arrow {
+  opacity: .78;
+  margin-left: 1px;
+  font-size: 16px;
+  line-height: 1;
+}
+
+/* DARK MODE */
+
+.dark-mode .upcoming-section {
+  border-color: #1d3b28;
+  background: linear-gradient(145deg, #0d2116 0%, #0b1d13 100%);
+  box-shadow:
+    0 6px 18px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+}
+
+.dark-mode .upcoming-section .section-title button {
+  color: #72d79a;
+}
+
+.dark-mode .upcoming-section .section-title button:hover {
+  background: rgba(50, 217, 119, 0.08);
+}
+
+.dark-mode .upcoming-section .upcoming-booking {
+  border-color: #244934;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(50, 217, 119, 0.075), transparent 28%),
+    linear-gradient(135deg, #10281a 0%, #0d2116 72%);
+  box-shadow:
+    0 4px 13px rgba(0, 0, 0, 0.19),
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+}
+
+.dark-mode .upcoming-section .upcoming-booking::before {
+  background: linear-gradient(180deg, #39df7e, #159452);
+}
+
+.dark-mode .upcoming-section .booking-status {
+  border-color: rgba(50, 217, 119, 0.16);
+  background: rgba(50, 217, 119, 0.11);
+  color: #72d79a;
+}
+
+.dark-mode .upcoming-section .booking-details span {
+  border-color: #254735;
+  background: rgba(255, 255, 255, 0.025);
+  color: #a8b8ae;
+  box-shadow: none;
+}
+
+.dark-mode .upcoming-section .booking-details svg {
+  color: #87a496;
+}
+
+.dark-mode .upcoming-section .book-new-slot {
+  background: linear-gradient(135deg, #0c9149 0%, #087b3e 58%, #066b36 100%);
+  box-shadow:
+    0 6px 14px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.11);
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+  .upcoming-section .upcoming-booking {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 11px;
+  }
+
+  .upcoming-section .book-new-slot {
+    min-height: 40px;
+    width: 100%;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 600px) {
+  .upcoming-section {
+    padding: 14px;
+  }
+
+  .upcoming-section .section-title {
+    margin-bottom: 9px;
+  }
+
+  .upcoming-section .section-title h2 {
+    font-size: 17px;
+  }
+
+  .upcoming-section .section-title button {
+    padding: 4px 6px;
+    font-size: 11.5px;
+  }
+
+  .upcoming-section .upcoming-booking {
+    gap: 9px;
+    padding: 10px;
+    border-radius: 12px;
+  }
+
+  .upcoming-section .booking-status {
+    padding: 4px 8px;
+    font-size: 10px;
+  }
+
+  .upcoming-section .booking-info h3 {
+    font-size: 19px;
+  }
+
+  .upcoming-section .booking-info > .booking-main-row strong,
+  .upcoming-section .booking-crop strong {
+    font-size: 12px;
+  }
+
+  .upcoming-section .booking-details {
+    margin-top: 8px;
+    gap: 5px 6px;
+  }
+
+  .upcoming-section .booking-details span {
+    min-height: 25px;
+    padding: 4px 7px;
+    font-size: 10px;
+  }
+
+  .upcoming-section .booking-details svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .upcoming-section .book-new-slot {
+    min-height: 39px;
+    padding: 7px 10px;
+    border-radius: 9px;
+    font-size: 12.5px;
+  }
+
+  .upcoming-section .book-new-slot svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .upcoming-section .book-slot-arrow {
+    font-size: 15px;
+  }
+}
+
+/* =========================================================
+   UPCOMING BOOKING — LEFT ALIGNMENT FIX
+   Booking details stay aligned with Wheat/quantity on desktop.
+   Mobile layout remains unchanged.
+   ========================================================= */
+
+.upcoming-section .booking-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: left;
+}
+
+.upcoming-section .booking-main-row,
+.upcoming-section .booking-crop,
+.upcoming-section .booking-details {
+  width: 100%;
+  justify-content: flex-start;
+  align-self: flex-start;
+}
+
+.upcoming-section .booking-details {
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 701px) {
+  .upcoming-section .booking-details {
+    max-width: 100%;
+  }
+
+  .upcoming-section .booking-details span {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 700px) {
+  .upcoming-section .booking-info {
+    width: 100%;
+  }
+
+  .upcoming-section .booking-details {
+    width: 100%;
+  }
+}
+
+
+/* =========================================================
+   UPCOMING BOOKING — FINAL VISUAL POLISH
+   Size and alignment intentionally preserved.
+   ========================================================= */
+
+.upcoming-section {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.98), rgba(250,253,251,0.98));
+  border-color: #e1e9e4;
+  box-shadow:
+    0 8px 24px rgba(18, 72, 42, 0.055),
+    inset 0 1px 0 rgba(255,255,255,0.95);
+}
+
+.upcoming-section .section-title {
+  margin-bottom: 16px;
+}
+
+.upcoming-section .section-title h2 {
+  letter-spacing: -0.35px;
+}
+
+.upcoming-section .section-title button {
+  padding: 6px 2px;
+  border-radius: 8px;
+  transition: background 0.18s ease, transform 0.18s ease;
+}
+
+.upcoming-section .section-title button:hover {
+  background: #eef8f1;
+  transform: translateX(1px);
+}
+
+.upcoming-booking {
+  position: relative;
+  overflow: hidden;
+  padding: 15px 16px;
+  border: 1px solid #dce9e1;
+  border-radius: 16px;
+  background:
+    radial-gradient(circle at 92% 15%, rgba(49,185,104,0.07), transparent 28%),
+    linear-gradient(135deg, #fbfefc 0%, #f5fbf7 100%);
+  box-shadow:
+    0 5px 16px rgba(20, 70, 40, 0.045),
+    inset 0 1px 0 rgba(255,255,255,0.92);
+}
+
+.upcoming-booking::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 14px;
+  bottom: 14px;
+  width: 3px;
+  border-radius: 0 4px 4px 0;
+  background: linear-gradient(180deg, #19a85b, #087b3e);
+}
+
+.upcoming-booking::after {
+  content: "";
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  right: -75px;
+  bottom: -90px;
+  border-radius: 50%;
+  background: rgba(49,185,104,0.045);
+  pointer-events: none;
+}
+
+.booking-info {
+  position: relative;
+  z-index: 1;
+}
+
+.booking-status {
+  padding: 5px 10px;
+  border: 1px solid #d4eadb;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #f0fbf3, #e7f6eb);
+  box-shadow: 0 2px 6px rgba(8,123,62,0.05);
+}
+
+.booking-info h3 {
+  letter-spacing: -0.45px;
+}
+
+.booking-info > strong {
+  display: inline-block;
+  margin-left: 7px;
+  color: #17372a;
+  font-weight: 800;
+}
+
+.booking-details {
+  position: relative;
+  z-index: 1;
+}
+
+.booking-details span {
+  width: fit-content;
+  padding: 6px 9px;
+  border: 1px solid #e1eae5;
+  border-radius: 9px;
+  background: rgba(255,255,255,0.78);
+  color: #52645a;
+  box-shadow: 0 2px 5px rgba(20,70,40,0.035);
+  transition: border-color 0.18s ease, transform 0.18s ease;
+}
+
+.booking-details span:hover {
+  border-color: #cfe1d6;
+  transform: translateX(1px);
+}
+
+.booking-details svg {
+  color: #4f7862;
+  flex: 0 0 auto;
+}
+
+.book-new-slot {
+  position: relative;
+  z-index: 2;
+  width: min(275px, 100%);
+  justify-self: end;
+  margin: 0;
+  padding: 12px 18px;
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 12px;
+  background: linear-gradient(135deg, #0a8b46, #087b3e);
+  box-shadow:
+    0 7px 16px rgba(8,123,62,0.19),
+    inset 0 1px 0 rgba(255,255,255,0.16);
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    filter 0.18s ease;
+}
+
+.book-new-slot:hover {
+  background: linear-gradient(135deg, #0b934a, #087b3e);
+  transform: translateY(-1px);
+  box-shadow:
+    0 9px 20px rgba(8,123,62,0.23),
+    inset 0 1px 0 rgba(255,255,255,0.18);
+  filter: saturate(1.04);
+}
+
+.book-new-slot:active {
+  transform: translateY(0);
+}
+
+.book-new-slot svg {
+  width: 19px;
+  height: 19px;
+}
+
+/* Dark mode */
+.dark-mode .upcoming-section {
+  background:
+    linear-gradient(180deg, #0e2518, #0c2116);
+  border-color: #1d3b28;
+  box-shadow:
+    0 8px 24px rgba(0,0,0,0.16),
+    inset 0 1px 0 rgba(255,255,255,0.025);
+}
+
+.dark-mode .upcoming-section .section-title button:hover {
+  background: #143522;
+}
+
+.dark-mode .upcoming-booking {
+  border-color: #244b34;
+  background:
+    radial-gradient(circle at 92% 15%, rgba(49,185,104,0.09), transparent 28%),
+    linear-gradient(135deg, #10291b 0%, #0d2417 100%);
+  box-shadow:
+    0 5px 16px rgba(0,0,0,0.16),
+    inset 0 1px 0 rgba(255,255,255,0.025);
+}
+
+.dark-mode .booking-status {
+  border-color: #28543a;
+  background: linear-gradient(180deg, #143b23, #12351f);
+  color: #74d69a;
+}
+
+.dark-mode .booking-info > strong {
+  color: #dcebe2;
+}
+
+.dark-mode .booking-details span {
+  border-color: #294536;
+  background: rgba(17,42,28,0.72);
+  color: #b5c8bc;
+}
+
+.dark-mode .booking-details span:hover {
+  border-color: #356047;
+}
+
+.dark-mode .booking-details svg {
+  color: #82b795;
+}
+
+/* Mobile: preserve the existing compact dimensions */
+@media (max-width: 600px) {
+  .upcoming-booking {
+    padding: 13px 13px;
+    border-radius: 14px;
+  }
+
+  .upcoming-booking::before {
+    top: 12px;
+    bottom: 12px;
+  }
+
+  .booking-details span {
+    padding: 5px 8px;
+  }
+
+  .book-new-slot {
+    width: 100%;
+    padding: 11px 14px;
+  }
+
+  .upcoming-section .section-title button {
+    padding: 5px 1px;
+  }
+}
+
+
+/* =========================================================
+   UPCOMING BOOKING — REFINED PREMIUM PASS
+   Visual polish only. Existing size/alignment preserved.
+   ========================================================= */
+
+.upcoming-booking {
+  gap: 20px;
+  background:
+    radial-gradient(circle at 8% 100%, rgba(49,185,104,0.035), transparent 25%),
+    radial-gradient(circle at 94% 8%, rgba(49,185,104,0.055), transparent 27%),
+    linear-gradient(135deg, #ffffff 0%, #f7fcf9 100%);
+  box-shadow:
+    0 7px 18px rgba(20, 70, 40, 0.045),
+    inset 0 1px 0 rgba(255,255,255,0.96);
+}
+
+.upcoming-booking::before {
+  width: 2.5px;
+  background: linear-gradient(180deg, #28b866, #087b3e);
+  box-shadow: 0 0 8px rgba(40,184,102,0.14);
+}
+
+.booking-status {
+  letter-spacing: 0.05px;
+  box-shadow:
+    0 2px 5px rgba(8,123,62,0.045),
+    inset 0 1px 0 rgba(255,255,255,0.65);
+}
+
+.booking-info h3 {
+  display: inline-block;
+  margin-right: 3px;
+  font-weight: 850;
+}
+
+.booking-info > strong {
+  padding: 2px 7px;
+  margin-left: 4px;
+  border-radius: 7px;
+  background: rgba(8,123,62,0.055);
+  color: #155b38;
+  font-size: 14px;
+}
+
+.booking-details {
+  margin-top: 15px;
+  gap: 8px;
+}
+
+.booking-details span {
+  min-height: 32px;
+  padding: 5px 9px;
+  border-radius: 9px;
+  background: rgba(255,255,255,0.88);
+  box-shadow:
+    0 2px 5px rgba(20,70,40,0.028),
+    inset 0 1px 0 rgba(255,255,255,0.9);
+}
+
+.booking-details span svg {
+  width: 17px;
+  height: 17px;
+  stroke-width: 2;
+}
+
+.book-new-slot {
+  min-height: 46px;
+  border-radius: 11px;
+  font-size: 16px;
+  letter-spacing: -0.1px;
+  box-shadow:
+    0 7px 15px rgba(8,123,62,0.17),
+    inset 0 1px 0 rgba(255,255,255,0.17);
+}
+
+.book-new-slot::after {
+  content: "";
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  top: 1px;
+  height: 1px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.22);
+  pointer-events: none;
+}
+
+.book-new-slot svg {
+  stroke-width: 2.25;
+}
+
+.dark-mode .upcoming-booking {
+  background:
+    radial-gradient(circle at 8% 100%, rgba(49,185,104,0.04), transparent 25%),
+    radial-gradient(circle at 94% 8%, rgba(49,185,104,0.07), transparent 27%),
+    linear-gradient(135deg, #10291b 0%, #0d2417 100%);
+}
+
+.dark-mode .booking-info > strong {
+  background: rgba(76,195,121,0.08);
+  color: #9be0b5;
+}
+
+.dark-mode .booking-details span {
+  background: rgba(18,45,29,0.82);
+  box-shadow:
+    0 2px 6px rgba(0,0,0,0.12),
+    inset 0 1px 0 rgba(255,255,255,0.025);
+}
+
+@media (max-width: 600px) {
+  .upcoming-booking {
+    gap: 12px;
+  }
+
+  .booking-info > strong {
+    padding: 2px 6px;
+    font-size: 13px;
+  }
+
+  .booking-details {
+    margin-top: 12px;
+    gap: 7px;
+  }
+
+  .booking-details span {
+    min-height: 30px;
+  }
+
+  .book-new-slot {
+    min-height: 43px;
+    font-size: 15px;
+  }
+}
+
+
+/* =========================================================
+   UPCOMING BOOKING — FINAL TOUCH
+   No size/layout changes. Pure visual refinement.
+   ========================================================= */
+
+.upcoming-section {
+  box-shadow:
+    0 7px 22px rgba(18, 72, 42, 0.048),
+    inset 0 1px 0 rgba(255,255,255,0.96);
+}
+
+.upcoming-booking {
+  border-color: #d9e8df;
+  background:
+    radial-gradient(circle at 88% 18%, rgba(46,184,101,0.065), transparent 24%),
+    linear-gradient(135deg, #ffffff 0%, #f6fbf8 100%);
+  box-shadow:
+    0 6px 17px rgba(18, 72, 42, 0.042),
+    inset 0 1px 0 rgba(255,255,255,0.98);
+}
+
+.upcoming-booking::before {
+  width: 3px;
+  top: 16px;
+  bottom: 16px;
+  background: linear-gradient(180deg, #34c875, #087b3e);
+}
+
+.booking-status {
+  background: linear-gradient(180deg, #f3fcf5 0%, #e8f7ec 100%);
+  border-color: #d0e8d8;
+  color: #087b3e;
+  font-weight: 800;
+}
+
+.booking-info h3 {
+  font-size: 24px;
+  line-height: 1.05;
+  letter-spacing: -0.5px;
+}
+
+.booking-info > strong {
+  position: relative;
+  top: -1px;
+  background: #f0f8f2;
+  border: 1px solid #e0eee4;
+  color: #24553a;
+}
+
+.booking-details span {
+  border-color: #dce8e1;
+  background: rgba(255,255,255,0.92);
+  color: #506259;
+}
+
+.booking-details span:hover {
+  background: #ffffff;
+  border-color: #cfe1d6;
+  box-shadow: 0 3px 7px rgba(20,70,40,0.045);
+}
+
+.book-new-slot {
+  background: linear-gradient(135deg, #0a9149 0%, #087b3e 100%);
+  border-color: rgba(255,255,255,0.22);
+  box-shadow:
+    0 8px 17px rgba(8,123,62,0.18),
+    inset 0 1px 0 rgba(255,255,255,0.2),
+    inset 0 -1px 0 rgba(0,70,35,0.12);
+}
+
+.book-new-slot:hover {
+  background: linear-gradient(135deg, #0b9950 0%, #087b3e 100%);
+  box-shadow:
+    0 10px 21px rgba(8,123,62,0.22),
+    inset 0 1px 0 rgba(255,255,255,0.22);
+}
+
+.book-new-slot svg {
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,0.08));
+}
+
+/* Dark mode final touch */
+.dark-mode .upcoming-section {
+  box-shadow:
+    0 7px 22px rgba(0,0,0,0.17),
+    inset 0 1px 0 rgba(255,255,255,0.025);
+}
+
+.dark-mode .upcoming-booking {
+  border-color: #264c35;
+  background:
+    radial-gradient(circle at 88% 18%, rgba(46,184,101,0.075), transparent 24%),
+    linear-gradient(135deg, #10291b 0%, #0d2417 100%);
+}
+
+.dark-mode .booking-info > strong {
+  background: #143421;
+  border-color: #28533a;
+  color: #a1dfb7;
+}
+
+.dark-mode .booking-details span {
+  background: rgba(17,43,28,0.86);
+  border-color: #294637;
+  color: #b9cabe;
+}
+
+.dark-mode .booking-details span:hover {
+  background: #143522;
+  border-color: #365d45;
+}
+
+@media (max-width: 600px) {
+  .booking-info h3 {
+    font-size: 22px;
+  }
+
+  .upcoming-booking::before {
+    top: 13px;
+    bottom: 13px;
+  }
+}
+
+
+/* =========================================================
+   FINAL THEME + ALIGNMENT FIX
+   - Overview stat groups stay visually centered in each card
+   - Dark theme gets softer, cleaner card surfaces
+   - Upcoming booking details remain left-aligned
+   - Existing compact sizes are preserved
+   ========================================================= */
+
+/* TODAY'S OVERVIEW — center the compact icon + number group */
+.overview-card {
+  justify-content: center;
+  text-align: left;
+}
+
+.overview-stat {
+  flex: 0 1 auto;
+}
+
+/* Keep the group centered without making text itself centered */
+.overview-card > .overview-icon,
+.overview-card > .overview-stat {
+  flex-shrink: 0;
+}
+
+/* Dark theme: less harsh black, more premium layered surfaces */
+.dark-mode .overview-section {
+  background:
+    radial-gradient(circle at 95% 0%, rgba(48, 180, 99, 0.045), transparent 24%),
+    linear-gradient(145deg, #0d2418 0%, #0b1e14 100%);
+  border-color: #20452f;
+  box-shadow:
+    0 7px 22px rgba(0,0,0,0.15),
+    inset 0 1px 0 rgba(255,255,255,0.025);
+}
+
+.dark-mode .overview-card {
+  border-color: rgba(255,255,255,0.07);
+  box-shadow:
+    0 3px 10px rgba(0,0,0,0.17),
+    inset 0 1px 0 rgba(255,255,255,0.035);
+}
+
+.dark-mode .overview-card.green {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(49,217,119,0.075), transparent 30%),
+    linear-gradient(110deg, #102b1c 0%, #0e2518 62%, #0c2116 100%);
+}
+
+.dark-mode .overview-card.yellow {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(241,185,54,0.075), transparent 30%),
+    linear-gradient(110deg, #29230f 0%, #211d0e 62%, #17180f 100%);
+}
+
+.dark-mode .overview-card.blue {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(75,156,240,0.075), transparent 30%),
+    linear-gradient(110deg, #112a40 0%, #0f2437 62%, #0d1f30 100%);
+}
+
+.dark-mode .overview-card strong {
+  color: #f0f8f3;
+}
+
+.dark-mode .overview-card span {
+  color: #b9cbbf;
+}
+
+/* Upcoming Booking — details always start from the left */
+.upcoming-booking {
+  text-align: left;
+}
+
+.upcoming-booking .booking-info {
+  text-align: left;
+  justify-self: start;
+}
+
+.upcoming-booking .booking-details {
+  align-items: flex-start;
+}
+
+.upcoming-booking .booking-details span {
+  align-self: flex-start;
+}
+
+/* Mobile: center the overview group cleanly, while keeping text left */
+@media (max-width: 600px) {
+  .overview-card {
+    justify-content: center;
+  }
+
+  .upcoming-booking .booking-info,
+  .upcoming-booking .booking-details {
+    text-align: left;
+  }
+}
+
+
+/* =========================================================
+   TODAY'S OVERVIEW — TRUE CENTER ALIGNMENT
+   Centers the complete icon + stats group in each card.
+   ========================================================= */
+
+.overview-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center !important;
+  text-align: left;
+}
+
+.overview-card .overview-icon {
+  flex: 0 0 auto;
+}
+
+.overview-card .overview-stat {
+  flex: 0 0 auto !important;
+  width: auto !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  text-align: left !important;
+}
+
+/* Make sure the number/label don't inherit any centering offset */
+.overview-card .overview-stat strong,
+.overview-card .overview-stat span {
+  display: block;
+  text-align: left;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+@media (max-width: 600px) {
+  .overview-card {
+    justify-content: center !important;
+  }
+
+  .overview-card .overview-stat {
+    width: auto !important;
+    flex: 0 0 auto !important;
+  }
+}
+
+
+/* =========================================================
+   QUICK ACCESS — COMPACT PREMIUM REDESIGN
+   Desktop: 4 + 4
+   Mobile: 2 + 2 + 2 + 2
+   ========================================================= */
+
+.quick-section {
+  padding: 20px;
+  border-radius: 18px;
+  background:
+    linear-gradient(180deg, #ffffff 0%, #fbfdfc 100%);
+  border-color: #e0e9e4;
+  box-shadow:
+    0 7px 22px rgba(20, 70, 40, 0.045),
+    inset 0 1px 0 rgba(255,255,255,0.95);
+}
+
+.quick-section h2 {
+  margin-bottom: 14px;
+  letter-spacing: -0.3px;
+}
+
+.quick-grid {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 11px;
+}
+
+.quick-card {
+  min-height: 96px;
+  padding: 14px 10px;
+  gap: 8px;
+  border-radius: 14px;
+  border: 1px solid #dfe8e3;
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 3px 9px rgba(20,70,40,0.025),
+    inset 0 1px 0 rgba(255,255,255,0.8);
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.quick-card::before {
+  content: "";
+  position: absolute;
+  width: 74px;
+  height: 74px;
+  right: -35px;
+  top: -35px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.38);
+  pointer-events: none;
+}
+
+.quick-card::after {
+  content: "";
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 0;
+  height: 2px;
+  border-radius: 3px 3px 0 0;
+  opacity: 0.7;
+}
+
+.quick-card:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 7px 15px rgba(20,70,40,0.075),
+    inset 0 1px 0 rgba(255,255,255,0.9);
+}
+
+.quick-card svg,
+.quick-card .weather-quick-icon {
+  position: relative;
+  z-index: 1;
+}
+
+.quick-card strong {
+  position: relative;
+  z-index: 1;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: -0.05px;
+}
+
+/* Category accents */
+.quick-card.green {
+  background:
+    linear-gradient(145deg, #f5fcf6 0%, #eef9f1 100%);
+  border-color: #d9e9de;
+}
+
+.quick-card.green::after {
+  background: #24ad61;
+}
+
+.quick-card.blue {
+  background:
+    linear-gradient(145deg, #f4f8ff 0%, #edf4ff 100%);
+  border-color: #dce6f5;
+}
+
+.quick-card.blue::after {
+  background: #3e8fe5;
+}
+
+.quick-card.yellow {
+  background:
+    linear-gradient(145deg, #fffaf0 0%, #fff6e5 100%);
+  border-color: #eee3c9;
+}
+
+.quick-card.yellow::after {
+  background: #e5a914;
+}
+
+.quick-card.purple {
+  background:
+    linear-gradient(145deg, #faf7ff 0%, #f4effd 100%);
+  border-color: #e6def3;
+}
+
+.quick-card.purple::after {
+  background: #7650c9;
+}
+
+/* Better icon containers without changing the actual icon size */
+.quick-card > svg {
+  width: 29px;
+  height: 29px;
+  padding: 5px;
+  box-sizing: content-box;
+  border-radius: 9px;
+  background: rgba(255,255,255,0.48);
+  filter: drop-shadow(0 2px 2px rgba(20,40,30,0.04));
+}
+
+/* Weather emoji stays clean */
+.quick-card .weather-quick-icon {
+  width: 29px;
+  height: 29px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin-bottom: 0;
+  filter: drop-shadow(0 2px 3px rgba(60,70,100,0.08));
+}
+
+/* Dark mode */
+.dark-mode .quick-section {
+  background:
+    linear-gradient(180deg, #0e2518 0%, #0c2116 100%);
+  border-color: #1f432e;
+  box-shadow:
+    0 7px 22px rgba(0,0,0,0.15),
+    inset 0 1px 0 rgba(255,255,255,0.025);
+}
+
+.dark-mode .quick-card {
+  border-color: rgba(255,255,255,0.075);
+  box-shadow:
+    0 3px 10px rgba(0,0,0,0.15),
+    inset 0 1px 0 rgba(255,255,255,0.025);
+}
+
+.dark-mode .quick-card::before {
+  background: rgba(255,255,255,0.035);
+}
+
+.dark-mode .quick-card.green {
+  background:
+    linear-gradient(145deg, #112b1c 0%, #0e2518 100%);
+  border-color: #255039;
+}
+
+.dark-mode .quick-card.blue {
+  background:
+    linear-gradient(145deg, #112a40 0%, #0e2336 100%);
+  border-color: #284963;
+}
+
+.dark-mode .quick-card.yellow {
+  background:
+    linear-gradient(145deg, #29240f 0%, #211d0e 100%);
+  border-color: #55461d;
+}
+
+.dark-mode .quick-card.purple {
+  background:
+    linear-gradient(145deg, #241a38 0%, #1d1630 100%);
+  border-color: #463668;
+}
+
+.dark-mode .quick-card > svg {
+  background: rgba(255,255,255,0.045);
+  filter: drop-shadow(0 2px 3px rgba(0,0,0,0.18));
+}
+
+/* Tablet */
+@media (max-width: 800px) {
+  .quick-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 9px;
+  }
+
+  .quick-card {
+    min-height: 88px;
+  }
+}
+
+/* Mobile: 2 + 2 + 2 + 2 */
+@media (max-width: 600px) {
+  .quick-section {
+    padding: 15px;
+    border-radius: 16px;
+  }
+
+  .quick-section h2 {
+    margin-bottom: 11px;
+  }
+
+  .quick-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .quick-card {
+    min-height: 82px;
+    padding: 10px 7px;
+    gap: 6px;
+    border-radius: 12px;
+  }
+
+  .quick-card > svg {
+    width: 25px;
+    height: 25px;
+    padding: 4px;
+    border-radius: 8px;
+  }
+
+  .quick-card .weather-quick-icon {
+    width: 25px;
+    height: 25px;
+    font-size: 21px;
+  }
+
+  .quick-card strong {
+    font-size: 10.5px;
+    line-height: 1.15;
+    text-align: center;
+  }
+
+  .quick-card::before {
+    width: 60px;
+    height: 60px;
+    right: -29px;
+    top: -29px;
+  }
+
+  .quick-card::after {
+    left: 10px;
+    right: 10px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 380px) {
+  .quick-section {
+    padding: 13px;
+  }
+
+  .quick-grid {
+    gap: 7px;
+  }
+
+  .quick-card {
+    min-height: 76px;
+    padding: 9px 5px;
+  }
+
+  .quick-card strong {
+    font-size: 10px;
+  }
+}
+
+
+/* =========================================================
+   QUICK ACCESS — ICON + UI POLISH
+   Card sizes/layout intentionally unchanged.
+   ========================================================= */
+
+.quick-card {
+  isolation: isolate;
+  border-width: 1px;
+  box-shadow:
+    0 3px 10px rgba(20,70,40,0.028),
+    inset 0 1px 0 rgba(255,255,255,0.92);
+}
+
+.quick-card::before {
+  width: 82px;
+  height: 82px;
+  right: -39px;
+  top: -39px;
+  background: rgba(255,255,255,0.32);
+  z-index: -1;
+}
+
+.quick-card > svg {
+  box-sizing: border-box;
+  width: 31px;
+  height: 31px;
+  padding: 6px;
+  border: 1px solid rgba(255,255,255,0.9);
+  border-radius: 10px;
+  background: rgba(255,255,255,0.62);
+  filter: none;
+  stroke-width: 2.05;
+  box-shadow:
+    0 2px 6px rgba(30,60,45,0.055),
+    inset 0 1px 0 rgba(255,255,255,0.9);
+}
+
+.quick-card .weather-quick-icon {
+  width: 31px;
+  height: 31px;
+  font-size: 22px;
+  border: 1px solid rgba(255,255,255,0.7);
+  border-radius: 10px;
+  background: rgba(255,255,255,0.58);
+  box-shadow:
+    0 2px 6px rgba(40,50,80,0.055);
+}
+
+.quick-card strong {
+  font-size: 12px;
+  line-height: 1.15;
+  letter-spacing: 0;
+}
+
+/* Individual icon badges — subtle category identity */
+.quick-card.green > svg {
+  background: linear-gradient(145deg, #ffffff 0%, #eaf8ef 100%);
+  border-color: #cfe8d8;
+}
+
+.quick-card.blue > svg {
+  background: linear-gradient(145deg, #ffffff 0%, #edf4ff 100%);
+  border-color: #d3e2f5;
+}
+
+.quick-card.yellow > svg {
+  background: linear-gradient(145deg, #ffffff 0%, #fff5dd 100%);
+  border-color: #efdfb8;
+}
+
+.quick-card.purple > svg {
+  background: linear-gradient(145deg, #ffffff 0%, #f2ecfc 100%);
+  border-color: #dfd3f1;
+}
+
+/* Cleaner accent line */
+.quick-card::after {
+  height: 2px;
+  left: 18px;
+  right: 18px;
+  bottom: 0;
+  border-radius: 4px 4px 0 0;
+  opacity: 0.85;
+}
+
+/* More refined hover */
+.quick-card:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 8px 17px rgba(20,70,40,0.07),
+    inset 0 1px 0 rgba(255,255,255,0.96);
+}
+
+.quick-card:hover > svg {
+  transform: translateY(-1px);
+  box-shadow:
+    0 3px 8px rgba(30,60,45,0.075),
+    inset 0 1px 0 rgba(255,255,255,0.95);
+}
+
+.quick-card > svg {
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+/* Dark theme — crisp icons without the muddy/grey look */
+.dark-mode .quick-card {
+  box-shadow:
+    0 3px 10px rgba(0,0,0,0.17),
+    inset 0 1px 0 rgba(255,255,255,0.035);
+}
+
+.dark-mode .quick-card::before {
+  background: rgba(255,255,255,0.025);
+}
+
+.dark-mode .quick-card > svg {
+  border-color: rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.055);
+  box-shadow:
+    0 2px 7px rgba(0,0,0,0.18),
+    inset 0 1px 0 rgba(255,255,255,0.045);
+}
+
+.dark-mode .quick-card.green > svg {
+  background: linear-gradient(145deg, #173c27, #102c1d);
+  border-color: #2c6243;
+}
+
+.dark-mode .quick-card.blue > svg {
+  background: linear-gradient(145deg, #193954, #112b40);
+  border-color: #315777;
+}
+
+.dark-mode .quick-card.yellow > svg {
+  background: linear-gradient(145deg, #3a3215, #29240f);
+  border-color: #655521;
+}
+
+.dark-mode .quick-card.purple > svg {
+  background: linear-gradient(145deg, #33264d, #241a38);
+  border-color: #554271;
+}
+
+.dark-mode .quick-card .weather-quick-icon {
+  border-color: rgba(255,255,255,0.09);
+  background: rgba(255,255,255,0.055);
+}
+
+/* Mobile keeps the same card dimensions from v8 */
+@media (max-width: 600px) {
+  .quick-card > svg {
+    width: 25px;
+    height: 25px;
+    padding: 4px;
+    border-radius: 8px;
+  }
+
+  .quick-card .weather-quick-icon {
+    width: 25px;
+    height: 25px;
+    font-size: 21px;
+    border-radius: 8px;
+  }
+
+  .quick-card strong {
+    font-size: 10.5px;
+  }
+}
+
+
+/* =========================================================
+   QUICK ACCESS — PRODUCTION UI PASS
+   Same card sizes and 4+4 / 2+2+2+2 layout.
+   ========================================================= */
+
+/* Give the section a cleaner dashboard-panel feel */
+.quick-section {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(49,185,104,0.025), transparent 24%),
+    linear-gradient(180deg, #ffffff 0%, #fbfdfc 100%);
+  border-color: #dde7e1;
+  box-shadow:
+    0 8px 24px rgba(18,72,42,0.042),
+    inset 0 1px 0 rgba(255,255,255,0.98);
+}
+
+/* Cards: less flat, more refined */
+.quick-card {
+  justify-content: center;
+  border-color: #dce7e1;
+  background-clip: padding-box;
+  box-shadow:
+    0 4px 11px rgba(18,72,42,0.028),
+    inset 0 1px 0 rgba(255,255,255,0.9);
+}
+
+.quick-card::before {
+  width: 86px;
+  height: 86px;
+  right: -43px;
+  top: -43px;
+  opacity: 0.8;
+}
+
+.quick-card::after {
+  left: 20px;
+  right: 20px;
+  height: 2px;
+  opacity: 0.65;
+}
+
+/* Icon badges: consistent premium language */
+.quick-card > svg,
+.quick-card .weather-quick-icon {
+  position: relative;
+  z-index: 2;
+  flex: 0 0 auto;
+}
+
+.quick-card > svg {
+  width: 30px;
+  height: 30px;
+  padding: 6px;
+  border-radius: 10px;
+  stroke-width: 2.15;
+  box-shadow:
+    0 3px 7px rgba(24,62,42,0.055),
+    inset 0 1px 0 rgba(255,255,255,0.96);
+}
+
+.quick-card .weather-quick-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  font-size: 21px;
+  line-height: 1;
+  box-shadow:
+    0 3px 7px rgba(45,50,80,0.055),
+    inset 0 1px 0 rgba(255,255,255,0.9);
+}
+
+/* Category-specific icon surfaces */
+.quick-card.green > svg {
+  color: #078044;
+  background: linear-gradient(145deg, #ffffff 0%, #e9f8ee 100%);
+  border-color: #c9e5d2;
+}
+
+.quick-card.blue > svg {
+  color: #2b78d0;
+  background: linear-gradient(145deg, #ffffff 0%, #ebf3ff 100%);
+  border-color: #cedff4;
+}
+
+.quick-card.yellow > svg {
+  color: #d99700;
+  background: linear-gradient(145deg, #ffffff 0%, #fff4da 100%);
+  border-color: #edddb3;
+}
+
+.quick-card.purple > svg {
+  color: #7047c2;
+  background: linear-gradient(145deg, #ffffff 0%, #f1ebfc 100%);
+  border-color: #ddd1ef;
+}
+
+/* Typography */
+.quick-card strong {
+  margin-top: 1px;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+/* Hover: polished, not flashy */
+.quick-card:hover {
+  transform: translateY(-2px);
+  border-color: #cfded5;
+  box-shadow:
+    0 9px 18px rgba(18,72,42,0.065),
+    inset 0 1px 0 rgba(255,255,255,0.98);
+}
+
+.quick-card:hover > svg,
+.quick-card:hover .weather-quick-icon {
+  transform: translateY(-1px) scale(1.025);
+}
+
+/* Dark mode */
+.dark-mode .quick-section {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(49,185,104,0.045), transparent 24%),
+    linear-gradient(180deg, #0e2518 0%, #0b2116 100%);
+  border-color: #1e412d;
+  box-shadow:
+    0 8px 24px rgba(0,0,0,0.16),
+    inset 0 1px 0 rgba(255,255,255,0.025);
+}
+
+.dark-mode .quick-card {
+  border-color: rgba(255,255,255,0.075);
+  box-shadow:
+    0 4px 11px rgba(0,0,0,0.16),
+    inset 0 1px 0 rgba(255,255,255,0.025);
+}
+
+.dark-mode .quick-card:hover {
+  border-color: rgba(255,255,255,0.13);
+  box-shadow:
+    0 9px 18px rgba(0,0,0,0.22),
+    inset 0 1px 0 rgba(255,255,255,0.035);
+}
+
+.dark-mode .quick-card > svg {
+  box-shadow:
+    0 3px 8px rgba(0,0,0,0.2),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+.dark-mode .quick-card.green > svg {
+  color: #62d68f;
+  background: linear-gradient(145deg, #173c27 0%, #102c1d 100%);
+  border-color: #2c6343;
+}
+
+.dark-mode .quick-card.blue > svg {
+  color: #6faef0;
+  background: linear-gradient(145deg, #193954 0%, #112b40 100%);
+  border-color: #315a7d;
+}
+
+.dark-mode .quick-card.yellow > svg {
+  color: #efc65a;
+  background: linear-gradient(145deg, #3a3215 0%, #29240f 100%);
+  border-color: #665521;
+}
+
+.dark-mode .quick-card.purple > svg {
+  color: #b193eb;
+  background: linear-gradient(145deg, #33264d 0%, #241a38 100%);
+  border-color: #584575;
+}
+
+.dark-mode .quick-card .weather-quick-icon {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.10);
+  box-shadow:
+    0 3px 8px rgba(0,0,0,0.2),
+    inset 0 1px 0 rgba(255,255,255,0.04);
+}
+
+/* Mobile: preserve v9 dimensions exactly */
+@media (max-width: 600px) {
+  .quick-card > svg {
+    width: 25px;
+    height: 25px;
+    padding: 4px;
+    border-radius: 8px;
+  }
+
+  .quick-card .weather-quick-icon {
+    width: 25px;
+    height: 25px;
+    font-size: 21px;
+    border-radius: 8px;
+  }
+
+  .quick-card strong {
+    font-size: 10.5px;
+  }
+}
+
+
+/* =========================================================
+   QUICK ACCESS — ULTRA POLISH
+   Same dimensions/layout. Refined cards + icon system.
+   ========================================================= */
+
+.quick-card {
+  border-radius: 15px;
+  border-width: 1px;
+  box-shadow:
+    0 4px 12px rgba(18,72,42,0.035),
+    inset 0 1px 0 rgba(255,255,255,0.94);
+  transform: translateZ(0);
+}
+
+.quick-card::before {
+  width: 92px;
+  height: 92px;
+  right: -46px;
+  top: -46px;
+  background: rgba(255,255,255,0.28);
+}
+
+.quick-card::after {
+  left: 16px;
+  right: 16px;
+  bottom: 0;
+  height: 2px;
+  border-radius: 5px;
+  opacity: 0.8;
+}
+
+/* A cleaner icon pedestal */
+.quick-card > svg,
+.quick-card .weather-quick-icon {
+  position: relative;
+  z-index: 3;
+  margin-bottom: 1px;
+}
+
+.quick-card > svg {
+  width: 30px;
+  height: 30px;
+  padding: 6px;
+  border-radius: 11px;
+  border: 1px solid rgba(255,255,255,0.92);
+  stroke-width: 2;
+  box-shadow:
+    0 4px 9px rgba(25,60,42,0.065),
+    inset 0 1px 0 rgba(255,255,255,0.98);
+}
+
+/* Subtle halo behind the icon, using the icon's own shadow */
+.quick-card.green > svg {
+  color: #078044;
+  background:
+    radial-gradient(circle at 32% 25%, #ffffff 0%, #f4fcf6 38%, #e5f6eb 100%);
+  border-color: #c5e4cf;
+  filter: drop-shadow(0 0 5px rgba(36,173,97,0.10));
+}
+
+.quick-card.blue > svg {
+  color: #2878d1;
+  background:
+    radial-gradient(circle at 32% 25%, #ffffff 0%, #f4f8ff 38%, #e7f0ff 100%);
+  border-color: #cadcf3;
+  filter: drop-shadow(0 0 5px rgba(62,143,229,0.10));
+}
+
+.quick-card.yellow > svg {
+  color: #d59600;
+  background:
+    radial-gradient(circle at 32% 25%, #ffffff 0%, #fff9ea 38%, #fff0cc 100%);
+  border-color: #ecdbad;
+  filter: drop-shadow(0 0 5px rgba(229,169,20,0.10));
+}
+
+.quick-card.purple > svg {
+  color: #7148c3;
+  background:
+    radial-gradient(circle at 32% 25%, #ffffff 0%, #faf7ff 38%, #efe7fb 100%);
+  border-color: #ddcfef;
+  filter: drop-shadow(0 0 5px rgba(118,80,201,0.10));
+}
+
+.quick-card .weather-quick-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 11px;
+  border: 1px solid #d7def0;
+  background:
+    radial-gradient(circle at 35% 25%, #ffffff 0%, #f8f8ff 42%, #ecebfa 100%);
+  font-size: 21px;
+  box-shadow:
+    0 4px 9px rgba(60,60,100,0.065),
+    inset 0 1px 0 rgba(255,255,255,0.98);
+}
+
+/* Better text hierarchy */
+.quick-card strong {
+  z-index: 3;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: -0.05px;
+}
+
+/* Slightly more tactile hover */
+.quick-card:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 9px 19px rgba(18,72,42,0.075),
+    inset 0 1px 0 rgba(255,255,255,0.98);
+}
+
+.quick-card:hover > svg,
+.quick-card:hover .weather-quick-icon {
+  transform: translateY(-1px);
+}
+
+/* Dark theme — richer surfaces and luminous icons */
+.dark-mode .quick-card {
+  border-color: rgba(255,255,255,0.085);
+  box-shadow:
+    0 4px 12px rgba(0,0,0,0.18),
+    inset 0 1px 0 rgba(255,255,255,0.035);
+}
+
+.dark-mode .quick-card::before {
+  background: rgba(255,255,255,0.022);
+}
+
+.dark-mode .quick-card.green > svg {
+  color: #67da92;
+  background:
+    radial-gradient(circle at 32% 25%, #214b31 0%, #173c27 42%, #102c1d 100%);
+  border-color: #347250;
+  filter: drop-shadow(0 0 6px rgba(76,211,130,0.12));
+}
+
+.dark-mode .quick-card.blue > svg {
+  color: #75b4f4;
+  background:
+    radial-gradient(circle at 32% 25%, #244a69 0%, #193954 42%, #112b40 100%);
+  border-color: #396589;
+  filter: drop-shadow(0 0 6px rgba(91,165,239,0.12));
+}
+
+.dark-mode .quick-card.yellow > svg {
+  color: #f2c75e;
+  background:
+    radial-gradient(circle at 32% 25%, #4a3e19 0%, #3a3215 42%, #29240f 100%);
+  border-color: #735f25;
+  filter: drop-shadow(0 0 6px rgba(238,190,71,0.10));
+}
+
+.dark-mode .quick-card.purple > svg {
+  color: #b99cf0;
+  background:
+    radial-gradient(circle at 32% 25%, #46335f 0%, #33264d 42%, #241a38 100%);
+  border-color: #654e84;
+  filter: drop-shadow(0 0 6px rgba(157,125,226,0.11));
+}
+
+.dark-mode .quick-card .weather-quick-icon {
+  border-color: #394365;
+  background:
+    radial-gradient(circle at 35% 25%, #303554 0%, #252a47 48%, #1c213a 100%);
+  box-shadow:
+    0 4px 9px rgba(0,0,0,0.2),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+/* Mobile: exact existing v10 dimensions */
+@media (max-width: 600px) {
+  .quick-card {
+    border-radius: 12px;
+  }
+
+  .quick-card > svg {
+    width: 25px;
+    height: 25px;
+    padding: 4px;
+    border-radius: 8px;
+  }
+
+  .quick-card .weather-quick-icon {
+    width: 25px;
+    height: 25px;
+    border-radius: 8px;
+    font-size: 21px;
+  }
+
+  .quick-card strong {
+    font-size: 10.5px;
+  }
+}
+
+
+/* =========================================================
+   QUICK ACCESS — CATEGORY COLOR SYSTEM
+   Inspired by Today's Overview, but richer and more refined.
+   Card sizes and layout are intentionally unchanged.
+   ========================================================= */
+
+/* Base: premium tinted surfaces instead of pale flat fills */
+.quick-card.green {
+  background:
+    radial-gradient(circle at 92% 8%, rgba(53, 199, 113, 0.13), transparent 30%),
+    linear-gradient(135deg, #f4fcf6 0%, #eaf8ef 55%, #e4f5e9 100%);
+  border-color: #c9e5d2;
+}
+
+.quick-card.blue {
+  background:
+    radial-gradient(circle at 92% 8%, rgba(66, 145, 232, 0.13), transparent 30%),
+    linear-gradient(135deg, #f4f9ff 0%, #eaf3ff 55%, #e3efff 100%);
+  border-color: #cbdff4;
+}
+
+.quick-card.yellow {
+  background:
+    radial-gradient(circle at 92% 8%, rgba(235, 177, 40, 0.14), transparent 30%),
+    linear-gradient(135deg, #fffaf0 0%, #fff4df 55%, #ffefd1 100%);
+  border-color: #ecd9ad;
+}
+
+.quick-card.purple {
+  background:
+    radial-gradient(circle at 92% 8%, rgba(126, 87, 205, 0.13), transparent 30%),
+    linear-gradient(135deg, #fbf8ff 0%, #f4edfd 55%, #eee5fa 100%);
+  border-color: #ded1ef;
+}
+
+/* Colored edge — same visual language as Today's Overview,
+   but softer for action cards */
+.quick-card.green::after {
+  background: linear-gradient(90deg, #22b866, #43ca7b);
+}
+
+.quick-card.blue::after {
+  background: linear-gradient(90deg, #3d8fe4, #63a9ef);
+}
+
+.quick-card.yellow::after {
+  background: linear-gradient(90deg, #dfa30e, #efbd3d);
+}
+
+.quick-card.purple::after {
+  background: linear-gradient(90deg, #7650c9, #9574d8);
+}
+
+/* Icon containers now visually belong to their card */
+.quick-card.green > svg {
+  color: #078044;
+  background:
+    linear-gradient(145deg, #fafffb 0%, #e6f7ec 100%);
+  border-color: #bfe1ca;
+  box-shadow:
+    0 4px 9px rgba(8,128,68,0.10),
+    inset 0 1px 0 rgba(255,255,255,0.98);
+}
+
+.quick-card.blue > svg {
+  color: #2879d1;
+  background:
+    linear-gradient(145deg, #ffffff 0%, #e6f0ff 100%);
+  border-color: #bfd7f2;
+  box-shadow:
+    0 4px 9px rgba(40,121,209,0.10),
+    inset 0 1px 0 rgba(255,255,255,0.98);
+}
+
+.quick-card.yellow > svg {
+  color: #d59300;
+  background:
+    linear-gradient(145deg, #fffdf8 0%, #fff0cc 100%);
+  border-color: #ead5a0;
+  box-shadow:
+    0 4px 9px rgba(213,147,0,0.10),
+    inset 0 1px 0 rgba(255,255,255,0.98);
+}
+
+.quick-card.purple > svg {
+  color: #7047c2;
+  background:
+    linear-gradient(145deg, #ffffff 0%, #eee6fa 100%);
+  border-color: #d8c9eb;
+  box-shadow:
+    0 4px 9px rgba(112,71,194,0.10),
+    inset 0 1px 0 rgba(255,255,255,0.98);
+}
+
+/* Keep labels strongly tied to their category */
+.quick-card.green strong { color: #087b3e; }
+.quick-card.blue strong { color: #2878d0; }
+.quick-card.yellow strong { color: #d99700; }
+.quick-card.purple strong { color: #7047c2; }
+
+/* Dark theme: deeper versions of the same four category colors */
+.dark-mode .quick-card.green {
+  background:
+    radial-gradient(circle at 92% 8%, rgba(49,217,119,0.11), transparent 30%),
+    linear-gradient(135deg, #102b1c 0%, #0e2619 55%, #0c2116 100%);
+  border-color: #28533a;
+}
+
+.dark-mode .quick-card.blue {
+  background:
+    radial-gradient(circle at 92% 8%, rgba(75,156,240,0.11), transparent 30%),
+    linear-gradient(135deg, #112b41 0%, #0f2639 55%, #0d2031 100%);
+  border-color: #2b4f6d;
+}
+
+.dark-mode .quick-card.yellow {
+  background:
+    radial-gradient(circle at 92% 8%, rgba(241,185,54,0.11), transparent 30%),
+    linear-gradient(135deg, #29240f 0%, #211d0e 55%, #19170d 100%);
+  border-color: #58491d;
+}
+
+.dark-mode .quick-card.purple {
+  background:
+    radial-gradient(circle at 92% 8%, rgba(151,113,220,0.11), transparent 30%),
+    linear-gradient(135deg, #271c3d 0%, #211832 55%, #1c152b 100%);
+  border-color: #4e3c69;
+}
+
+.dark-mode .quick-card.green > svg {
+  color: #67d993;
+  background: linear-gradient(145deg, #1d472e 0%, #12321f 100%);
+  border-color: #34714d;
+}
+
+.dark-mode .quick-card.blue > svg {
+  color: #76b6f5;
+  background: linear-gradient(145deg, #214967 0%, #142f47 100%);
+  border-color: #396587;
+}
+
+.dark-mode .quick-card.yellow > svg {
+  color: #f1c55b;
+  background: linear-gradient(145deg, #473b17 0%, #2e2810 100%);
+  border-color: #725d24;
+}
+
+.dark-mode .quick-card.purple > svg {
+  color: #b99cf0;
+  background: linear-gradient(145deg, #40305a 0%, #281d40 100%);
+  border-color: #654d82;
+}
+
+.dark-mode .quick-card.green strong { color: #73dc9a; }
+.dark-mode .quick-card.blue strong { color: #79b9f7; }
+.dark-mode .quick-card.yellow strong { color: #f0c65e; }
+.dark-mode .quick-card.purple strong { color: #b99df0; }
+
+@media (max-width: 600px) {
+  /* Same mobile card sizes; only preserve the richer color treatment */
+  .quick-card.green,
+  .quick-card.blue,
+  .quick-card.yellow,
+  .quick-card.purple {
+    background-clip: padding-box;
+  }
+}
+
+
+/* =========================================================
+   WELCOME HEADER — COMPACT PREMIUM FINAL
+   Uses the existing JSX; no JSX changes required.
+   ========================================================= */
+
+.welcome-section {
+  position: relative;
+  padding: 17px 22px;
+  margin-bottom: 16px;
+  border-radius: 18px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 94% 8%, rgba(48, 190, 105, 0.075), transparent 25%),
+    linear-gradient(135deg, #ffffff 0%, #f5fbf7 100%);
+  border: 1px solid #dce8e1;
+  box-shadow:
+    0 6px 18px rgba(18, 72, 42, 0.042),
+    inset 0 1px 0 rgba(255,255,255,0.98);
+}
+
+.welcome-section::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 15px;
+  bottom: 15px;
+  width: 3px;
+  border-radius: 0 5px 5px 0;
+  background: linear-gradient(180deg, #28bd6a, #087b3e);
+  box-shadow: 0 0 9px rgba(40, 189, 106, 0.16);
+}
+
+.welcome-section::after {
+  content: "";
+  position: absolute;
+  width: 125px;
+  height: 125px;
+  right: -62px;
+  top: -62px;
+  border-radius: 50%;
+  background: rgba(50, 190, 105, 0.045);
+  box-shadow: inset 0 0 0 1px rgba(50,190,105,0.025);
+  pointer-events: none;
+}
+
+.welcome-section h1 {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-size: 29px;
+  line-height: 1.08;
+  font-weight: 800;
+  letter-spacing: -0.65px;
+  color: #102d1f;
+}
+
+.welcome-section h1 span {
+  display: inline-block;
+  margin-left: 4px;
+  font-size: 25px;
+  transform: translateY(-1px);
+}
+
+.welcome-section p {
+  position: relative;
+  z-index: 1;
+  margin: 7px 0 0;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  width: fit-content;
+  padding: 6px 11px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.84);
+  border: 1px solid #dce8e1;
+  color: #66766e;
+  font-size: 12px;
+  line-height: 1.2;
+  box-shadow:
+    0 2px 5px rgba(18,72,42,0.025),
+    inset 0 1px 0 rgba(255,255,255,0.92);
+}
+
+.welcome-section p strong {
+  color: #173d2a;
+  font-weight: 800;
+}
+
+/* Dark theme */
+.dark-mode .welcome-section {
+  background:
+    radial-gradient(circle at 94% 8%, rgba(49, 205, 112, 0.09), transparent 25%),
+    linear-gradient(135deg, #10291b 0%, #0d2417 100%);
+  border-color: #214731;
+  box-shadow:
+    0 6px 18px rgba(0,0,0,0.15),
+    inset 0 1px 0 rgba(255,255,255,0.025);
+}
+
+.dark-mode .welcome-section::before {
+  background: linear-gradient(180deg, #48d783, #138d4d);
+  box-shadow: 0 0 10px rgba(72,215,131,0.13);
+}
+
+.dark-mode .welcome-section::after {
+  background: rgba(49,205,112,0.055);
+  box-shadow: inset 0 0 0 1px rgba(49,205,112,0.025);
+}
+
+.dark-mode .welcome-section h1 {
+  color: #f0f8f3;
+}
+
+.dark-mode .welcome-section p {
+  background: rgba(19,48,32,0.82);
+  border-color: #2a4e39;
+  color: #afc1b6;
+  box-shadow:
+    0 2px 6px rgba(0,0,0,0.12),
+    inset 0 1px 0 rgba(255,255,255,0.025);
+}
+
+.dark-mode .welcome-section p strong {
+  color: #dcebe2;
+}
+
+/* Mobile — compact, clean, no oversized header */
+@media (max-width: 600px) {
+  .welcome-section {
+    padding: 14px 16px;
+    margin-bottom: 13px;
+    border-radius: 15px;
+  }
+
+  .welcome-section::before {
+    top: 12px;
+    bottom: 12px;
+    width: 3px;
+  }
+
+  .welcome-section h1 {
+    font-size: 25px;
+    letter-spacing: -0.5px;
+  }
+
+  .welcome-section h1 span {
+    font-size: 22px;
+    margin-left: 3px;
+  }
+
+  .welcome-section p {
+    margin-top: 6px;
+    padding: 5px 9px;
+    font-size: 10.5px;
+  }
+}
+
+@media (max-width: 380px) {
+  .welcome-section {
+    padding: 13px 14px;
+  }
+
+  .welcome-section h1 {
+    font-size: 23px;
+  }
+
+  .welcome-section p {
+    font-size: 10px;
+  }
+}
+
+
+/* =========================================================
+   WELCOME — ULTRA CLEAN PRODUCT HEADER
+   JSX unchanged. Existing dimensions remain compact.
+   ========================================================= */
+
+.welcome-section {
+  display: flex;
+  align-items: center;
+  min-height: 76px;
+  padding: 14px 20px 14px 23px;
+  background:
+    radial-gradient(circle at 88% 0%, rgba(48,190,105,0.075), transparent 26%),
+    linear-gradient(135deg, #ffffff 0%, #f5faf7 100%);
+  border: 1px solid #dce7e1;
+  border-radius: 18px;
+  box-shadow:
+    0 5px 16px rgba(18,72,42,0.04),
+    inset 0 1px 0 rgba(255,255,255,0.98);
+}
+
+.welcome-section::before {
+  top: 12px;
+  bottom: 12px;
+  width: 3px;
+  background: linear-gradient(180deg, #34c978 0%, #078044 100%);
+  box-shadow: 0 0 9px rgba(52,201,120,0.14);
+}
+
+.welcome-section::after {
+  width: 135px;
+  height: 135px;
+  right: -67px;
+  top: -67px;
+  background: rgba(49,185,104,0.042);
+}
+
+.welcome-section h1 {
+  font-size: 28px;
+  line-height: 1.05;
+  letter-spacing: -0.75px;
+  font-weight: 800;
+}
+
+.welcome-section h1 span {
+  font-size: 23px;
+  margin-left: 3px;
+}
+
+.welcome-section p {
+  margin-top: 6px;
+  padding: 5px 10px;
+  gap: 6px;
+  font-size: 11.5px;
+  background: rgba(255,255,255,0.82);
+  border-color: #dce8e1;
+}
+
+.welcome-section p::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  flex: 0 0 5px;
+  border-radius: 50%;
+  background: #27b76a;
+  box-shadow: 0 0 0 3px rgba(39,183,106,0.09);
+}
+
+.welcome-section p strong {
+  color: #123b27;
+}
+
+/* Dark: clean deep green rather than flat black */
+.dark-mode .welcome-section {
+  background:
+    radial-gradient(circle at 88% 0%, rgba(49,205,112,0.085), transparent 26%),
+    linear-gradient(135deg, #10291b 0%, #0c2216 100%);
+  border-color: #214631;
+  box-shadow:
+    0 5px 16px rgba(0,0,0,0.15),
+    inset 0 1px 0 rgba(255,255,255,0.025);
+}
+
+.dark-mode .welcome-section::before {
+  background: linear-gradient(180deg, #5add8c 0%, #159150 100%);
+}
+
+.dark-mode .welcome-section::after {
+  background: rgba(49,205,112,0.052);
+}
+
+.dark-mode .welcome-section p {
+  background: rgba(18,45,29,0.78);
+  border-color: #2a4e38;
+  color: #b4c7bb;
+}
+
+.dark-mode .welcome-section p::before {
+  background: #55d88a;
+  box-shadow: 0 0 0 3px rgba(85,216,138,0.08);
+}
+
+.dark-mode .welcome-section p strong {
+  color: #e0eee5;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .welcome-section {
+    min-height: 62px;
+    padding: 12px 14px 12px 17px;
+    border-radius: 15px;
+  }
+
+  .welcome-section::before {
+    top: 10px;
+    bottom: 10px;
+    width: 3px;
+  }
+
+  .welcome-section h1 {
+    font-size: 24px;
+    letter-spacing: -0.55px;
+  }
+
+  .welcome-section h1 span {
+    font-size: 20px;
+  }
+
+  .welcome-section p {
+    margin-top: 5px;
+    padding: 4px 8px;
+    font-size: 10px;
+  }
+
+  .welcome-section p::before {
+    width: 4px;
+    height: 4px;
+    flex-basis: 4px;
+  }
+}
+
+@media (max-width: 380px) {
+  .welcome-section {
+    min-height: 58px;
+    padding: 11px 13px 11px 16px;
+  }
+
+  .welcome-section h1 {
+    font-size: 22px;
+  }
+
+  .welcome-section p {
+    font-size: 9.5px;
+  }
+}
+
+
+/* =========================================================
+   WELCOME — CLEAN PREMIUM FINAL
+   JSX unchanged.
+   Removes the left green bar and adds Verified on the right
+   using CSS only.
+   ========================================================= */
+
+/* Remove the green starting bar */
+.welcome-section::before {
+  display: none !important;
+}
+
+/* Make the header cleaner and slightly more spacious */
+.welcome-section {
+  padding-left: 20px;
+  padding-right: 126px;
+  min-height: 76px;
+  background:
+    radial-gradient(circle at 92% 10%, rgba(49,185,104,0.08), transparent 27%),
+    linear-gradient(135deg, #ffffff 0%, #f6fbf8 100%);
+  border-color: #dce8e1;
+  box-shadow:
+    0 6px 18px rgba(18,72,42,0.042),
+    inset 0 1px 0 rgba(255,255,255,0.98);
+}
+
+/* Verified badge — placed at the right side without JSX changes */
+.welcome-section::after {
+  content: "✓  Verified";
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  width: 86px;
+  height: 32px;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  border: 1px solid #cbe6d4;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #f1fbf4 0%, #e6f7eb 100%);
+  color: #087b3e;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0;
+  box-shadow:
+    0 3px 8px rgba(8,123,62,0.07),
+    inset 0 1px 0 rgba(255,255,255,0.9);
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* Greeting */
+.welcome-section h1 {
+  font-size: 28px;
+  line-height: 1.06;
+  letter-spacing: -0.7px;
+  color: #102d1f;
+}
+
+.welcome-section h1 span {
+  font-size: 23px;
+  margin-left: 3px;
+}
+
+/* Farmer ID pill */
+.welcome-section p {
+  margin-top: 7px;
+  padding: 5px 10px;
+  gap: 6px;
+  border: 1px solid #dbe8e0;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.86);
+  color: #63736b;
+  font-size: 11px;
+  box-shadow:
+    0 2px 6px rgba(18,72,42,0.025),
+    inset 0 1px 0 rgba(255,255,255,0.95);
+}
+
+.welcome-section p::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  flex: 0 0 5px;
+  border-radius: 50%;
+  background: #27b76a;
+  box-shadow: 0 0 0 3px rgba(39,183,106,0.08);
+}
+
+.welcome-section p strong {
+  color: #143c28;
+  font-weight: 800;
+}
+
+/* Dark mode */
+.dark-mode .welcome-section {
+  padding-right: 126px;
+  background:
+    radial-gradient(circle at 92% 10%, rgba(49,205,112,0.09), transparent 27%),
+    linear-gradient(135deg, #10291b 0%, #0c2216 100%);
+  border-color: #214631;
+  box-shadow:
+    0 6px 18px rgba(0,0,0,0.15),
+    inset 0 1px 0 rgba(255,255,255,0.025);
+}
+
+.dark-mode .welcome-section::after {
+  border-color: #2b6041;
+  background: linear-gradient(180deg, #173c26 0%, #12331f 100%);
+  color: #6fdb97;
+  box-shadow:
+    0 3px 8px rgba(0,0,0,0.18),
+    inset 0 1px 0 rgba(255,255,255,0.04);
+}
+
+.dark-mode .welcome-section h1 {
+  color: #f0f8f3;
+}
+
+.dark-mode .welcome-section p {
+  background: rgba(18,45,29,0.82);
+  border-color: #2a4e38;
+  color: #afc2b6;
+}
+
+.dark-mode .welcome-section p strong {
+  color: #deede3;
+}
+
+.dark-mode .welcome-section p::before {
+  background: #55d88a;
+  box-shadow: 0 0 0 3px rgba(85,216,138,0.08);
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .welcome-section {
+    min-height: 64px;
+    padding: 12px 102px 12px 15px;
+    border-radius: 15px;
+  }
+
+  .welcome-section::after {
+    right: 12px;
+    width: 76px;
+    height: 29px;
+    font-size: 9.5px;
+  }
+
+  .welcome-section h1 {
+    font-size: 24px;
+    letter-spacing: -0.55px;
+  }
+
+  .welcome-section h1 span {
+    font-size: 20px;
+  }
+
+  .welcome-section p {
+    margin-top: 5px;
+    padding: 4px 8px;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 380px) {
+  .welcome-section {
+    min-height: 60px;
+    padding-left: 13px;
+    padding-right: 92px;
+  }
+
+  .welcome-section::after {
+    right: 9px;
+    width: 69px;
+    height: 27px;
+    font-size: 9px;
+  }
+
+  .welcome-section h1 {
+    font-size: 22px;
+  }
+
+  .welcome-section p {
+    font-size: 9.5px;
+  }
+}
+
+/* =========================================================
+   WELCOME — FINAL FIX
+   Remove left green accent + add right Verified badge.
+   JSX unchanged.
+   ========================================================= */
+
+.welcome-section {
+  position: relative;
+  padding-right: 125px !important;
+}
+
+/* Remove the old green vertical starting line completely */
+.welcome-section::before {
+  content: none !important;
+  display: none !important;
+}
+
+/* Replace the decorative corner circle with the Verified badge */
+.welcome-section::after {
+  content: "✓  Verified" !important;
+  position: absolute !important;
+  top: 50% !important;
+  right: 20px !important;
+  width: auto !important;
+  height: auto !important;
+  min-width: 88px;
+  padding: 7px 11px !important;
+  transform: translateY(-50%) !important;
+  border-radius: 999px !important;
+  background: #edf9f1 !important;
+  border: 1px solid #c9e8d3 !important;
+  box-shadow: 0 3px 9px rgba(18, 120, 62, 0.07) !important;
+  color: #168044 !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  letter-spacing: 0.1px;
+  text-align: center;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.dark-mode .welcome-section::after {
+  background: rgba(30, 105, 61, 0.28) !important;
+  border-color: #326847 !important;
+  color: #72dfa0 !important;
+  box-shadow: 0 3px 9px rgba(0,0,0,0.14) !important;
+}
+
+@media (max-width: 600px) {
+  .welcome-section {
+    padding-right: 102px !important;
+  }
+
+  .welcome-section::before {
+    display: none !important;
+  }
+
+  .welcome-section::after {
+    right: 12px !important;
+    min-width: 76px;
+    padding: 6px 8px !important;
+    font-size: 9.5px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .welcome-section {
+    padding-right: 91px !important;
+  }
+
+  .welcome-section::after {
+    right: 10px !important;
+    min-width: 68px;
+    padding: 5px 7px !important;
+    font-size: 9px !important;
+  }
+}
+
+
+/* =========================================================
+   HEADER — PREMIUM FINAL REFRESH
+   JSX unchanged. Only header styling is refined.
+   ========================================================= */
+
+.simple-header {
+  height: 72px !important;
+  padding: 0 clamp(20px, 5%, 72px) !important;
+  background: rgba(255, 255, 255, 0.96) !important;
+  border-bottom: 1px solid #e8eee9 !important;
+  box-shadow: 0 4px 18px rgba(20, 70, 40, 0.035) !important;
+  position: relative;
+  z-index: 50;
+}
+
+.simple-brand {
+  gap: 10px !important;
+  font-size: 25px !important;
+  letter-spacing: -0.45px;
+  color: #07552f !important;
+}
+
+.simple-brand svg {
+  width: 29px;
+  height: 29px;
+  padding: 5px;
+  box-sizing: content-box;
+  border-radius: 10px;
+  background: #eaf8ee;
+  color: #087b3e;
+}
+
+.simple-header-actions {
+  gap: 12px !important;
+}
+
+/* Theme control — compact premium capsule */
+.simple-header-actions > button:first-child {
+  min-width: 112px;
+  height: 42px;
+  padding: 4px 7px;
+  border: 1px solid #dfe9e2;
+  border-radius: 999px;
+  background: #f8fbf9;
+  box-shadow: 0 4px 14px rgba(18, 75, 40, 0.06);
+}
+
+.simple-header-actions > button:first-child:hover {
+  border-color: #c8dfcf;
+  box-shadow: 0 6px 18px rgba(18, 75, 40, 0.09);
+}
+
+/* Notification */
+.notification-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.simple-notification {
+  width: 42px;
+  height: 42px;
+  border: 1px solid #e1eae4 !important;
+  border-radius: 13px !important;
+  background: #f8fbf9 !important;
+  color: #17452f !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s ease;
+}
+
+.simple-notification:hover,
+.simple-notification.notification-active {
+  background: #eef9f1 !important;
+  border-color: #cce5d3 !important;
+  transform: translateY(-1px);
+}
+
+.simple-notification span {
+  top: -4px !important;
+  right: -4px !important;
+  width: 18px !important;
+  height: 18px !important;
+  border: 2px solid white;
+  background: #078442 !important;
+  font-size: 9px !important;
+  box-shadow: 0 2px 6px rgba(8, 123, 62, 0.18);
+}
+
+/* Notification panel */
+.notification-panel {
+  top: 51px !important;
+  right: 0 !important;
+  width: min(350px, calc(100vw - 30px)) !important;
+  border: 1px solid #dfe9e2 !important;
+  border-radius: 18px !important;
+  box-shadow: 0 18px 45px rgba(17, 55, 34, 0.14) !important;
+  overflow: hidden;
+}
+
+/* Profile becomes a subtle clickable card */
+.simple-profile-button {
+  min-height: 46px;
+  padding: 4px 9px 4px 5px !important;
+  border: 1px solid transparent !important;
+  border-radius: 14px !important;
+  background: transparent !important;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.simple-profile-button:hover {
+  background: #f5faf6 !important;
+  border-color: #e0ebe3 !important;
+}
+
+.simple-avatar {
+  width: 42px !important;
+  height: 42px !important;
+  border: 1px solid #cfe8d6;
+  background: #e7f7eb !important;
+  color: #087b3e !important;
+  font-size: 14px;
+}
+
+.simple-profile strong {
+  font-size: 12.5px !important;
+  color: #12281d;
+}
+
+.simple-profile small {
+  margin-top: 3px !important;
+  font-size: 10px !important;
+  color: #718078 !important;
+}
+
+/* DARK HEADER */
+.dark-mode .simple-header {
+  background: rgba(10, 29, 18, 0.97) !important;
+  border-color: #1c3927 !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.16) !important;
+}
+
+.dark-mode .simple-brand {
+  color: #dff7e7 !important;
+}
+
+.dark-mode .simple-brand svg {
+  background: #123622;
+  color: #62d98c;
+}
+
+.dark-mode .simple-header-actions > button:first-child,
+.dark-mode .simple-notification {
+  background: #10271a !important;
+  border-color: #274a33 !important;
+}
+
+.dark-mode .simple-notification {
+  color: #d7eee0 !important;
+}
+
+.dark-mode .simple-notification:hover,
+.dark-mode .simple-notification.notification-active {
+  background: #153522 !important;
+  border-color: #376247 !important;
+}
+
+.dark-mode .simple-notification span {
+  border-color: #0d2116;
+}
+
+.dark-mode .simple-profile-button:hover {
+  background: #11291b !important;
+  border-color: #244632 !important;
+}
+
+.dark-mode .simple-avatar {
+  background: #173d25 !important;
+  border-color: #2d6840;
+  color: #71dda0 !important;
+}
+
+.dark-mode .simple-profile strong {
+  color: #e5f4ea;
+}
+
+.dark-mode .notification-panel {
+  border-color: #284a34 !important;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35) !important;
+}
+
+/* MOBILE HEADER */
+@media (max-width: 600px) {
+  .simple-header {
+    height: 64px !important;
+    padding: 0 13px !important;
+  }
+
+  .simple-brand {
+    gap: 7px !important;
+    font-size: 18px !important;
+  }
+
+  .simple-brand svg {
+    width: 22px;
+    height: 22px;
+    padding: 4px;
+    border-radius: 8px;
+  }
+
+  .simple-header-actions {
+    gap: 7px !important;
+  }
+
+  .simple-header-actions > button:first-child {
+    min-width: 72px;
+    height: 36px;
+    padding: 3px 5px;
+  }
+
+  .simple-notification {
+    width: 36px;
+    height: 36px;
+    border-radius: 11px !important;
+  }
+
+  .simple-notification span {
+    width: 16px !important;
+    height: 16px !important;
+    font-size: 8px !important;
+  }
+
+  .simple-profile {
+    display: none !important;
+  }
+
+  .notification-panel {
+    top: 45px !important;
+    right: -2px !important;
+  }
+}
+
+/* =========================================================
+   HEADER v18 — ICONS + BACKGROUND PREMIUM FINISH
+   Only header styling is refined; dashboard layout unchanged.
+   ========================================================= */
+
+.simple-header {
+  position: relative;
+  background:
+    radial-gradient(circle at 8% 0%, rgba(62, 190, 103, 0.075), transparent 25%),
+    linear-gradient(180deg, #ffffff 0%, #fbfdfc 100%) !important;
+  border-bottom: 1px solid #dfe9e3 !important;
+  box-shadow:
+    0 5px 18px rgba(25, 75, 45, 0.055),
+    inset 0 -1px 0 rgba(255,255,255,0.9);
+}
+
+/* subtle inner highlight */
+.simple-header::after {
+  content: "";
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  bottom: -1px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(8,123,62,.20), transparent);
+  pointer-events: none;
+}
+
+/* Brand icon */
+.simple-brand {
+  gap: 10px !important;
+  letter-spacing: -0.35px;
+}
+
+.simple-brand svg {
+  width: 34px;
+  height: 34px;
+  padding: 6px;
+  border-radius: 11px;
+  color: #087b3e !important;
+  background: linear-gradient(145deg, #f2fff6, #e2f6e9) !important;
+  border: 1px solid #cfe8d7;
+  box-shadow:
+    0 3px 9px rgba(8,123,62,.10),
+    inset 0 1px 0 rgba(255,255,255,.95);
+  stroke-width: 2.25;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.simple-brand:hover svg {
+  transform: translateY(-1px) rotate(-2deg);
+  box-shadow:
+    0 5px 12px rgba(8,123,62,.14),
+    inset 0 1px 0 rgba(255,255,255,.98);
+}
+
+/* Right-side action group */
+.simple-header-actions {
+  gap: 10px !important;
+  padding: 5px;
+  border: 1px solid #e0e9e3;
+  border-radius: 18px;
+  background: rgba(255,255,255,.78);
+  box-shadow:
+    0 4px 14px rgba(25,75,45,.055),
+    inset 0 1px 0 rgba(255,255,255,.95);
+  backdrop-filter: blur(8px);
+}
+
+/* Theme toggle container/button */
+.simple-header-actions > button:first-child {
+  min-width: 134px;
+  height: 46px;
+  padding: 4px 8px !important;
+  border: 1px solid #dce8e1 !important;
+  border-radius: 14px !important;
+  background: linear-gradient(145deg, #f9fcfa, #edf5f0) !important;
+  color: #087b3e !important;
+  box-shadow:
+    0 2px 7px rgba(20,70,40,.055),
+    inset 0 1px 0 rgba(255,255,255,.95);
+  transition: .18s ease;
+}
+
+.simple-header-actions > button:first-child:hover {
+  transform: translateY(-1px);
+  border-color: #c8dfd0 !important;
+  box-shadow:
+    0 5px 12px rgba(20,70,40,.09),
+    inset 0 1px 0 rgba(255,255,255,.98);
+}
+
+.simple-header-actions > button:first-child svg {
+  width: 19px;
+  height: 19px;
+  stroke-width: 2.25;
+}
+
+/* Notification icon box */
+.simple-notification {
+  width: 42px;
+  height: 42px;
+  border: 1px solid #dce8e1 !important;
+  border-radius: 13px !important;
+  background: linear-gradient(145deg, #ffffff, #f1f7f3) !important;
+  color: #145d38 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 3px 9px rgba(20,70,40,.065),
+    inset 0 1px 0 rgba(255,255,255,.96);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+
+.simple-notification svg {
+  width: 21px;
+  height: 21px;
+  stroke-width: 2.15;
+}
+
+.simple-notification:hover,
+.simple-notification.notification-active {
+  transform: translateY(-1px);
+  border-color: #bcd9c7 !important;
+  background: linear-gradient(145deg, #f4fff7, #e7f6ec) !important;
+  color: #087b3e !important;
+  box-shadow:
+    0 6px 13px rgba(8,123,62,.10),
+    inset 0 1px 0 rgba(255,255,255,.98);
+}
+
+.simple-notification span {
+  top: -4px !important;
+  right: -4px !important;
+  width: 18px !important;
+  height: 18px !important;
+  border: 2px solid #fff !important;
+  background: linear-gradient(145deg, #0b8a48, #08733a) !important;
+  box-shadow: 0 2px 5px rgba(8,123,62,.20);
+  font-size: 9px !important;
+}
+
+/* Profile */
+.simple-profile {
+  gap: 10px !important;
+  padding: 3px 7px 3px 3px;
+  border-radius: 14px;
+  transition: .18s ease;
+}
+
+.simple-profile:hover {
+  background: #f1f8f3;
+}
+
+.simple-avatar {
+  width: 42px !important;
+  height: 42px !important;
+  border: 1px solid #cde6d5;
+  background: linear-gradient(145deg, #ecfaef, #dff3e5) !important;
+  color: #087b3e !important;
+  box-shadow:
+    0 3px 9px rgba(8,123,62,.08),
+    inset 0 1px 0 rgba(255,255,255,.95);
+  font-size: 15px;
+}
+
+.simple-profile strong {
+  font-size: 13px !important;
+  color: #10251b;
+}
+
+/* Dark theme */
+.dark-mode .simple-header {
+  background:
+    radial-gradient(circle at 8% 0%, rgba(62,190,103,.08), transparent 25%),
+    linear-gradient(180deg, #102019 0%, #0d1b14 100%) !important;
+  border-bottom-color: #263d30 !important;
+  box-shadow:
+    0 5px 20px rgba(0,0,0,.22),
+    inset 0 -1px 0 rgba(255,255,255,.025);
+}
+
+.dark-mode .simple-header::after {
+  background: linear-gradient(90deg, transparent, rgba(98,217,140,.18), transparent);
+}
+
+.dark-mode .simple-header-actions {
+  border-color: #294536;
+  background: rgba(16,35,25,.78);
+  box-shadow:
+    0 5px 16px rgba(0,0,0,.18),
+    inset 0 1px 0 rgba(255,255,255,.025);
+}
+
+.dark-mode .simple-brand svg {
+  background: linear-gradient(145deg, #173c27, #102c1d) !important;
+  border-color: #2d6442;
+  color: #72dda0 !important;
+}
+
+.dark-mode .simple-header-actions > button:first-child {
+  background: linear-gradient(145deg, #173326, #10271a) !important;
+  border-color: #2a4a37 !important;
+  color: #75dca0 !important;
+}
+
+.dark-mode .simple-notification {
+  background: linear-gradient(145deg, #173326, #10271a) !important;
+  border-color: #2a4a37 !important;
+  color: #d6eee0 !important;
+}
+
+.dark-mode .simple-notification:hover,
+.dark-mode .simple-notification.notification-active {
+  background: linear-gradient(145deg, #1b412b, #153522) !important;
+  border-color: #39664a !important;
+  color: #7ce0a4 !important;
+}
+
+.dark-mode .simple-notification span {
+  border-color: #102019 !important;
+}
+
+.dark-mode .simple-profile:hover {
+  background: #142c1e;
+}
+
+.dark-mode .simple-avatar {
+  background: linear-gradient(145deg, #19422a, #153521) !important;
+  border-color: #316746;
+  color: #78dda1 !important;
+}
+
+.dark-mode .simple-profile strong {
+  color: #e6f5ea !important;
+}
+
+.dark-mode .simple-profile small {
+  color: #9db4a5 !important;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .simple-header-actions {
+    padding: 3px;
+    gap: 6px !important;
+    border-radius: 15px;
+  }
+
+  .simple-brand svg {
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    border-radius: 9px;
+  }
+
+  .simple-header-actions > button:first-child {
+    min-width: 72px !important;
+    height: 36px !important;
+    border-radius: 11px !important;
+  }
+
+  .simple-notification {
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 11px !important;
+  }
+
+  .simple-notification svg {
+    width: 19px;
+    height: 19px;
+  }
+}
+
+/* =========================================================
+   HEADER ULTRA PREMIUM FINISH — v19
+   Only header styling is refined; dashboard content untouched.
+   ========================================================= */
+
+.simple-header {
+  position: relative;
+  height: 82px !important;
+  padding: 0 clamp(22px, 5%, 72px) !important;
+  background:
+    radial-gradient(circle at 12% -40%, rgba(55, 190, 103, 0.10), transparent 32%),
+    linear-gradient(180deg, #ffffff 0%, #fbfdfc 100%) !important;
+  border-bottom: 1px solid #e5ece7 !important;
+  box-shadow: 0 5px 22px rgba(22, 71, 43, 0.045) !important;
+  z-index: 50;
+}
+
+.simple-header::after {
+  content: "";
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  bottom: -1px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(8,123,62,.16), transparent);
+  pointer-events: none;
+}
+
+.simple-brand {
+  gap: 11px !important;
+  font-size: 26px !important;
+  letter-spacing: -0.45px;
+  line-height: 1;
+}
+
+.simple-brand svg {
+  width: 38px !important;
+  height: 38px !important;
+  padding: 7px;
+  border: 1px solid #cfe8d7;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #f2fff6 0%, #e3f7e9 100%);
+  color: #07803f;
+  box-shadow:
+    0 5px 12px rgba(8,123,62,.09),
+    inset 0 1px 0 rgba(255,255,255,.98);
+  stroke-width: 2.25;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.simple-brand:hover svg {
+  transform: translateY(-1px) scale(1.025);
+  box-shadow:
+    0 7px 16px rgba(8,123,62,.12),
+    inset 0 1px 0 rgba(255,255,255,.99);
+}
+
+.simple-header-actions {
+  gap: 8px !important;
+  padding: 6px !important;
+  border: 1px solid #e0e9e3 !important;
+  border-radius: 20px !important;
+  background: rgba(255,255,255,.82) !important;
+  box-shadow:
+    0 7px 22px rgba(22,71,43,.065),
+    inset 0 1px 0 rgba(255,255,255,.98) !important;
+  backdrop-filter: blur(10px);
+}
+
+/* Theme control */
+.simple-header-actions > button:first-child {
+  min-width: 116px !important;
+  height: 42px !important;
+  border-radius: 14px !important;
+  border: 1px solid #dce8e1 !important;
+  background: linear-gradient(145deg, #ffffff, #f0f7f2) !important;
+  box-shadow:
+    0 3px 8px rgba(20,70,40,.055),
+    inset 0 1px 0 rgba(255,255,255,.98) !important;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+
+.simple-header-actions > button:first-child:hover {
+  transform: translateY(-1px);
+  border-color: #c5ddcd !important;
+  box-shadow:
+    0 7px 15px rgba(8,123,62,.09),
+    inset 0 1px 0 rgba(255,255,255,.99) !important;
+}
+
+.simple-header-actions > button:first-child svg {
+  width: 19px !important;
+  height: 19px !important;
+  stroke-width: 2.15;
+}
+
+/* Notification */
+.notification-wrapper {
+  padding: 0 !important;
+}
+
+.simple-notification {
+  width: 42px !important;
+  height: 42px !important;
+  border-radius: 14px !important;
+  border: 1px solid #dce8e1 !important;
+  background: linear-gradient(145deg, #ffffff, #f0f7f2) !important;
+  color: #125d38 !important;
+  box-shadow:
+    0 3px 9px rgba(20,70,40,.06),
+    inset 0 1px 0 rgba(255,255,255,.98) !important;
+}
+
+.simple-notification svg {
+  width: 21px !important;
+  height: 21px !important;
+  stroke-width: 2.15;
+}
+
+.simple-notification:hover,
+.simple-notification.notification-active {
+  transform: translateY(-1px);
+  border-color: #bcd9c7 !important;
+  background: linear-gradient(145deg, #f5fff7, #e6f6eb) !important;
+  color: #087b3e !important;
+  box-shadow:
+    0 7px 15px rgba(8,123,62,.10),
+    inset 0 1px 0 rgba(255,255,255,.99) !important;
+}
+
+.simple-notification span {
+  top: -5px !important;
+  right: -5px !important;
+  width: 19px !important;
+  height: 19px !important;
+  border: 2px solid #fff !important;
+  background: linear-gradient(145deg, #0a914b, #08743b) !important;
+  box-shadow: 0 3px 7px rgba(8,123,62,.20) !important;
+  font-size: 9px !important;
+}
+
+/* Profile */
+.simple-profile-button {
+  min-height: 46px !important;
+  padding: 3px 10px 3px 4px !important;
+  gap: 10px !important;
+  border: 1px solid transparent !important;
+  border-radius: 15px !important;
+}
+
+.simple-profile-button:hover {
+  background: linear-gradient(145deg, #f8fcf9, #eef7f1) !important;
+  border-color: #dce9e0 !important;
+}
+
+.simple-avatar {
+  width: 42px !important;
+  height: 42px !important;
+  border: 1px solid #cbe4d3 !important;
+  background: linear-gradient(145deg, #eefaf1, #dff3e5) !important;
+  color: #087b3e !important;
+  box-shadow:
+    0 4px 10px rgba(8,123,62,.08),
+    inset 0 1px 0 rgba(255,255,255,.98);
+  font-size: 15px !important;
+  font-weight: 900 !important;
+}
+
+.simple-profile strong {
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  letter-spacing: -.1px;
+}
+
+.simple-profile small {
+  margin-top: 2px !important;
+  font-size: 10px !important;
+}
+
+/* Dark mode */
+.dark-mode .simple-header {
+  background:
+    radial-gradient(circle at 12% -40%, rgba(73,207,116,.10), transparent 32%),
+    linear-gradient(180deg, #102019 0%, #0c1b13 100%) !important;
+  border-bottom-color: #263d30 !important;
+  box-shadow: 0 6px 24px rgba(0,0,0,.24) !important;
+}
+
+.dark-mode .simple-header::after {
+  background: linear-gradient(90deg, transparent, rgba(98,217,140,.20), transparent);
+}
+
+.dark-mode .simple-header-actions {
+  border-color: #294536 !important;
+  background: rgba(13,31,20,.82) !important;
+  box-shadow:
+    0 8px 24px rgba(0,0,0,.22),
+    inset 0 1px 0 rgba(255,255,255,.025) !important;
+}
+
+.dark-mode .simple-brand svg {
+  border-color: #2d6442 !important;
+  background: linear-gradient(145deg, #183d28, #102c1d) !important;
+  color: #72dda0 !important;
+}
+
+.dark-mode .simple-header-actions > button:first-child,
+.dark-mode .simple-notification {
+  border-color: #2a4a37 !important;
+  background: linear-gradient(145deg, #173326, #10271a) !important;
+}
+
+.dark-mode .simple-header-actions > button:first-child:hover,
+.dark-mode .simple-notification:hover,
+.dark-mode .simple-notification.notification-active {
+  border-color: #39664a !important;
+  background: linear-gradient(145deg, #1b412b, #153522) !important;
+}
+
+.dark-mode .simple-notification span {
+  border-color: #102019 !important;
+}
+
+.dark-mode .simple-profile-button:hover {
+  background: linear-gradient(145deg, #162f20, #11281a) !important;
+  border-color: #294936 !important;
+}
+
+.dark-mode .simple-avatar {
+  border-color: #316746 !important;
+  background: linear-gradient(145deg, #19422a, #153521) !important;
+  color: #78dda1 !important;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .simple-header {
+    height: 64px !important;
+    padding: 0 12px !important;
+  }
+
+  .simple-brand {
+    gap: 7px !important;
+    font-size: 18px !important;
+  }
+
+  .simple-brand svg {
+    width: 32px !important;
+    height: 32px !important;
+    padding: 6px;
+    border-radius: 10px;
+  }
+
+  .simple-header-actions {
+    gap: 5px !important;
+    padding: 4px !important;
+    border-radius: 15px !important;
+  }
+
+  .simple-header-actions > button:first-child {
+    min-width: 78px !important;
+    height: 36px !important;
+    border-radius: 11px !important;
+  }
+
+  .simple-header-actions > button:first-child svg {
+    width: 17px !important;
+    height: 17px !important;
+  }
+
+  .simple-notification {
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 11px !important;
+  }
+
+  .simple-notification svg {
+    width: 19px !important;
+    height: 19px !important;
+  }
+
+  .simple-profile-button {
+    min-height: 36px !important;
+    padding: 2px 4px 2px 2px !important;
+    gap: 6px !important;
+  }
+
+  .simple-avatar {
+    width: 34px !important;
+    height: 34px !important;
+    font-size: 13px !important;
+  }
+
+  .simple-profile strong,
+  .simple-profile small {
+    display: none !important;
+  }
+}
+
+/* =========================================================
+   WELCOME MOBILE — FINAL READABILITY FIX v22
+   Greeting on one line, Kisan Code on one line.
+   Only mobile welcome layout is adjusted.
+   ========================================================= */
+@media (max-width: 600px) {
+  .welcome-section {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+    min-height: 86px !important;
+    padding: 10px 90px 10px 14px !important;
+  }
+
+  .welcome-section h1 {
+    width: auto !important;
+    max-width: none !important;
+    white-space: nowrap !important;
+    font-size: 21px !important;
+    line-height: 1.05 !important;
+    letter-spacing: -0.45px !important;
+    margin: 0 !important;
+  }
+
+  .welcome-section h1 span {
+    font-size: 18px !important;
+    margin-left: 2px !important;
+  }
+
+  .welcome-section p {
+    width: max-content !important;
+    max-width: none !important;
+    white-space: nowrap !important;
+    flex-wrap: nowrap !important;
+    margin: 5px 0 0 !important;
+    padding: 4px 8px !important;
+    gap: 5px !important;
+    font-size: 9px !important;
+    line-height: 1.1 !important;
+  }
+
+  .welcome-section p strong {
+    white-space: nowrap !important;
+  }
+
+  .welcome-section::after {
+    right: 10px !important;
+    width: 70px !important;
+    min-width: 70px !important;
+    height: 28px !important;
+    padding: 5px 6px !important;
+    font-size: 9px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .welcome-section {
+    min-height: 82px !important;
+    padding: 9px 84px 9px 12px !important;
+  }
+
+  .welcome-section h1 {
+    font-size: 20px !important;
+  }
+
+  .welcome-section h1 span {
+    font-size: 17px !important;
+  }
+
+  .welcome-section p {
+    font-size: 8.5px !important;
+    padding: 4px 7px !important;
+    gap: 4px !important;
+  }
+
+  .welcome-section::after {
+    right: 8px !important;
+    width: 66px !important;
+    min-width: 66px !important;
+    height: 27px !important;
+    font-size: 8.5px !important;
+  }
+}
+
+/* =========================================================
+   BOTTOM NAV — PREMIUM MOBILE REDESIGN v24
+   ========================================================= */
+@media (max-width: 800px) {
+  .simple-farmer-dashboard {
+    padding-bottom: 82px !important;
+  }
+
+  .bottom-navigation {
+    position: fixed !important;
+    left: 12px !important;
+    right: 12px !important;
+    bottom: calc(10px + env(safe-area-inset-bottom)) !important;
+    width: auto !important;
+    height: 64px !important;
+    padding: 6px 8px !important;
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    align-items: stretch !important;
+    justify-content: initial !important;
+    background: rgba(255, 255, 255, 0.96) !important;
+    border: 1px solid rgba(16, 90, 52, 0.10) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 10px 30px rgba(24, 50, 36, 0.16), 0 2px 8px rgba(24, 50, 36, 0.07) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    z-index: 1000 !important;
+  }
+
+  .bottom-navigation button {
+    min-width: 0 !important;
+    height: 52px !important;
+    margin: 0 !important;
+    padding: 4px 5px !important;
+    border: 0 !important;
+    border-radius: 15px !important;
+    background: transparent !important;
+    color: #718078 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 3px !important;
+    font-size: 10px !important;
+    font-weight: 500 !important;
+    line-height: 1 !important;
+    transition: transform 0.18s ease, background 0.18s ease, color 0.18s ease !important;
+  }
+
+  .bottom-navigation button svg {
+    width: 21px !important;
+    height: 21px !important;
+    stroke-width: 1.8 !important;
+    transition: transform 0.18s ease !important;
+  }
+
+  .bottom-navigation button.active {
+    color: #087b3e !important;
+    background: rgba(8, 123, 62, 0.09) !important;
+    font-weight: 700 !important;
+  }
+
+  .bottom-navigation button.active svg {
+    stroke-width: 2.25 !important;
+    transform: translateY(-1px) !important;
+  }
+
+  .bottom-navigation button:active {
+    transform: scale(0.96) !important;
+  }
+
+  .dark-mode .bottom-navigation {
+    background: rgba(13, 33, 22, 0.96) !important;
+    border-color: rgba(89, 173, 116, 0.18) !important;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.34), 0 2px 8px rgba(0, 0, 0, 0.18) !important;
+  }
+
+  .dark-mode .bottom-navigation button {
+    color: #91a79a !important;
+  }
+
+  .dark-mode .bottom-navigation button.active {
+    color: #54d982 !important;
+    background: rgba(54, 181, 99, 0.13) !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .simple-farmer-dashboard {
+    padding-bottom: 78px !important;
+  }
+
+  .bottom-navigation {
+    left: 9px !important;
+    right: 9px !important;
+    bottom: calc(8px + env(safe-area-inset-bottom)) !important;
+    height: 61px !important;
+    padding: 5px 6px !important;
+    border-radius: 18px !important;
+  }
+
+  .bottom-navigation button {
+    height: 51px !important;
+    border-radius: 13px !important;
+    gap: 3px !important;
+    font-size: 9px !important;
+  }
+
+  .bottom-navigation button svg {
+    width: 20px !important;
+    height: 20px !important;
+  }
+}
+
+/* =========================================================
+   BOTTOM NAV — ULTRA PREMIUM v25
+   Final refinement: cleaner dock, stronger active state,
+   better icon treatment, spacing and touch feedback.
+   ========================================================= */
+@media (max-width: 800px) {
+  .bottom-navigation {
+    left: 10px !important;
+    right: 10px !important;
+    bottom: calc(10px + env(safe-area-inset-bottom)) !important;
+    height: 68px !important;
+    padding: 7px !important;
+    border-radius: 22px !important;
+    background: rgba(255, 255, 255, 0.88) !important;
+    border: 1px solid rgba(255, 255, 255, 0.92) !important;
+    box-shadow:
+      0 16px 38px rgba(25, 55, 40, 0.16),
+      0 3px 12px rgba(25, 55, 40, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(22px) saturate(135%) !important;
+    -webkit-backdrop-filter: blur(22px) saturate(135%) !important;
+  }
+
+  .bottom-navigation button {
+    position: relative !important;
+    height: 54px !important;
+    border-radius: 16px !important;
+    gap: 4px !important;
+    padding: 4px 4px !important;
+    color: #7a8881 !important;
+    font-size: 10px !important;
+    font-weight: 600 !important;
+    letter-spacing: -0.1px !important;
+    transition:
+      background 0.2s ease,
+      color 0.2s ease,
+      transform 0.15s ease !important;
+  }
+
+  .bottom-navigation button::before {
+    content: "" !important;
+    width: 34px !important;
+    height: 27px !important;
+    position: absolute !important;
+    top: 5px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    border-radius: 11px !important;
+    background: transparent !important;
+    transition: background 0.2s ease, transform 0.2s ease !important;
+    z-index: 0 !important;
+  }
+
+  .bottom-navigation button svg,
+  .bottom-navigation button > span {
+    position: relative !important;
+    z-index: 1 !important;
+  }
+
+  .bottom-navigation button svg {
+    width: 22px !important;
+    height: 22px !important;
+    stroke-width: 1.9 !important;
+  }
+
+  .bottom-navigation button.active {
+    color: #087b3e !important;
+    background: transparent !important;
+    font-weight: 750 !important;
+  }
+
+  .bottom-navigation button.active::before {
+    background: rgba(8, 123, 62, 0.12) !important;
+    transform: translateX(-50%) scale(1.05) !important;
+  }
+
+  .bottom-navigation button.active::after {
+    content: "" !important;
+    position: absolute !important;
+    left: 50% !important;
+    bottom: 3px !important;
+    width: 5px !important;
+    height: 5px !important;
+    border-radius: 50% !important;
+    background: #087b3e !important;
+    transform: translateX(-50%) !important;
+  }
+
+  .bottom-navigation button.active svg {
+    stroke-width: 2.35 !important;
+    transform: translateY(-1px) !important;
+  }
+
+  .bottom-navigation button:not(.active):hover {
+    color: #087b3e !important;
+  }
+
+  .bottom-navigation button:not(.active):hover::before {
+    background: rgba(8, 123, 62, 0.055) !important;
+  }
+
+  .bottom-navigation button:active {
+    transform: scale(0.94) !important;
+  }
+
+  .dark-mode .bottom-navigation {
+    background: rgba(11, 29, 20, 0.90) !important;
+    border-color: rgba(112, 196, 139, 0.14) !important;
+    box-shadow:
+      0 18px 40px rgba(0, 0, 0, 0.40),
+      0 3px 12px rgba(0, 0, 0, 0.20),
+      inset 0 1px 0 rgba(255, 255, 255, 0.045) !important;
+  }
+
+  .dark-mode .bottom-navigation button {
+    color: #8fa79a !important;
+  }
+
+  .dark-mode .bottom-navigation button.active {
+    color: #5fe08a !important;
+  }
+
+  .dark-mode .bottom-navigation button.active::before {
+    background: rgba(54, 181, 99, 0.15) !important;
+  }
+
+  .dark-mode .bottom-navigation button.active::after {
+    background: #5fe08a !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .simple-farmer-dashboard {
+    padding-bottom: 78px !important;
+  }
+
+  .bottom-navigation {
+    left: 8px !important;
+    right: 8px !important;
+    bottom: calc(8px + env(safe-area-inset-bottom)) !important;
+    height: 63px !important;
+    padding: 6px !important;
+    border-radius: 20px !important;
+  }
+
+  .bottom-navigation button {
+    height: 51px !important;
+    border-radius: 15px !important;
+    gap: 3px !important;
+    font-size: 9px !important;
+  }
+
+  .bottom-navigation button::before {
+    width: 31px !important;
+    height: 25px !important;
+    top: 4px !important;
+    border-radius: 10px !important;
+  }
+
+  .bottom-navigation button svg {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  .bottom-navigation button.active::after {
+    bottom: 2px !important;
+    width: 4px !important;
+    height: 4px !important;
+  }
+}
+
+/* =========================================================
+   V26 - BOTTOM NAV ICONS REFINEMENT
+   Only bottom-navigation icon treatment is adjusted.
+   ========================================================= */
+.bottom-navigation button svg,
+.bottom-navigation button > svg {
+  width: 23px !important;
+  height: 23px !important;
+  stroke-width: 2.15 !important;
+  flex: 0 0 23px;
+  transition: transform .2s ease, filter .2s ease, stroke-width .2s ease;
+}
+
+.bottom-navigation button {
+  gap: 5px !important;
+}
+
+.bottom-navigation button:hover svg {
+  transform: translateY(-1px) scale(1.05);
+}
+
+.bottom-navigation button.active svg {
+  stroke-width: 2.5 !important;
+  transform: translateY(-1px) scale(1.06);
+}
+
+.bottom-navigation button:not(.active) svg {
+  opacity: .82;
+}
+
+.dark-mode .bottom-navigation button:not(.active) svg {
+  opacity: .9;
+}
+
+@media (max-width: 480px) {
+  .bottom-navigation button svg,
+  .bottom-navigation button > svg {
+    width: 22px !important;
+    height: 22px !important;
+    flex-basis: 22px;
   }
 }
