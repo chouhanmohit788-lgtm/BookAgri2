@@ -1,7 +1,6 @@
-
+* {
   box-sizing: border-box;
 }
-
 .simple-farmer-dashboard {
   min-height: 100vh;
   background: #f7faf8;
