@@ -211,3 +211,283 @@
     grid-template-columns: 1fr;
   }
 }
+/* ==================================================
+   HISTORY — COMPACT + PREMIUM VISUAL REFINEMENT
+   Keeps existing layout structure and colour palette.
+================================================== */
+
+.history-page {
+  background:
+    radial-gradient(circle at 8% 2%, rgba(53, 168, 102, 0.045), transparent 24%),
+    radial-gradient(circle at 94% 18%, rgba(53, 168, 102, 0.035), transparent 22%),
+    #f4f8f5;
+  padding-bottom: 28px;
+}
+
+/* Header polish */
+.history-header {
+  padding: 18px 16px 14px;
+  gap: 11px;
+}
+
+.history-header h1 {
+  font-size: 21px;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+
+.history-header p {
+  margin-top: 2px;
+  font-size: 11px;
+}
+
+.history-back {
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
+  box-shadow:
+    0 5px 16px rgba(25, 80, 50, .07),
+    inset 0 1px 0 rgba(255,255,255,.78);
+}
+
+.history-back svg {
+  width: 20px;
+  height: 20px;
+  stroke-width: 2.4;
+}
+
+/* Main content */
+.history-content {
+  width: min(780px, calc(100% - 24px));
+}
+
+/* History card */
+.history-card,
+.history-empty {
+  border-radius: 16px;
+  padding: 15px;
+  box-shadow:
+    0 7px 22px rgba(25, 80, 50, .045),
+    0 1px 2px rgba(25, 80, 50, .025),
+    inset 0 1px 0 rgba(255,255,255,.75);
+}
+
+/* Top row */
+.history-top {
+  gap: 12px;
+}
+
+.history-crop {
+  gap: 10px;
+}
+
+.history-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+}
+
+.history-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.history-crop h2 {
+  margin-bottom: 3px;
+  font-size: 17px;
+  line-height: 1.15;
+}
+
+.history-crop strong {
+  font-size: 11px;
+}
+
+.history-status {
+  gap: 5px;
+  padding: 5px 9px;
+  border-radius: 18px;
+  font-size: 9px;
+}
+
+/* Detail tiles */
+.history-details {
+  margin-top: 12px;
+  gap: 7px;
+}
+
+.history-details > div {
+  gap: 8px;
+  padding: 10px;
+  border-radius: 11px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.58);
+}
+
+.history-details svg {
+  width: 18px;
+  height: 18px;
+}
+
+.history-details small {
+  font-size: 9px;
+}
+
+.history-details strong {
+  font-size: 11px;
+  line-height: 1.2;
+}
+
+.history-demo-note {
+  margin-top: 9px;
+  font-size: 9px;
+}
+
+/* Empty state */
+.history-empty {
+  padding: 44px 18px;
+}
+
+.history-empty h2 {
+  margin: 12px 0 5px;
+  font-size: 18px;
+}
+
+.history-empty p {
+  font-size: 11px;
+}
+
+/* Subtle interaction polish */
+.history-card {
+  transition: box-shadow .18s ease, border-color .18s ease;
+}
+
+.history-card:hover {
+  box-shadow:
+    0 9px 25px rgba(25, 80, 50, .065),
+    0 1px 2px rgba(25, 80, 50, .03),
+    inset 0 1px 0 rgba(255,255,255,.8);
+}
+
+.history-details > div {
+  transition: transform .16s ease, background .16s ease;
+}
+
+.history-details > div:hover {
+  transform: translateY(-1px);
+}
+
+/* Dark mode polish */
+.dark-mode.history-page {
+  background:
+    radial-gradient(circle at 8% 2%, rgba(53, 190, 102, 0.045), transparent 24%),
+    radial-gradient(circle at 94% 18%, rgba(53, 190, 102, 0.035), transparent 22%),
+    #07130e;
+}
+
+.dark-mode .history-card,
+.dark-mode .history-empty {
+  box-shadow:
+    0 9px 26px rgba(0,0,0,.22),
+    inset 0 1px 0 rgba(255,255,255,.025);
+}
+
+.dark-mode .history-details > div {
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.025);
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .history-header {
+    padding: 16px 12px 12px;
+  }
+
+  .history-header h1 {
+    font-size: 19px;
+  }
+
+  .history-header p {
+    font-size: 10px;
+  }
+
+  .history-back {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+  }
+
+  .history-back svg {
+    width: 19px;
+    height: 19px;
+  }
+
+  .history-content {
+    width: calc(100% - 18px);
+  }
+
+  .history-card,
+  .history-empty {
+    padding: 12px;
+    border-radius: 14px;
+  }
+
+  .history-top {
+    gap: 9px;
+  }
+
+  .history-crop {
+    gap: 9px;
+  }
+
+  .history-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+  }
+
+  .history-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .history-crop h2 {
+    font-size: 16px;
+  }
+
+  .history-crop strong {
+    font-size: 10px;
+  }
+
+  .history-status {
+    padding: 4px 8px;
+    font-size: 8px;
+  }
+
+  .history-details {
+    gap: 6px;
+  }
+
+  .history-details > div {
+    padding: 9px;
+    border-radius: 10px;
+  }
+
+  .history-details svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .history-details small {
+    font-size: 8px;
+  }
+
+  .history-details strong {
+    font-size: 10px;
+  }
+
+  .history-demo-note {
+    font-size: 8px;
+  }
+
+  .history-empty {
+    padding: 38px 14px;
+  }
+}

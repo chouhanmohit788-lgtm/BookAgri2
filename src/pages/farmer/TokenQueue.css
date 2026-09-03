@@ -219,3 +219,120 @@
     width: calc(100% - 24px);
   }
 }
+
+/* ===== PREMIUM COMPACT VISUAL POLISH =====
+   Keeps the existing layout, palette, and core sizing intact.
+   Only improves visual finish and perceived compactness.
+*/
+
+.token-header {
+  gap: 11px;
+}
+
+.token-header h1 {
+  letter-spacing: -.2px;
+}
+
+.token-header p {
+  line-height: 1.35;
+}
+
+.token-back {
+  box-shadow: 0 4px 14px rgba(25, 80, 50, .08);
+  border: 1px solid #dce9e1;
+  transition: .2s ease;
+}
+
+.token-back:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 7px 18px rgba(25, 80, 50, .11);
+}
+
+.token-main-card {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 28px rgba(25, 80, 50, .07);
+}
+
+.token-main-card::before {
+  content: "";
+  position: absolute;
+  inset: -80px auto auto -70px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: rgba(74, 222, 125, .07);
+  pointer-events: none;
+}
+
+.token-main-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.token-status {
+  box-shadow: 0 3px 10px rgba(19, 131, 68, .06);
+}
+
+.token-number {
+  text-shadow: 0 2px 10px rgba(7, 85, 47, .08);
+}
+
+.queue-position {
+  box-shadow: inset 0 0 0 1px rgba(19, 131, 68, .03);
+}
+
+.token-details {
+  gap: 9px;
+}
+
+.token-details > div {
+  box-shadow: 0 5px 16px rgba(25, 80, 50, .045);
+  transition: .2s ease;
+}
+
+.token-details > div:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(25, 80, 50, .07);
+}
+
+.queue-note {
+  border: 1px solid rgba(196, 166, 67, .16);
+}
+
+.token-empty {
+  box-shadow: 0 8px 24px rgba(25, 80, 50, .06);
+}
+
+/* Dark mode polish */
+.dark-mode .token-back,
+.dark-mode .token-details > div,
+.dark-mode .token-empty {
+  box-shadow: 0 8px 22px rgba(0, 0, 0, .18);
+}
+
+.dark-mode .token-main-card {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, .22);
+}
+
+.dark-mode .token-number {
+  text-shadow: 0 0 14px rgba(85, 233, 138, .10);
+}
+
+@media (max-width: 520px) {
+  .token-header {
+    gap: 9px;
+  }
+
+  .token-back {
+    box-shadow: 0 3px 10px rgba(25, 80, 50, .08);
+  }
+
+  .token-main-card {
+    box-shadow: 0 8px 22px rgba(25, 80, 50, .07);
+  }
+
+  .token-details > div:hover {
+    transform: none;
+  }
+}

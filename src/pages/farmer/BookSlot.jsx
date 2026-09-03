@@ -19,6 +19,7 @@ function BookSlot({ onBack, onBookingConfirmed }) {
   const [quantity, setQuantity] = useState("");
   const [center, setCenter] = useState("");
   const [centerSearch, setCenterSearch] = useState("");
+  const [centreSearchOpen, setCentreSearchOpen] = useState(false);
   const [date, setDate] = useState("");
   const [selectedTime, setSelectedTime] = useState("");
   const [calendarOpen, setCalendarOpen] = useState(false);
@@ -91,9 +92,11 @@ function BookSlot({ onBack, onBookingConfirmed }) {
     "Alirajpur Procurement Centre",
   ];
 
-  const filteredCentres = procurementCentres.filter((name) =>
-    name.toLowerCase().includes(centerSearch.toLowerCase().trim())
-  );
+  const filteredCentres = procurementCentres
+    .filter((name) =>
+      name.toLowerCase().includes(centerSearch.toLowerCase().trim())
+    )
+    .slice(0, 6);
 
   const timeSlots = [
     {
@@ -147,6 +150,15 @@ function BookSlot({ onBack, onBookingConfirmed }) {
   ).getDay();
 
   const calendarDays = Array.from({ length: daysInMonth }, (_, index) => index + 1);
+
+  const formatSummaryDate = (value) => {
+    if (!value) return "—";
+    const [year, month, day] = value.split("-");
+    if (year && month && day && year.length === 4) {
+      return `${day}/${month}/${year}`;
+    }
+    return value;
+  };
 
   // Aaj ki date midnight (00:00:00) par set kar rahe hain taaki comparison sahi ho
   const today = new Date();
@@ -225,144 +237,202 @@ function BookSlot({ onBack, onBookingConfirmed }) {
       {/* Content */}
       <section className="book-slot-content">
 
-        {/* Crop */}
-        <div className="booking-card">
-          <div className="booking-label">
-            <Wheat size={19} />
-            <span>{t.selectCrop}</span>
-          </div>
-
-          <select
-            value={crop}
-            onChange={(e) => setCrop(e.target.value)}
-          >
-            <option value="">{t.selectYourCrop}</option>
-            <option value="Wheat">{t.wheat}</option>
-            <option value="Soybean">{t.soybean}</option>
-            <option value="Maize">{t.maize}</option>
-            <option value="Mustard">{t.mustard}</option>
-          </select>
-        </div>
-
-        {/* Quantity */}
-        <div className="booking-card">
-          <div className="booking-label">
-            <Wheat size={19} />
-            <span>{t.quantity}</span>
-          </div>
-
-          <div className="quantity-input">
-            <input
-              type="number"
-              min="1"
-              placeholder="Enter quantity"
-              value={quantity}
-              onChange={(e) => setQuantity(e.target.value)}
-            />
-            <span>{t.quintal}</span>
-          </div>
-        </div>
-
-        {/* Center */}
-        <div className="booking-card">
-          <div className="booking-label">
-            <MapPin size={19} />
-            <span>{t.procurementCentre}</span>
-          </div>
-
-          <input
-            type="text"
-            className="centre-search"
-            placeholder={t.searchProcurementCentre}
-            value={centerSearch}
-            onChange={(e) => setCenterSearch(e.target.value)}
-          />
-
-          <select
-            value={center}
-            onChange={(e) => setCenter(e.target.value)}
-          >
-            <option value="">{t.selectProcurementCentre}</option>
-
-            {filteredCentres.map((name) => (
-              <option key={name} value={name}>
-                {name}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        {/* Date */}
-        <div className="booking-card">
-          <div className="booking-label">
-            <CalendarDays size={19} />
-            <span>{t.selectDate}</span>
-          </div>
-
-          <div className="custom-date-picker">
-            <button
-              type="button"
-              className={`date-picker-trigger ${calendarOpen ? "open" : ""}`}
-              onClick={() => setCalendarOpen((open) => !open)}
-            >
-              <span>
-                {selectedDateObject
-                  ? selectedDateObject.toLocaleDateString("en-GB", {
-                      day: "2-digit",
-                      month: "2-digit",
-                      year: "numeric",
-                    })
-                  : (language === "hi" ? "तारीख चुनें" : "Select a date")}
-              </span>
-              <CalendarDays size5={17} />
-            </button>
-
-            {calendarOpen && (
-              <div className="date-picker-popover">
-                <div className="date-picker-header">
-                  <button type="button" onClick={previousMonth} aria-label="Previous month">
-                    ←
-                  </button>
-                  <strong>{calendarMonthName}</strong>
-                  <button type="button" onClick={nextMonth} aria-label="Next month">
-                    →
-                  </button>
-                </div>
-
-                <div className="date-picker-weekdays">
-                  {["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"].map((day) => (
-                    <span key={day}>{day}</span>
-                  ))}
-                </div>
-
-                <div className="date-picker-grid">
-                  {Array.from({ length: firstDayOffset }).map((_, index) => (
-                    <span className="date-picker-empty" key={`empty-${index}`} />
-                  ))}
-
-                  {calendarDays.map((day) => {
-                    const currentDateObj = new Date(calendarYear, calendarMonthIndex, day);
-                    currentDateObj.setHours(0, 0, 0, 0);
-
-                    const isPast = currentDateObj < today;
-                    const value = formatDateValue(calendarYear, calendarMonthIndex, day);
-                    const selected = value === date;
-
-                    return (
-                      <button
-                        type="button"
-                        key={value}
-                        disabled={isPast}
-                        className={`date-picker-day ${selected ? "selected" : ""} ${isPast ? "disabled-day" : ""}`}
-                        onClick={() => selectDate(day)}
-                      >
-                        {day}
-                      </button>
-                    );
-                  })}
-                </div>
+        {/* Crop & Quantity */}
+        <div className="booking-card booking-card-crop-quantity">
+          <div className="booking-field-grid">
+            <div className="booking-field">
+              <div className="booking-label">
+                <Wheat size={18} />
+                <span>{t.selectCrop}</span>
               </div>
-            )}
+
+              <select
+                value={crop}
+                onChange={(e) => setCrop(e.target.value)}
+              >
+                <option value="">{t.selectYourCrop}</option>
+                <option value="Wheat">{t.wheat}</option>
+                <option value="Soybean">{t.soybean}</option>
+                <option value="Maize">{t.maize}</option>
+                <option value="Mustard">{t.mustard}</option>
+              </select>
+            </div>
+
+            <div className="booking-field">
+              <div className="booking-label">
+                <Wheat size={18} />
+                <span>{t.quantity}</span>
+              </div>
+
+              <div className="quantity-input">
+                <input
+                  type="number"
+                  min="1"
+                  placeholder="Enter quantity"
+                  value={quantity}
+                  onChange={(e) => setQuantity(e.target.value)}
+                />
+                <span>{t.quintal}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Procurement Centre & Date */}
+        <div className="booking-card booking-card-centre-date">
+          <div className="booking-field-grid centre-date-grid">
+            <div className="booking-field">
+              <div className="booking-label">
+                <MapPin size={18} />
+                <span>{t.procurementCentre}</span>
+              </div>
+
+              <div className="centre-combobox">
+                <input
+                  type="text"
+                  className="centre-search"
+                  placeholder={t.selectProcurementCentre}
+                  value={centerSearch}
+                  autoComplete="off"
+                  role="combobox"
+                  aria-expanded={centreSearchOpen}
+                  aria-autocomplete="list"
+                  onFocus={() => setCentreSearchOpen(true)}
+                  onChange={(e) => {
+                    setCenterSearch(e.target.value);
+                    setCenter(e.target.value);
+                    setCentreSearchOpen(true);
+                  }}
+                />
+
+                <button
+                  type="button"
+                  className={`centre-combobox-arrow ${
+                    centreSearchOpen ? "open" : ""
+                  }`}
+                  aria-label={t.selectProcurementCentre}
+                  onClick={() => setCentreSearchOpen((open) => !open)}
+                >
+                  ▾
+                </button>
+
+                {centreSearchOpen && (
+                  <div className="centre-options" role="listbox">
+                    {filteredCentres.length > 0 ? (
+                      filteredCentres.map((name) => (
+                        <button
+                          type="button"
+                          key={name}
+                          role="option"
+                          aria-selected={center === name}
+                          className={`centre-option ${
+                            center === name ? "selected" : ""
+                          }`}
+                          onMouseDown={(e) => e.preventDefault()}
+                          onClick={() => {
+                            setCenter(name);
+                            setCenterSearch(name);
+                            setCentreSearchOpen(false);
+                          }}
+                        >
+                          <MapPin size={15} />
+                          <span>{name}</span>
+                        </button>
+                      ))
+                    ) : (
+                      <div className="centre-empty">
+                        {language === "hi"
+                          ? "कोई केन्द्र नहीं मिला"
+                          : "No procurement centre found"}
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
+            </div>
+
+            <div className="booking-field">
+              <div className="booking-label">
+                <CalendarDays size={18} />
+                <span>{t.selectDate}</span>
+              </div>
+
+              <div className="custom-date-picker">
+                <button
+                  type="button"
+                  className={`date-picker-trigger ${calendarOpen ? "open" : ""}`}
+                  onClick={() => setCalendarOpen((open) => !open)}
+                >
+                  <span>
+                    {selectedDateObject
+                      ? selectedDateObject.toLocaleDateString("en-GB", {
+                          day: "2-digit",
+                          month: "2-digit",
+                          year: "numeric",
+                        })
+                      : (language === "hi" ? "तारीख चुनें" : "Select a date")}
+                  </span>
+                  <CalendarDays size={17} />
+                </button>
+
+                {calendarOpen && (
+                  <div className="date-picker-popover">
+                    <div className="date-picker-header">
+                      <button type="button" onClick={previousMonth} aria-label="Previous month">
+                        ←
+                      </button>
+                      <strong>{calendarMonthName}</strong>
+                      <button type="button" onClick={nextMonth} aria-label="Next month">
+                        →
+                      </button>
+                    </div>
+
+                    <div className="date-picker-weekdays">
+                      {["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"].map((day) => (
+                        <span key={day}>{day}</span>
+                      ))}
+                    </div>
+
+                    <div className="date-picker-grid">
+                      {Array.from({ length: firstDayOffset }).map((_, index) => (
+                        <span className="date-picker-empty" key={`empty-${index}`} />
+                      ))}
+
+                      {calendarDays.map((day) => {
+                        const currentDateObj = new Date(
+                          calendarYear,
+                          calendarMonthIndex,
+                          day
+                        );
+                        currentDateObj.setHours(0, 0, 0, 0);
+
+                        const isPast = currentDateObj < today;
+                        const value = formatDateValue(
+                          calendarYear,
+                          calendarMonthIndex,
+                          day
+                        );
+                        const selected = value === date;
+
+                        return (
+                          <button
+                            type="button"
+                            key={value}
+                            disabled={isPast}
+                            className={`date-picker-day ${selected ? "selected" : ""} ${
+                              isPast ? "disabled-day" : ""
+                            }`}
+                            onClick={() => selectDate(day)}
+                          >
+                            {day}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
         </div>
 
@@ -382,7 +452,7 @@ function BookSlot({ onBack, onBookingConfirmed }) {
                 className={`time-slot ${
                   selectedTime === slot.time ? "selected" : ""
                 } ${!slot.available ? "disabled" : ""}`}
-                onClick={() => setSelectedTime(slot.time)}
+                onClick={() => setSelectedTime(selectedTime === slot.time ? "" : slot.time)}
               >
                 <span className="slot-period">
                   {slot.period === "Morning" ? t.morning : t.afternoon}
@@ -402,29 +472,56 @@ function BookSlot({ onBack, onBookingConfirmed }) {
           </div>
         </div>
 
-        {/* Summary */}
+        {/* Booking Summary */}
         {selectedTime && (
-          <div className="booking-summary">
-            <CheckCircle2 size={21} />
+          <div className="booking-summary booking-summary-full">
+            <div className="booking-summary-heading">
+              <CheckCircle2 size={18} />
+              <strong>
+                {language === "hi" ? "बुकिंग सारांश" : "Booking Summary"}
+              </strong>
+            </div>
 
-            <div>
-              <strong>{t.slotSelected}</strong>
-              <span>
-                {date || t.selectDate} • {selectedTime}
-              </span>
+            <div className="booking-summary-grid">
+              <div className="summary-item">
+                <span>{language === "hi" ? "फसल" : "Crop"}</span>
+                <strong>{crop || "—"}</strong>
+              </div>
+
+              <div className="summary-item">
+                <span>{language === "hi" ? "मात्रा" : "Quantity"}</span>
+                <strong>{quantity ? `${quantity} ${t.quintal}` : "—"}</strong>
+              </div>
+
+              <div className="summary-item">
+                <span>{language === "hi" ? "प्रोक्योरमेंट केन्द्र" : "Procurement Centre"}</span>
+                <strong>{center || "—"}</strong>
+              </div>
+
+              <div className="summary-item">
+                <span>{language === "hi" ? "तारीख" : "Date"}</span>
+                <strong>{formatSummaryDate(date)}</strong>
+              </div>
+
+              <div className="summary-item summary-item-full">
+                <span>{language === "hi" ? "समय स्लॉट" : "Time Slot"}</span>
+                <strong>{selectedTime}</strong>
+              </div>
             </div>
           </div>
         )}
 
         {/* Book Button */}
-        <button
-          type="button"
-          className="confirm-booking-button"
-          onClick={handleBooking}
-        >
-          <CalendarDays size={20} />
-          {t.confirmBooking}
-        </button>
+        <div className="booking-submit-wrap">
+          <button
+            type="button"
+            className="confirm-booking-button"
+            onClick={handleBooking}
+          >
+            <CalendarDays size={20} />
+            {t.confirmBooking}
+          </button>
+        </div>
 
       </section>
     </main>
