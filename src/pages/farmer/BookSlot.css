@@ -1782,3 +1782,39 @@
     0 10px 28px rgba(0, 0, 0, 0.24),
     inset 0 1px 0 rgba(255, 255, 255, 0.10);
 }
+/* ==================================================
+   DATE PICKER — MOBILE FULL VISIBILITY FIX
+   Existing styles untouched
+================================================== */
+
+@media (max-width: 520px) {
+  .date-picker-popover {
+    left: auto !important;
+    right: 0 !important;
+    width: min(300px, calc(100vw - 30px)) !important;
+    max-width: calc(100vw - 30px) !important;
+    box-sizing: border-box !important;
+  }
+
+  .date-picker-header {
+    grid-template-columns: 32px minmax(0, 1fr) 32px !important;
+  }
+
+  .date-picker-header strong {
+    white-space: nowrap;
+  }
+
+  .date-picker-weekdays span,
+  .date-picker-grid button {
+    min-width: 0 !important;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 380px) {
+  .date-picker-popover {
+    right: -2px !important;
+    width: calc(100vw - 24px) !important;
+    max-width: calc(100vw - 24px) !important;
+  }
+}
