@@ -8,6 +8,11 @@ import {
   MapPin,
   Wheat,
   ClipboardList,
+  TicketCheck,
+  Building2,
+  PackageCheck,
+  CreditCard,
+  CircleDot,
 } from "lucide-react";
 import { useTheme } from "../../context/ThemeContext";
 import { useLanguage } from "../../context/LanguageContext";
@@ -24,10 +29,28 @@ function MyBooking({ booking, onBack, onBookingUpdated }) {
   const [bookingStatus, setBookingStatus] = useState(
     booking?.status || "Confirmed"
   );
+  const [tokenNumber, setTokenNumber] = useState(
+    booking?.tokenNumber || createTokenNumber(booking)
+  );
+
+  function createTokenNumber(sourceBooking) {
+    if (sourceBooking?.tokenNumber) return sourceBooking.tokenNumber;
+
+    const seed =
+      sourceBooking?.id ??
+      sourceBooking?.bookingId ??
+      sourceBooking?.dateValue ??
+      sourceBooking?.date ??
+      "104";
+
+    const digits = String(seed).replace(/\D/g, "").slice(-3).padStart(3, "0");
+    return `T-${digits}`;
+  }
 
   useEffect(() => {
     setLocalBooking(booking || null);
     setBookingStatus(booking?.status || "Confirmed");
+    setTokenNumber(booking?.tokenNumber || createTokenNumber(booking));
   }, [booking]);
 
   const availableSlots = useMemo(
@@ -70,6 +93,8 @@ function MyBooking({ booking, onBack, onBookingUpdated }) {
       dateValue: selectedDate,
       time: selectedTime,
       status: "Confirmed",
+      tokenNumber,
+      trackingStatus: "confirmed",
     };
 
     setLocalBooking(nextBooking);
@@ -97,6 +122,76 @@ function MyBooking({ booking, onBack, onBookingUpdated }) {
       onBookingUpdated(null);
     }
   };
+
+  const trackingSteps = [
+    {
+      key: "confirmed",
+      title: language === "hi" ? "बुकिंग कन्फर्म" : "Booking Confirmed",
+      detail:
+        language === "hi"
+          ? "आपकी बुकिंग सफलतापूर्वक कन्फर्म है"
+          : "Your procurement booking is confirmed",
+      icon: CheckCircle2,
+      meta: localBooking?.confirmedAt || "",
+    },
+    {
+      key: "token",
+      title: language === "hi" ? "टोकन असाइन" : "Token Assigned",
+      detail: language === "hi" ? `टोकन नंबर ${tokenNumber}` : `Token Number ${tokenNumber}`,
+      icon: TicketCheck,
+      meta: `Token: ${tokenNumber}`,
+    },
+    {
+      key: "arrival",
+      title: language === "hi" ? "आने का समय" : "Arrival Time",
+      detail: `${localBooking?.date || "—"} • ${localBooking?.time || "—"}`,
+      icon: Clock3,
+      meta: language === "hi" ? "निर्धारित समय" : "Scheduled arrival",
+    },
+    {
+      key: "centre",
+      title: language === "hi" ? "प्रोक्योरमेंट सेंटर पहुँचे" : "Reached Procurement Centre",
+      detail: localBooking?.center || "—",
+      icon: Building2,
+      meta: language === "hi" ? "आगमन के बाद" : "After arrival",
+    },
+    {
+      key: "procurement",
+      title: language === "hi" ? "प्रोक्योरमेंट शुरू" : "Procurement Started",
+      detail:
+        language === "hi"
+          ? "क्वालिटी और वजन की जाँच"
+          : "Quality and quantity verification",
+      icon: PackageCheck,
+      meta: language === "hi" ? "प्रतीक्षा में" : "Waiting",
+    },
+    {
+      key: "payment",
+      title: language === "hi" ? "पेमेंट प्रोसेसिंग" : "Payment Processing",
+      detail:
+        language === "hi"
+          ? "भुगतान प्रक्रिया शुरू होने की प्रतीक्षा"
+          : "Waiting for payment processing",
+      icon: CreditCard,
+      meta: language === "hi" ? "प्रतीक्षा में" : "Waiting",
+    },
+    {
+      key: "completed",
+      title: language === "hi" ? "बुकिंग पूर्ण" : "Booking Completed",
+      detail:
+        language === "hi"
+          ? "सभी चरण पूरे होने के बाद"
+          : "After all booking steps are completed",
+      icon: CircleDot,
+      meta: language === "hi" ? "प्रतीक्षा में" : "Waiting",
+    },
+  ];
+
+  const activeTrackingKey = localBooking?.trackingStatus || "confirmed";
+  const activeTrackingIndex = Math.max(
+    0,
+    trackingSteps.findIndex((step) => step.key === activeTrackingKey)
+  );
 
   return (
     <main className={`my-booking-page ${isDark ? "dark-mode" : ""}`}>
@@ -192,6 +287,85 @@ function MyBooking({ booking, onBack, onBookingUpdated }) {
                   <small>{t.bookingCentre}</small>
                   <strong>{localBooking.center}</strong>
                 </span>
+              </div>
+            </div>
+
+            <div className="booking-tracking">
+              <div className="booking-tracking-header">
+                <div>
+                  <span className="booking-tracking-kicker">BOOKING TRACKING</span>
+                  <h3>
+                    {language === "hi"
+                      ? "आपकी बुकिंग की स्थिति"
+                      : "Your Booking Journey"}
+                  </h3>
+                </div>
+
+                <div className="booking-tracking-token">
+                  <small>Token</small>
+                  <strong>{tokenNumber}</strong>
+                </div>
+              </div>
+
+              <div className="booking-tracking-list">
+                {trackingSteps.map((step, index) => {
+                  const StepIcon = step.icon;
+                  const isDone = index < activeTrackingIndex;
+                  const isActive = index === activeTrackingIndex;
+
+                  return (
+                    <div
+                      key={step.key}
+                      className={`tracking-step ${isDone ? "done" : ""} ${
+                        isActive ? "active" : ""
+                      }`}
+                    >
+                      <div className="tracking-rail">
+                        <div className="tracking-icon">
+                          <StepIcon size={16} />
+                        </div>
+                        {index < trackingSteps.length - 1 && (
+                          <span className="tracking-line" />
+                        )}
+                      </div>
+
+                      <div className="tracking-content">
+                        <div className="tracking-step-top">
+                          <strong>{step.title}</strong>
+                          <span
+                            className={`tracking-state ${
+                              isDone || isActive ? "live" : ""
+                            }`}
+                          >
+                            {isDone
+                              ? language === "hi"
+                                ? "पूरा"
+                                : "Done"
+                              : isActive
+                              ? language === "hi"
+                                ? "वर्तमान"
+                                : "Current"
+                              : language === "hi"
+                              ? "आगे"
+                              : "Next"}
+                          </span>
+                        </div>
+
+                        <p>{step.detail}</p>
+                        <small>
+                          {step.meta ||
+                            (isActive
+                              ? language === "hi"
+                                ? "अभी सक्रिय"
+                                : "Active now"
+                              : language === "hi"
+                              ? "अपडेट का इंतज़ार"
+                              : "Waiting for update")}
+                        </small>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
 

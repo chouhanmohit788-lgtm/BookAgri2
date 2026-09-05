@@ -152,6 +152,15 @@ function FarmerLogin({
   };
 
 
+  const handleFillDemoDetails = () => {
+    setFarmerId("FA-2026-004821");
+    setDistrict("Bhopal");
+    setMobile("9000000001");
+    setOtpSent(false);
+    setOtp("");
+    setOtpError("");
+  };
+
 
   return (
     <main className={`farmer-login-page ${isDark ? "dark-mode" : ""}`}>
@@ -324,6 +333,14 @@ function FarmerLogin({
 
 
 
+              <button
+                type="button"
+                className="farmer-demo-fill-button"
+                onClick={handleFillDemoDetails}
+              >
+                {language === "hi" ? "Demo Details भरें" : "Fill Demo Details"}
+              </button>
+
               <div className="otp-info">
                 <ShieldCheck size={18} />
 
@@ -450,4 +467,4 @@ function FarmerLogin({
   );
 }
 
-export default FarmerLogin;
+export default FarmerLogin

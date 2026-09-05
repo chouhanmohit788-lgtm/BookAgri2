@@ -5,7 +5,16 @@ import ThemeButton from "../../components/ThemeButton";
 import "./LanguageSelection.css";
 
 function LanguageSelection({ onContinue }) {
-  const { language, changeLanguage, t } = useLanguage();
+  const languageData = useLanguage() || {};
+  const language = languageData.language || "en";
+  const changeLanguage = languageData.changeLanguage || (() => {});
+  const t = languageData.t || {
+    chooseLanguage: "Choose Your Language",
+    selectLanguage: "Select your preferred language to continue",
+    continue: "Continue",
+    languageNote:
+      "Your language preference helps us provide you with the best experience.",
+  };
   const { isDark, toggleTheme } = useTheme();
 
   return (
@@ -125,10 +134,10 @@ function LanguageSelection({ onContinue }) {
 
         {/* Continue */}
         <button
-  type="button"
-  className="continue-button"
-  onClick={onContinue}
->
+          type="button"
+          className="continue-button"
+          onClick={onContinue}
+        >
           <span>{t.continue}</span>
           <Sparkles size={17} strokeWidth={2.2} />
         </button>

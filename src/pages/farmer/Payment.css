@@ -65,9 +65,9 @@
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  color: #8a6a16;
-  background: #fff8df;
-  border: 1px solid #eadba4;
+  color: #138344;
+  background: #eaf8ef;
+  border: 1px solid #bfe6cb;
   border-radius: 20px;
   padding: 7px 12px;
   font-size: 12px;
@@ -385,4 +385,40 @@
   .payment-note {
     margin-bottom: 15px;
   }
+}
+
+
+.payment-amount-card {
+  margin-top: 14px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: #f0f8f3;
+  border: 1px solid #d5e9dc;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.payment-amount-card span {
+  color: #6c8175;
+  font-size: 11px;
+}
+
+.payment-amount-card strong {
+  color: #138344;
+  font-size: 18px;
+}
+
+.dark-mode .payment-amount-card {
+  background: #0d2117;
+  border-color: rgba(74,222,125,.16);
+}
+
+.dark-mode .payment-amount-card span {
+  color: #8fa99a;
+}
+
+.dark-mode .payment-amount-card strong {
+  color: #6ee7a0;
 }

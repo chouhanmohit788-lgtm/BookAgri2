@@ -1109,3 +1109,58 @@
     margin-top: 21px;
   }
 }
+
+
+/* =========================================================
+   OPERATOR LOGIN — COMPACT DEMO DETAILS BUTTON
+   Button only. Existing UI remains unchanged.
+   ========================================================= */
+
+.proc-demo-fill-button {
+  width: 100%;
+  min-height: 40px;
+  margin: -2px 0 1px;
+  border: 1px solid #cfe3d5;
+  border-radius: 11px;
+  background: #f8fcf9;
+  color: #176b3a;
+  font-size: 10px;
+  font-weight: 850;
+  cursor: pointer;
+  transition:
+    transform .18s ease,
+    background-color .18s ease,
+    border-color .18s ease,
+    box-shadow .18s ease;
+}
+
+.proc-demo-fill-button:hover {
+  background: #eaf6ee;
+  border-color: #a9d6b8;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 12px rgba(23,107,58,.08);
+}
+
+.proc-demo-fill-button:active {
+  transform: scale(.985);
+}
+
+.dark-mode .proc-demo-fill-button {
+  background: #0b1c14;
+  border-color: #24563a;
+  color: #8ff0ae;
+}
+
+.dark-mode .proc-demo-fill-button:hover {
+  background: #10291b;
+  border-color: #347b50;
+  box-shadow: 0 6px 14px rgba(0,0,0,.18);
+}
+
+@media (max-width: 400px) {
+  .proc-demo-fill-button {
+    min-height: 38px;
+    font-size: 9px;
+    border-radius: 10px;
+  }
+}

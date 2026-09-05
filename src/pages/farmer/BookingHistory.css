@@ -491,3 +491,125 @@
     padding: 38px 14px;
   }
 }
+
+
+/* =========================================================
+   BOOKING HISTORY — TWO PAST BOOKINGS + PAYMENT
+   ========================================================= */
+
+.history-list {
+  display: grid;
+  gap: 10px;
+}
+
+.history-payment {
+  margin-top: 10px;
+  padding: 9px 10px;
+  border-top: 1px solid #e4ece7;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.history-payment > span:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.history-payment small {
+  color: #789086;
+  font-size: 8px;
+}
+
+.history-payment strong {
+  color: #284637;
+  font-size: 10px;
+}
+
+.history-payment-badge {
+  display: inline-flex !important;
+  flex-direction: row !important;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 7px;
+  border-radius: 999px;
+  background: #eaf7ee;
+  color: #138344;
+  font-size: 8px;
+  font-weight: 800;
+}
+
+.history-booking-id {
+  padding-top: 8px;
+  border-top: 1px solid #edf2ef;
+  display: flex;
+  justify-content: space-between;
+  color: #789086;
+  font-size: 8px;
+}
+
+.history-booking-id strong {
+  color: #3a5547;
+  font-size: 9px;
+}
+
+.dark-mode .history-payment {
+  border-top-color: rgba(74,222,125,.12);
+}
+
+.dark-mode .history-payment small,
+.dark-mode .history-booking-id {
+  color: #8fa99a;
+}
+
+.dark-mode .history-payment strong {
+  color: #dcebe2;
+}
+
+.dark-mode .history-payment-badge {
+  background: rgba(49,220,110,.10);
+  color: #72e79c;
+}
+
+.dark-mode .history-booking-id {
+  border-top-color: rgba(74,222,125,.10);
+}
+
+.dark-mode .history-booking-id strong {
+  color: #dcebe2;
+}
+
+@media (max-width: 600px) {
+  .history-list {
+    gap: 8px;
+  }
+
+  .history-payment {
+    margin-top: 8px;
+    padding: 8px 9px;
+  }
+
+  .history-payment small {
+    font-size: 7px;
+  }
+
+  .history-payment strong {
+    font-size: 9px;
+  }
+
+  .history-payment-badge {
+    font-size: 7px;
+    padding: 3px 6px;
+  }
+
+  .history-booking-id {
+    padding-top: 7px;
+    font-size: 7px;
+  }
+
+  .history-booking-id strong {
+    font-size: 8px;
+  }
+}

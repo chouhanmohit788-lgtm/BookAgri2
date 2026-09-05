@@ -16,6 +16,18 @@ function Payment({ booking, onBack }) {
   const { isDark, toggleTheme } = useTheme();
   const { t } = useLanguage();
 
+  // Payment page intentionally shows the same completed booking
+  // that is displayed in Booking History.
+  const historyBooking = {
+    crop: "Wheat",
+    quantity: 18,
+    center: "Sehore Mandi",
+    date: "28/08/2026",
+    time: "10:30 AM – 12:00 PM",
+    token: "T-082",
+    paymentAmount: "₹45,000",
+  };
+
   return (
     <main className={`payment-page ${isDark ? "dark-mode" : ""}`}>
       <header className="payment-header">
@@ -50,17 +62,15 @@ function Payment({ booking, onBack }) {
             <div className="payment-status-card">
               <div className="payment-status">
                 <CheckCircle2 size={18} />
-                {t.paymentPending}
+                Payment Successful
               </div>
 
               <div className="payment-icon">
                 <WalletCards size={30} />
               </div>
 
-              <h2>{t.procurementPayment}</h2>
-              <p>
-                {t.paymentPendingNote}
-              </p>
+              <h2>Payment Successful</h2>
+              <p>Payment for your completed procurement booking has been received.</p>
             </div>
 
             <div className="payment-details-card">
@@ -70,7 +80,7 @@ function Payment({ booking, onBack }) {
                 <Wheat size={18} />
                 <span>
                   <small>{t.selectCrop}</small>
-                  <strong>{booking.crop}</strong>
+                  <strong>{historyBooking.crop}</strong>
                 </span>
               </div>
 
@@ -78,7 +88,7 @@ function Payment({ booking, onBack }) {
                 <Wheat size={18} />
                 <span>
                   <small>Quantity</small>
-                  <strong>{booking.quantity} {t.quintal}</strong>
+                  <strong>{historyBooking.quantity} {t.quintal}</strong>
                 </span>
               </div>
 
@@ -86,7 +96,7 @@ function Payment({ booking, onBack }) {
                 <MapPin size={18} />
                 <span>
                   <small>{t.bookingCentre}</small>
-                  <strong>{booking.center}</strong>
+                  <strong>{historyBooking.center}</strong>
                 </span>
               </div>
 
@@ -94,7 +104,7 @@ function Payment({ booking, onBack }) {
                 <CalendarDays size={18} />
                 <span>
                   <small>{t.date}</small>
-                  <strong>{booking.date}</strong>
+                  <strong>{historyBooking.date}</strong>
                 </span>
               </div>
 
@@ -102,13 +112,26 @@ function Payment({ booking, onBack }) {
                 <Clock3 size={18} />
                 <span>
                   <small>{t.time}</small>
-                  <strong>{booking.time}</strong>
+                  <strong>{historyBooking.time}</strong>
+                </span>
+              </div>
+
+              <div className="payment-detail-row">
+                <WalletCards size={18} />
+                <span>
+                  <small>Your Token</small>
+                  <strong>{historyBooking.token}</strong>
                 </span>
               </div>
             </div>
 
+            <div className="payment-amount-card">
+              <span>Payment Amount</span>
+              <strong>{historyBooking.paymentAmount}</strong>
+            </div>
+
             <div className="payment-note">
-              {t.paymentPrototypeNote}
+              1 payment completed • Amount {historyBooking.paymentAmount}
             </div>
           </>
         )}

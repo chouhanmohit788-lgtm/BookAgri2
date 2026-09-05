@@ -59,6 +59,17 @@ function ProcurementCentreLogin({ onBack, onLoginSuccess }) {
     setCaptchaInput("");
   };
 
+  const handleFillDemoDetails = () => {
+    setCentreId("PC-DEMO-001");
+    setDistrict("Bhopal");
+    setPassword(demoPassword);
+    setOtp(demoOtp);
+    setCaptchaInput(captcha);
+    setError("");
+    setOtpSent(true);
+    setShowOtpDemo(false);
+  };
+
   const handleSendOtp = () => {
     if (!centreId.trim() || !district) {
       setError(
@@ -193,6 +204,14 @@ function ProcurementCentreLogin({ onBack, onLoginSuccess }) {
 
         <div className="proc-login-card">
           <form onSubmit={handleLogin} className="proc-login-form">
+            <button
+              type="button"
+              className="proc-demo-fill-button"
+              onClick={handleFillDemoDetails}
+            >
+              {isHindi ? "Demo Details भरें" : "Fill Demo Details"}
+            </button>
+
             <div className="proc-field">
               <label>
                 {isHindi
